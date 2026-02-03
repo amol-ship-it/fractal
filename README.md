@@ -27,11 +27,6 @@ python cli.py benchmark --signals 100 --workers 4
 
 ### Steps
 
-```bash
-# Extract the zip file
-unzip recursive_learning_ai.zip
-cd recursive_learning_ai
-
 # Install dependencies
 pip install -r requirements.txt
 
