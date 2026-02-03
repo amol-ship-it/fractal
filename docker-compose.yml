@@ -1,0 +1,74 @@
+# Recursive Learning AI - Docker Compose
+# Multi-container deployment for development and small clusters
+
+version: '3.8'
+
+services:
+  # Redis for distributed storage
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Coordinator node
+  coordinator:
+    build: .
+    ports:
+      - "8000:8000"
+      - "8265:8265"
+    environment:
+      - NODE_ROLE=coordinator
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - NUM_WORKERS=2
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: python cli.py start --role coordinator
+
+  # Worker nodes (scalable)
+  worker:
+    build: .
+    environment:
+      - NODE_ROLE=worker
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - COORDINATOR_HOST=coordinator
+      - NUM_WORKERS=4
+    depends_on:
+      - coordinator
+      - redis
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+    command: python cli.py start --role worker --coordinator coordinator
+
+  # API Gateway (optional)
+  gateway:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ROLE=gateway
+      - COORDINATOR_HOST=coordinator
+    depends_on:
+      - coordinator
+    command: python -m uvicorn api:app --host 0.0.0.0 --port 8080
+
+volumes:
+  redis_data:
+
+networks:
+  default:
+    driver: bridge

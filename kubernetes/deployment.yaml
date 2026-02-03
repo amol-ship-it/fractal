@@ -1,0 +1,253 @@
+# Recursive Learning AI - Kubernetes Deployment
+# Production-ready deployment with auto-scaling
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: recursive-learning-ai
+
+---
+# Redis StatefulSet for distributed storage
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+  namespace: recursive-learning-ai
+spec:
+  serviceName: redis
+  replicas: 3
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+        volumeMounts:
+        - name: redis-data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: redis-data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: recursive-learning-ai
+spec:
+  selector:
+    app: redis
+  ports:
+  - port: 6379
+    targetPort: 6379
+  clusterIP: None
+
+---
+# Coordinator Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coordinator
+  namespace: recursive-learning-ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coordinator
+  template:
+    metadata:
+      labels:
+        app: coordinator
+    spec:
+      containers:
+      - name: coordinator
+        image: recursive-learning-ai:latest
+        ports:
+        - containerPort: 8000
+        - containerPort: 8265
+        env:
+        - name: NODE_ROLE
+          value: "coordinator"
+        - name: REDIS_HOST
+          value: "redis"
+        - name: REDIS_CLUSTER
+          value: "true"
+        - name: MIN_WORKERS
+          value: "2"
+        - name: MAX_WORKERS
+          value: "50"
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1"
+          limits:
+            memory: "8Gi"
+            cpu: "4"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coordinator
+  namespace: recursive-learning-ai
+spec:
+  selector:
+    app: coordinator
+  ports:
+  - name: api
+    port: 8000
+    targetPort: 8000
+  - name: dashboard
+    port: 8265
+    targetPort: 8265
+
+---
+# Worker Deployment with HPA
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  namespace: recursive-learning-ai
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+      - name: worker
+        image: recursive-learning-ai:latest
+        env:
+        - name: NODE_ROLE
+          value: "worker"
+        - name: REDIS_HOST
+          value: "redis"
+        - name: COORDINATOR_HOST
+          value: "coordinator"
+        - name: NUM_WORKERS
+          value: "4"
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "2"
+          limits:
+            memory: "8Gi"
+            cpu: "4"
+
+---
+# Horizontal Pod Autoscaler for workers
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: worker-hpa
+  namespace: recursive-learning-ai
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: worker
+  minReplicas: 2
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Pods
+        value: 4
+        periodSeconds: 60
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Pods
+        value: 2
+        periodSeconds: 120
+
+---
+# API Gateway Service (LoadBalancer)
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway
+  namespace: recursive-learning-ai
+spec:
+  type: LoadBalancer
+  selector:
+    app: coordinator
+  ports:
+  - name: api
+    port: 80
+    targetPort: 8000
+
+---
+# ConfigMap for cluster configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-config
+  namespace: recursive-learning-ai
+data:
+  config.json: |
+    {
+      "cluster_name": "k8s-recursive-learning",
+      "scaling": {
+        "strategy": "queue_based",
+        "min_workers": 2,
+        "max_workers": 50,
+        "queue_depth_per_worker": 100
+      },
+      "engine": {
+        "edge_threshold": 0.1,
+        "cluster_threshold": 0.7,
+        "learning_rate": 0.1,
+        "exploration_rate": 0.2
+      }
+    }
