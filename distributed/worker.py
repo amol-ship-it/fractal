@@ -505,8 +505,7 @@ class WorkerPool:
         worker = self.workers[worker_idx]
 
         if RAY_AVAILABLE:
-            result = await worker.process_task.remote(task)
-            return ray.get(result)
+            return await worker.process_task.remote(task)
         else:
             return await worker.process_task(task)
 
