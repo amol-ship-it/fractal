@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Game files
+*.z5
+
+# Generated docs
+MicroRTS_AI_Agent_Guide.docx
+generate_doc.py
+
+# Intermediate checkpoints (keep zork and zork_v4 as reference)
+checkpoints/
+checkpoints_chess/
+checkpoints_pattern/
+checkpoints_pattern_random/
+checkpoints_zork_v2/
+checkpoints_zork_v3/
