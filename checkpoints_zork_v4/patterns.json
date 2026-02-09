@@ -1,0 +1,5594 @@
+{
+  "69ab5506f8e9ae20": {
+    "id": "69ab5506f8e9ae20",
+    "type": "atomic",
+    "signature": [
+      -0.569465840117048
+    ],
+    "sub_patterns": [],
+    "confidence": 0.9999999999999996,
+    "activation_count": 5043,
+    "domains": [
+      "zork_situation"
+    ],
+    "version": 5044
+  },
+  "58aad3e41a506b99": {
+    "id": "58aad3e41a506b99",
+    "type": "atomic",
+    "signature": [
+      0.0
+    ],
+    "sub_patterns": [],
+    "confidence": 0.5,
+    "activation_count": 0,
+    "domains": [
+      "zork_outcome"
+    ],
+    "version": 1
+  },
+  "3b340d4ff246d373": {
+    "id": "3b340d4ff246d373",
+    "type": "atomic",
+    "signature": [
+      0.22568024246663043
+    ],
+    "sub_patterns": [],
+    "confidence": 0.9999999999999996,
+    "activation_count": 7605,
+    "domains": [
+      "zork_situation"
+    ],
+    "version": 7606
+  },
+  "8ad2d320e88b4e28": {
+    "id": "8ad2d320e88b4e28",
+    "type": "composite",
+    "signature": [
+      -0.014285714285719342
+    ],
+    "sub_patterns": [
+      "3b340d4ff246d373",
+      "69ab5506f8e9ae20"
+    ],
+    "confidence": 0.9999999999999266,
+    "activation_count": 329,
+    "domains": [
+      "zork_situation"
+    ],
+    "version": 330
+  },
+  "60a35b1229594402": {
+    "id": "60a35b1229594402",
+    "type": "composite",
+    "signature": [
+      -0.3537461421951036
+    ],
+    "sub_patterns": [
+      "69ab5506f8e9ae20",
+      "58aad3e41a506b99"
+    ],
+    "confidence": 0.21419101870001547,
+    "activation_count": 30,
+    "domains": [
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4532abfc9fe85381": {
+    "id": "4532abfc9fe85381",
+    "type": "composite",
+    "signature": [
+      0.4999999999999997
+    ],
+    "sub_patterns": [
+      "3b340d4ff246d373",
+      "58aad3e41a506b99"
+    ],
+    "confidence": 0.9999999999999996,
+    "activation_count": 2249,
+    "domains": [
+      "zork_situation"
+    ],
+    "version": 2250
+  },
+  "b734c80f423b2e24": {
+    "id": "b734c80f423b2e24",
+    "type": "composite",
+    "signature": [
+      -0.062166144434782
+    ],
+    "sub_patterns": [
+      "58aad3e41a506b99",
+      "4532abfc9fe85381",
+      "69ab5506f8e9ae20"
+    ],
+    "confidence": 0.2093708486003848,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "79ff47b85bd04009": {
+    "id": "79ff47b85bd04009",
+    "type": "composite",
+    "signature": [
+      0.19472344191742352
+    ],
+    "sub_patterns": [
+      "58aad3e41a506b99",
+      "b734c80f423b2e24",
+      "3b340d4ff246d373"
+    ],
+    "confidence": 0.9986614858315026,
+    "activation_count": 94,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 95
+  },
+  "bac19ddd744402a4": {
+    "id": "bac19ddd744402a4",
+    "type": "composite",
+    "signature": [
+      0.03930067912779995
+    ],
+    "sub_patterns": [
+      "4532abfc9fe85381",
+      "b734c80f423b2e24",
+      "58aad3e41a506b99"
+    ],
+    "confidence": 0.20903124483239616,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a194c2f19b115fa1": {
+    "id": "a194c2f19b115fa1",
+    "type": "composite",
+    "signature": [
+      -0.2715217165767136
+    ],
+    "sub_patterns": [
+      "8ad2d320e88b4e28",
+      "bac19ddd744402a4",
+      "69ab5506f8e9ae20"
+    ],
+    "confidence": 0.2124021221779425,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "75191bccdfbe45ff": {
+    "id": "75191bccdfbe45ff",
+    "type": "composite",
+    "signature": [
+      -0.09290886283452464
+    ],
+    "sub_patterns": [
+      "a194c2f19b115fa1",
+      "8ad2d320e88b4e28",
+      "79ff47b85bd04009"
+    ],
+    "confidence": 0.21020817932215766,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e6b36d26bd2af355": {
+    "id": "e6b36d26bd2af355",
+    "type": "composite",
+    "signature": [
+      -0.18984884170006597
+    ],
+    "sub_patterns": [
+      "b734c80f423b2e24",
+      "8ad2d320e88b4e28",
+      "69ab5506f8e9ae20"
+    ],
+    "confidence": 0.20903450835029216,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "218244a7d104619e": {
+    "id": "218244a7d104619e",
+    "type": "composite",
+    "signature": [
+      0.02938307271835853
+    ],
+    "sub_patterns": [
+      "8ad2d320e88b4e28",
+      "3b340d4ff246d373"
+    ],
+    "confidence": 0.2128801197348569,
+    "activation_count": 30,
+    "domains": [
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6cf5aa14816ac753": {
+    "id": "6cf5aa14816ac753",
+    "type": "composite",
+    "signature": [
+      -0.14136928079132124
+    ],
+    "sub_patterns": [
+      "b734c80f423b2e24",
+      "4532abfc9fe85381",
+      "69ab5506f8e9ae20"
+    ],
+    "confidence": 0.2105990658064357,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e2eacd77fdae10eb": {
+    "id": "e2eacd77fdae10eb",
+    "type": "composite",
+    "signature": [
+      -0.008075036996122054
+    ],
+    "sub_patterns": [
+      "bac19ddd744402a4",
+      "218244a7d104619e",
+      "75191bccdfbe45ff"
+    ],
+    "confidence": 0.21038921166941454,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7d2ca325d28230eb": {
+    "id": "7d2ca325d28230eb",
+    "type": "composite",
+    "signature": [
+      -0.1363259747072274
+    ],
+    "sub_patterns": [
+      "e6b36d26bd2af355",
+      "8ad2d320e88b4e28"
+    ],
+    "confidence": 0.213566803608846,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1eff97a0d5f0a9d8": {
+    "id": "1eff97a0d5f0a9d8",
+    "type": "composite",
+    "signature": [
+      -0.15005049533141976
+    ],
+    "sub_patterns": [
+      "e6b36d26bd2af355",
+      "3b340d4ff246d373",
+      "60a35b1229594402"
+    ],
+    "confidence": 0.21396304964485693,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "05ee84891107b618": {
+    "id": "05ee84891107b618",
+    "type": "composite",
+    "signature": [
+      0.010068928978755365
+    ],
+    "sub_patterns": [
+      "58aad3e41a506b99",
+      "75191bccdfbe45ff",
+      "79ff47b85bd04009"
+    ],
+    "confidence": 0.21188189116675432,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "074a1210095ecc42": {
+    "id": "074a1210095ecc42",
+    "type": "composite",
+    "signature": [
+      0.06340204239685583
+    ],
+    "sub_patterns": [
+      "58aad3e41a506b99",
+      "79ff47b85bd04009"
+    ],
+    "confidence": 0.20825558823136664,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "cbfe5dbdd92e3cc0": {
+    "id": "cbfe5dbdd92e3cc0",
+    "type": "composite",
+    "signature": [
+      0.14539117103576593
+    ],
+    "sub_patterns": [
+      "4532abfc9fe85381",
+      "69ab5506f8e9ae20"
+    ],
+    "confidence": 0.20818795692890857,
+    "activation_count": 30,
+    "domains": [
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e4694b388b26e5df": {
+    "id": "e4694b388b26e5df",
+    "type": "composite",
+    "signature": [
+      0.046392557557607184
+    ],
+    "sub_patterns": [
+      "074a1210095ecc42",
+      "218244a7d104619e"
+    ],
+    "confidence": 0.21012132051497903,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4ca34b630b0cc134": {
+    "id": "4ca34b630b0cc134",
+    "type": "composite",
+    "signature": [
+      -0.038983619197232706
+    ],
+    "sub_patterns": [
+      "6cf5aa14816ac753",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.20674995756142864,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "2aa5c4c2ed1c7541": {
+    "id": "2aa5c4c2ed1c7541",
+    "type": "composite",
+    "signature": [
+      0.11896418634707132
+    ],
+    "sub_patterns": [
+      "3b340d4ff246d373",
+      "a194c2f19b115fa1"
+    ],
+    "confidence": 0.20489678448845886,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "857bee0257f96b72": {
+    "id": "857bee0257f96b72",
+    "type": "composite",
+    "signature": [
+      0.2459624764923858
+    ],
+    "sub_patterns": [
+      "e2eacd77fdae10eb",
+      "4532abfc9fe85381"
+    ],
+    "confidence": 0.2007909777737247,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "fe7577a407e3872f": {
+    "id": "fe7577a407e3872f",
+    "type": "composite",
+    "signature": [
+      -0.2282580356318925
+    ],
+    "sub_patterns": [
+      "2aa5c4c2ed1c7541",
+      "69ab5506f8e9ae20",
+      "7d2ca325d28230eb"
+    ],
+    "confidence": 0.19828900414606151,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7f9e94be13658f77": {
+    "id": "7f9e94be13658f77",
+    "type": "composite",
+    "signature": [
+      0.05200968644758853
+    ],
+    "sub_patterns": [
+      "e4694b388b26e5df",
+      "7d2ca325d28230eb",
+      "857bee0257f96b72"
+    ],
+    "confidence": 0.20249689327451148,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e83d789f97c4e178": {
+    "id": "e83d789f97c4e178",
+    "type": "composite",
+    "signature": [
+      0.10150667553988116
+    ],
+    "sub_patterns": [
+      "79ff47b85bd04009",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.2016149741039745,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "2247c194d6ed408a": {
+    "id": "2247c194d6ed408a",
+    "type": "composite",
+    "signature": [
+      0.0419875912821259
+    ],
+    "sub_patterns": [
+      "3b340d4ff246d373",
+      "e4694b388b26e5df",
+      "1eff97a0d5f0a9d8"
+    ],
+    "confidence": 0.2028353671014924,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a4024a4c166c1f98": {
+    "id": "a4024a4c166c1f98",
+    "type": "composite",
+    "signature": [
+      -0.03769580532906025
+    ],
+    "sub_patterns": [
+      "b734c80f423b2e24",
+      "2247c194d6ed408a",
+      "75191bccdfbe45ff"
+    ],
+    "confidence": 0.20149699376023308,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d923550ffbe6ef15": {
+    "id": "d923550ffbe6ef15",
+    "type": "composite",
+    "signature": [
+      -0.022176767317649282
+    ],
+    "sub_patterns": [
+      "69ab5506f8e9ae20",
+      "857bee0257f96b72",
+      "3b340d4ff246d373"
+    ],
+    "confidence": 0.20111254549013324,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c6c00ee86f6c50f8": {
+    "id": "c6c00ee86f6c50f8",
+    "type": "composite",
+    "signature": [
+      0.04284661834270356
+    ],
+    "sub_patterns": [
+      "e4694b388b26e5df",
+      "bac19ddd744402a4"
+    ],
+    "confidence": 0.20548659583866075,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "bf43ec6ae24bac48": {
+    "id": "bf43ec6ae24bac48",
+    "type": "composite",
+    "signature": [
+      0.013027661756273339
+    ],
+    "sub_patterns": [
+      "2aa5c4c2ed1c7541",
+      "75191bccdfbe45ff"
+    ],
+    "confidence": 0.20188884183453942,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9f4c21b4604871bc": {
+    "id": "9f4c21b4604871bc",
+    "type": "composite",
+    "signature": [
+      -0.006053919169446959
+    ],
+    "sub_patterns": [
+      "d923550ffbe6ef15",
+      "05ee84891107b618"
+    ],
+    "confidence": 0.19854337152124998,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "75249cf45bfbc92b": {
+    "id": "75249cf45bfbc92b",
+    "type": "composite",
+    "signature": [
+      -0.008478941785426047
+    ],
+    "sub_patterns": [
+      "e2eacd77fdae10eb",
+      "7d2ca325d28230eb",
+      "2aa5c4c2ed1c7541"
+    ],
+    "confidence": 0.20120545342240412,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9c3de9c7d47dd264": {
+    "id": "9c3de9c7d47dd264",
+    "type": "composite",
+    "signature": [
+      -0.10977590633182682
+    ],
+    "sub_patterns": [
+      "4ca34b630b0cc134",
+      "074a1210095ecc42",
+      "60a35b1229594402"
+    ],
+    "confidence": 0.20350484087187157,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c07820f31c5a6cc6": {
+    "id": "c07820f31c5a6cc6",
+    "type": "composite",
+    "signature": [
+      -0.04902040444191562
+    ],
+    "sub_patterns": [
+      "7f9e94be13658f77",
+      "1eff97a0d5f0a9d8"
+    ],
+    "confidence": 0.20269390376291757,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "419ea11133a9ca4c": {
+    "id": "419ea11133a9ca4c",
+    "type": "composite",
+    "signature": [
+      -0.017344874175459112
+    ],
+    "sub_patterns": [
+      "d923550ffbe6ef15",
+      "8ad2d320e88b4e28",
+      "e2eacd77fdae10eb"
+    ],
+    "confidence": 0.19938974179973631,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7cc6ce004a08ca95": {
+    "id": "7cc6ce004a08ca95",
+    "type": "composite",
+    "signature": [
+      -0.07472215889372165
+    ],
+    "sub_patterns": [
+      "6cf5aa14816ac753",
+      "e2eacd77fdae10eb"
+    ],
+    "confidence": 0.1993820775192066,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6923aad77f92d08e": {
+    "id": "6923aad77f92d08e",
+    "type": "composite",
+    "signature": [
+      0.0342342405082186
+    ],
+    "sub_patterns": [
+      "bac19ddd744402a4",
+      "074a1210095ecc42",
+      "58aad3e41a506b99"
+    ],
+    "confidence": 0.19770226999312046,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7c40d226f092f234": {
+    "id": "7c40d226f092f234",
+    "type": "composite",
+    "signature": [
+      0.018363103262051372
+    ],
+    "sub_patterns": [
+      "074a1210095ecc42",
+      "218244a7d104619e",
+      "a4024a4c166c1f98"
+    ],
+    "confidence": 0.19798286725872322,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8efb84b1f4ca77fc": {
+    "id": "8efb84b1f4ca77fc",
+    "type": "composite",
+    "signature": [
+      0.038540429425461084
+    ],
+    "sub_patterns": [
+      "6923aad77f92d08e",
+      "c6c00ee86f6c50f8"
+    ],
+    "confidence": 0.19733854790126742,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a4c1e204faaf83aa": {
+    "id": "a4c1e204faaf83aa",
+    "type": "composite",
+    "signature": [
+      -0.050491949915323346
+    ],
+    "sub_patterns": [
+      "e2eacd77fdae10eb",
+      "75191bccdfbe45ff"
+    ],
+    "confidence": 0.19475115624021827,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8df1072be974ee8f": {
+    "id": "8df1072be974ee8f",
+    "type": "composite",
+    "signature": [
+      0.18780068079895185
+    ],
+    "sub_patterns": [
+      "58aad3e41a506b99",
+      "074a1210095ecc42",
+      "4532abfc9fe85381"
+    ],
+    "confidence": 0.19759373078926842,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1b27ca88e28a296e": {
+    "id": "1b27ca88e28a296e",
+    "type": "composite",
+    "signature": [
+      -0.05485222039810788
+    ],
+    "sub_patterns": [
+      "9f4c21b4604871bc",
+      "d923550ffbe6ef15",
+      "7d2ca325d28230eb"
+    ],
+    "confidence": 0.19760696285542761,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "aed3991ed97c5f3b": {
+    "id": "aed3991ed97c5f3b",
+    "type": "composite",
+    "signature": [
+      -0.04973345458852393
+    ],
+    "sub_patterns": [
+      "8ad2d320e88b4e28",
+      "7c40d226f092f234",
+      "1eff97a0d5f0a9d8"
+    ],
+    "confidence": 0.20236584858451662,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "49d9b9bd7f932e56": {
+    "id": "49d9b9bd7f932e56",
+    "type": "composite",
+    "signature": [
+      -0.036461966155185786
+    ],
+    "sub_patterns": [
+      "7d2ca325d28230eb",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.19863412173873152,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "dd74c576e564459e": {
+    "id": "dd74c576e564459e",
+    "type": "composite",
+    "signature": [
+      0.0009703437254220485
+    ],
+    "sub_patterns": [
+      "d923550ffbe6ef15",
+      "2247c194d6ed408a",
+      "8ad2d320e88b4e28"
+    ],
+    "confidence": 0.20101289837356418,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "fc22ae9e4a0223a4": {
+    "id": "fc22ae9e4a0223a4",
+    "type": "composite",
+    "signature": [
+      0.18183701264638616
+    ],
+    "sub_patterns": [
+      "7d2ca325d28230eb",
+      "4532abfc9fe85381"
+    ],
+    "confidence": 0.19781328230986006,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "917a6a43997058db": {
+    "id": "917a6a43997058db",
+    "type": "composite",
+    "signature": [
+      0.042579363148196575
+    ],
+    "sub_patterns": [
+      "8ad2d320e88b4e28",
+      "fc22ae9e4a0223a4",
+      "a4024a4c166c1f98"
+    ],
+    "confidence": 0.19539814197401087,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "0979f1178a5ae389": {
+    "id": "0979f1178a5ae389",
+    "type": "composite",
+    "signature": [
+      0.056075700378255
+    ],
+    "sub_patterns": [
+      "7c40d226f092f234",
+      "3b340d4ff246d373"
+    ],
+    "confidence": 0.1942607412687444,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d77924228975713f": {
+    "id": "d77924228975713f",
+    "type": "composite",
+    "signature": [
+      -0.07939815538687123
+    ],
+    "sub_patterns": [
+      "9c3de9c7d47dd264",
+      "c07820f31c5a6cc6"
+    ],
+    "confidence": 0.19695720071795605,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8783f764e5f9ca5e": {
+    "id": "8783f764e5f9ca5e",
+    "type": "composite",
+    "signature": [
+      0.06850170721981505
+    ],
+    "sub_patterns": [
+      "fe7577a407e3872f",
+      "857bee0257f96b72",
+      "8df1072be974ee8f"
+    ],
+    "confidence": 0.20000398666123603,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d7765281680339eb": {
+    "id": "d7765281680339eb",
+    "type": "composite",
+    "signature": [
+      -0.04018755664172894
+    ],
+    "sub_patterns": [
+      "a4024a4c166c1f98",
+      "cbfe5dbdd92e3cc0",
+      "fe7577a407e3872f"
+    ],
+    "confidence": 0.20012029397222142,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "79495062b5d71341": {
+    "id": "79495062b5d71341",
+    "type": "composite",
+    "signature": [
+      0.06982445311877643
+    ],
+    "sub_patterns": [
+      "1b27ca88e28a296e",
+      "7c40d226f092f234",
+      "857bee0257f96b72"
+    ],
+    "confidence": 0.20209679299727243,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9275088b399511bc": {
+    "id": "9275088b399511bc",
+    "type": "composite",
+    "signature": [
+      0.07125937033557411
+    ],
+    "sub_patterns": [
+      "d923550ffbe6ef15",
+      "79ff47b85bd04009"
+    ],
+    "confidence": 0.20634374240449224,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f188583dd8419ee4": {
+    "id": "f188583dd8419ee4",
+    "type": "composite",
+    "signature": [
+      -0.040137866284790755
+    ],
+    "sub_patterns": [
+      "d7765281680339eb",
+      "1eff97a0d5f0a9d8",
+      "79495062b5d71341"
+    ],
+    "confidence": 0.20810098697733043,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f188489eef3a02c5": {
+    "id": "f188489eef3a02c5",
+    "type": "composite",
+    "signature": [
+      -0.005051310144316437
+    ],
+    "sub_patterns": [
+      "e2eacd77fdae10eb",
+      "218244a7d104619e",
+      "49d9b9bd7f932e56"
+    ],
+    "confidence": 0.20912337562325786,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8d9ba0fa36900b53": {
+    "id": "8d9ba0fa36900b53",
+    "type": "composite",
+    "signature": [
+      -0.008601972895596244
+    ],
+    "sub_patterns": [
+      "d7765281680339eb",
+      "c07820f31c5a6cc6",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.21046290359003053,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "974bd12704348666": {
+    "id": "974bd12704348666",
+    "type": "composite",
+    "signature": [
+      -0.014443797958465647
+    ],
+    "sub_patterns": [
+      "bf43ec6ae24bac48",
+      "7cc6ce004a08ca95",
+      "7c40d226f092f234"
+    ],
+    "confidence": 0.20881967934811632,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "35e400398e5b7631": {
+    "id": "35e400398e5b7631",
+    "type": "composite",
+    "signature": [
+      -0.0014022286826385344
+    ],
+    "sub_patterns": [
+      "a4024a4c166c1f98",
+      "f188489eef3a02c5",
+      "8efb84b1f4ca77fc"
+    ],
+    "confidence": 0.21226582832669846,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a09b4d66c98d911e": {
+    "id": "a09b4d66c98d911e",
+    "type": "composite",
+    "signature": [
+      -0.0536019384943581
+    ],
+    "sub_patterns": [
+      "1eff97a0d5f0a9d8",
+      "c6c00ee86f6c50f8"
+    ],
+    "confidence": 0.21599797581074598,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7764d1303727b998": {
+    "id": "7764d1303727b998",
+    "type": "composite",
+    "signature": [
+      -0.11611051872445682
+    ],
+    "sub_patterns": [
+      "a194c2f19b115fa1",
+      "bac19ddd744402a4"
+    ],
+    "confidence": 0.21906852163332444,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "79fc572b4b1d3a7a": {
+    "id": "79fc572b4b1d3a7a",
+    "type": "composite",
+    "signature": [
+      0.03584382001748983
+    ],
+    "sub_patterns": [
+      "79ff47b85bd04009",
+      "bf43ec6ae24bac48",
+      "7cc6ce004a08ca95"
+    ],
+    "confidence": 0.2187886442077659,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "635719b3e200d5a4": {
+    "id": "635719b3e200d5a4",
+    "type": "composite",
+    "signature": [
+      -0.08380386828646712
+    ],
+    "sub_patterns": [
+      "d923550ffbe6ef15",
+      "75191bccdfbe45ff",
+      "7d2ca325d28230eb"
+    ],
+    "confidence": 0.22156710420941056,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "03ce02b8923e0f4b": {
+    "id": "03ce02b8923e0f4b",
+    "type": "composite",
+    "signature": [
+      0.057343463392682946
+    ],
+    "sub_patterns": [
+      "857bee0257f96b72",
+      "79fc572b4b1d3a7a",
+      "9c3de9c7d47dd264"
+    ],
+    "confidence": 0.2203430442178242,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "5ba6aee229365aa8": {
+    "id": "5ba6aee229365aa8",
+    "type": "composite",
+    "signature": [
+      -0.01920961277371087
+    ],
+    "sub_patterns": [
+      "cbfe5dbdd92e3cc0",
+      "a194c2f19b115fa1",
+      "8783f764e5f9ca5e"
+    ],
+    "confidence": 0.21759215727085782,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "bf50219c6b32a721": {
+    "id": "bf50219c6b32a721",
+    "type": "composite",
+    "signature": [
+      -0.01983226280488428
+    ],
+    "sub_patterns": [
+      "05ee84891107b618",
+      "aed3991ed97c5f3b"
+    ],
+    "confidence": 0.21807299470573932,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "deda54b1f4a90661": {
+    "id": "deda54b1f4a90661",
+    "type": "composite",
+    "signature": [
+      -0.015059313831486787
+    ],
+    "sub_patterns": [
+      "d7765281680339eb",
+      "05ee84891107b618"
+    ],
+    "confidence": 0.21552301147806907,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8ecee6ec319eb006": {
+    "id": "8ecee6ec319eb006",
+    "type": "composite",
+    "signature": [
+      -0.016312098872788904
+    ],
+    "sub_patterns": [
+      "8df1072be974ee8f",
+      "75249cf45bfbc92b",
+      "fe7577a407e3872f"
+    ],
+    "confidence": 0.21668317569429904,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c3df938f103ce37e": {
+    "id": "c3df938f103ce37e",
+    "type": "composite",
+    "signature": [
+      -0.0075296569157433935
+    ],
+    "sub_patterns": [
+      "58aad3e41a506b99",
+      "deda54b1f4a90661"
+    ],
+    "confidence": 0.21513711789807385,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "04c46a4fb9d8bc1f": {
+    "id": "04c46a4fb9d8bc1f",
+    "type": "composite",
+    "signature": [
+      0.008203574968733116
+    ],
+    "sub_patterns": [
+      "1b27ca88e28a296e",
+      "9275088b399511bc"
+    ],
+    "confidence": 0.21203605246864143,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "825ca419d8b59fec": {
+    "id": "825ca419d8b59fec",
+    "type": "composite",
+    "signature": [
+      -0.012149125432720696
+    ],
+    "sub_patterns": [
+      "e4694b388b26e5df",
+      "75191bccdfbe45ff",
+      "05ee84891107b618"
+    ],
+    "confidence": 0.20920110720080126,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "b28f8f13ac2abf33": {
+    "id": "b28f8f13ac2abf33",
+    "type": "composite",
+    "signature": [
+      0.057403553774695394
+    ],
+    "sub_patterns": [
+      "857bee0257f96b72",
+      "7cc6ce004a08ca95",
+      "dd74c576e564459e"
+    ],
+    "confidence": 0.2091075816907692,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "20dcb767f4bd6412": {
+    "id": "20dcb767f4bd6412",
+    "type": "composite",
+    "signature": [
+      0.08654368810023923
+    ],
+    "sub_patterns": [
+      "aed3991ed97c5f3b",
+      "857bee0257f96b72",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.2064565751890247,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e088eb604dd957f1": {
+    "id": "e088eb604dd957f1",
+    "type": "composite",
+    "signature": [
+      0.020545727450953247
+    ],
+    "sub_patterns": [
+      "b28f8f13ac2abf33",
+      "8ecee6ec319eb006"
+    ],
+    "confidence": 0.20266600030795448,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8b9a1199ef88ff16": {
+    "id": "8b9a1199ef88ff16",
+    "type": "composite",
+    "signature": [
+      0.017848793787399814
+    ],
+    "sub_patterns": [
+      "8ecee6ec319eb006",
+      "7f9e94be13658f77"
+    ],
+    "confidence": 0.20353511512921615,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4f60888e4c0a552f": {
+    "id": "4f60888e4c0a552f",
+    "type": "composite",
+    "signature": [
+      -0.1125645795095532
+    ],
+    "sub_patterns": [
+      "e4694b388b26e5df",
+      "a194c2f19b115fa1"
+    ],
+    "confidence": 0.20724358585131789,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3ed7a1dd1bb32f32": {
+    "id": "3ed7a1dd1bb32f32",
+    "type": "composite",
+    "signature": [
+      -0.15585463660922128
+    ],
+    "sub_patterns": [
+      "a194c2f19b115fa1",
+      "d7765281680339eb"
+    ],
+    "confidence": 0.20783110896934054,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1e214ce149b37c70": {
+    "id": "1e214ce149b37c70",
+    "type": "composite",
+    "signature": [
+      -0.02021151046828399
+    ],
+    "sub_patterns": [
+      "a4c1e204faaf83aa",
+      "05ee84891107b618"
+    ],
+    "confidence": 0.21125267545681864,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "847944f2044001a4": {
+    "id": "847944f2044001a4",
+    "type": "composite",
+    "signature": [
+      -0.024581268556348686
+    ],
+    "sub_patterns": [
+      "4f60888e4c0a552f",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.20635745100532873,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ace4616ee27a7318": {
+    "id": "ace4616ee27a7318",
+    "type": "composite",
+    "signature": [
+      -0.1655058838896878
+    ],
+    "sub_patterns": [
+      "60a35b1229594402",
+      "35e400398e5b7631",
+      "6cf5aa14816ac753"
+    ],
+    "confidence": 0.20242541994158933,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "54f2d5090781f596": {
+    "id": "54f2d5090781f596",
+    "type": "composite",
+    "signature": [
+      0.007747208653318405
+    ],
+    "sub_patterns": [
+      "f188489eef3a02c5",
+      "e088eb604dd957f1"
+    ],
+    "confidence": 0.19909258593576046,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "2746a24cc6fc9a07": {
+    "id": "2746a24cc6fc9a07",
+    "type": "composite",
+    "signature": [
+      -0.0529903178020582
+    ],
+    "sub_patterns": [
+      "635719b3e200d5a4",
+      "d923550ffbe6ef15"
+    ],
+    "confidence": 0.1971863788578104,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3605350f1c75b674": {
+    "id": "3605350f1c75b674",
+    "type": "composite",
+    "signature": [
+      0.020750433539262
+    ],
+    "sub_patterns": [
+      "d77924228975713f",
+      "fc22ae9e4a0223a4",
+      "d7765281680339eb"
+    ],
+    "confidence": 0.1995333106150995,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "df4cc57bb1a9caf3": {
+    "id": "df4cc57bb1a9caf3",
+    "type": "composite",
+    "signature": [
+      0.010402024338430405
+    ],
+    "sub_patterns": [
+      "79495062b5d71341",
+      "c07820f31c5a6cc6"
+    ],
+    "confidence": 0.20207892310295483,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "0d7493d98ef88f5b": {
+    "id": "0d7493d98ef88f5b",
+    "type": "composite",
+    "signature": [
+      0.007512313867253864
+    ],
+    "sub_patterns": [
+      "6923aad77f92d08e",
+      "5ba6aee229365aa8"
+    ],
+    "confidence": 0.2069681306845136,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6e368aea73f49dad": {
+    "id": "6e368aea73f49dad",
+    "type": "composite",
+    "signature": [
+      -0.08994927365208667
+    ],
+    "sub_patterns": [
+      "d7765281680339eb",
+      "fe7577a407e3872f",
+      "35e400398e5b7631"
+    ],
+    "confidence": 0.21056018617565764,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "de91c18a8debf0ef": {
+    "id": "de91c18a8debf0ef",
+    "type": "composite",
+    "signature": [
+      -0.0022047224781674515
+    ],
+    "sub_patterns": [
+      "e088eb604dd957f1",
+      "bf43ec6ae24bac48",
+      "d7765281680339eb"
+    ],
+    "confidence": 0.20907612171840292,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "0ce8979c6265135c": {
+    "id": "0ce8979c6265135c",
+    "type": "composite",
+    "signature": [
+      0.08435141123817437
+    ],
+    "sub_patterns": [
+      "3b340d4ff246d373",
+      "2247c194d6ed408a"
+    ],
+    "confidence": 0.212032010063608,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "cda5aee14ef5c155": {
+    "id": "cda5aee14ef5c155",
+    "type": "composite",
+    "signature": [
+      -0.019931302625720043
+    ],
+    "sub_patterns": [
+      "e83d789f97c4e178",
+      "6cf5aa14816ac753"
+    ],
+    "confidence": 0.21273999403671412,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "78e43b2ae4cbee20": {
+    "id": "78e43b2ae4cbee20",
+    "type": "composite",
+    "signature": [
+      -0.022581957439326315
+    ],
+    "sub_patterns": [
+      "6923aad77f92d08e",
+      "d77924228975713f"
+    ],
+    "confidence": 0.2085931095049301,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f79c117f84d3932a": {
+    "id": "f79c117f84d3932a",
+    "type": "composite",
+    "signature": [
+      -0.06844415166425183
+    ],
+    "sub_patterns": [
+      "7cc6ce004a08ca95",
+      "b734c80f423b2e24"
+    ],
+    "confidence": 0.20503581663918502,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "799388a161c9c5c0": {
+    "id": "799388a161c9c5c0",
+    "type": "composite",
+    "signature": [
+      -0.013981018972168255
+    ],
+    "sub_patterns": [
+      "847944f2044001a4",
+      "2aa5c4c2ed1c7541",
+      "7d2ca325d28230eb"
+    ],
+    "confidence": 0.20677850298246406,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "960db9d51f67385b": {
+    "id": "960db9d51f67385b",
+    "type": "composite",
+    "signature": [
+      -0.024801699654384803
+    ],
+    "sub_patterns": [
+      "4ca34b630b0cc134",
+      "bac19ddd744402a4",
+      "7cc6ce004a08ca95"
+    ],
+    "confidence": 0.20799308538691613,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e3a8621709becb4d": {
+    "id": "e3a8621709becb4d",
+    "type": "composite",
+    "signature": [
+      -0.006256514230285475
+    ],
+    "sub_patterns": [
+      "78e43b2ae4cbee20",
+      "05ee84891107b618"
+    ],
+    "confidence": 0.20681041918452225,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "03527352805c5fa4": {
+    "id": "03527352805c5fa4",
+    "type": "composite",
+    "signature": [
+      0.02273992714227824
+    ],
+    "sub_patterns": [
+      "0ce8979c6265135c",
+      "c3df938f103ce37e",
+      "8d9ba0fa36900b53"
+    ],
+    "confidence": 0.2070290752056647,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a557261d17baed77": {
+    "id": "a557261d17baed77",
+    "type": "composite",
+    "signature": [
+      0.0006278998184841944
+    ],
+    "sub_patterns": [
+      "e3a8621709becb4d",
+      "0d7493d98ef88f5b"
+    ],
+    "confidence": 0.20708933944329003,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9c9f47b597b2ad54": {
+    "id": "9c9f47b597b2ad54",
+    "type": "composite",
+    "signature": [
+      -0.01755494839511147
+    ],
+    "sub_patterns": [
+      "8d9ba0fa36900b53",
+      "4f60888e4c0a552f",
+      "8783f764e5f9ca5e"
+    ],
+    "confidence": 0.20771676998383798,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c890508837ff6a47": {
+    "id": "c890508837ff6a47",
+    "type": "composite",
+    "signature": [
+      0.0068245730267696035
+    ],
+    "sub_patterns": [
+      "7f9e94be13658f77",
+      "9c9f47b597b2ad54",
+      "799388a161c9c5c0"
+    ],
+    "confidence": 0.21087346890311037,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "278f5d4907e7f5de": {
+    "id": "278f5d4907e7f5de",
+    "type": "composite",
+    "signature": [
+      -0.0010412544191601147
+    ],
+    "sub_patterns": [
+      "cda5aee14ef5c155",
+      "8b9a1199ef88ff16"
+    ],
+    "confidence": 0.21406607713313963,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "5d9f95bd829ba65c": {
+    "id": "5d9f95bd829ba65c",
+    "type": "composite",
+    "signature": [
+      -0.14981237401594638
+    ],
+    "sub_patterns": [
+      "e6b36d26bd2af355",
+      "9c3de9c7d47dd264"
+    ],
+    "confidence": 0.21446378384803477,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "eefd32836bca9d57": {
+    "id": "eefd32836bca9d57",
+    "type": "composite",
+    "signature": [
+      -0.020975761425256267
+    ],
+    "sub_patterns": [
+      "9f4c21b4604871bc",
+      "8b9a1199ef88ff16",
+      "7cc6ce004a08ca95"
+    ],
+    "confidence": 0.2150579551885998,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c47e9cd872171da7": {
+    "id": "c47e9cd872171da7",
+    "type": "composite",
+    "signature": [
+      0.03218619306113894
+    ],
+    "sub_patterns": [
+      "074a1210095ecc42",
+      "dd74c576e564459e"
+    ],
+    "confidence": 0.21810028105218607,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d2e574263ebe6458": {
+    "id": "d2e574263ebe6458",
+    "type": "composite",
+    "signature": [
+      -0.07272630613539544
+    ],
+    "sub_patterns": [
+      "df4cc57bb1a9caf3",
+      "3ed7a1dd1bb32f32"
+    ],
+    "confidence": 0.21874471627411518,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1317fe35b3dbb551": {
+    "id": "1317fe35b3dbb551",
+    "type": "composite",
+    "signature": [
+      0.036735485687805595
+    ],
+    "sub_patterns": [
+      "05ee84891107b618",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.21349145785710635,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "be4cf45a465be204": {
+    "id": "be4cf45a465be204",
+    "type": "composite",
+    "signature": [
+      0.11009584759372826
+    ],
+    "sub_patterns": [
+      "7764d1303727b998",
+      "a09b4d66c98d911e",
+      "4532abfc9fe85381"
+    ],
+    "confidence": 0.21491168281690065,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "43a6d2daf392958d": {
+    "id": "43a6d2daf392958d",
+    "type": "composite",
+    "signature": [
+      0.07849874428815491
+    ],
+    "sub_patterns": [
+      "8ad2d320e88b4e28",
+      "7c40d226f092f234",
+      "3b340d4ff246d373"
+    ],
+    "confidence": 0.216223291181034,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3479d423c6927eac": {
+    "id": "3479d423c6927eac",
+    "type": "composite",
+    "signature": [
+      -0.01827724347458499
+    ],
+    "sub_patterns": [
+      "419ea11133a9ca4c",
+      "5ba6aee229365aa8"
+    ],
+    "confidence": 0.21931408432775776,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "97cb54d3eec220e7": {
+    "id": "97cb54d3eec220e7",
+    "type": "composite",
+    "signature": [
+      -0.026190658646833728
+    ],
+    "sub_patterns": [
+      "75191bccdfbe45ff",
+      "c890508837ff6a47",
+      "0d7493d98ef88f5b"
+    ],
+    "confidence": 0.21636052257668542,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "76930385094d26a8": {
+    "id": "76930385094d26a8",
+    "type": "composite",
+    "signature": [
+      -0.08006345569755999
+    ],
+    "sub_patterns": [
+      "ace4616ee27a7318",
+      "1b27ca88e28a296e",
+      "bf50219c6b32a721"
+    ],
+    "confidence": 0.2135509425583168,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "514bcfe0fbe3a561": {
+    "id": "514bcfe0fbe3a561",
+    "type": "composite",
+    "signature": [
+      0.07417362953271492
+    ],
+    "sub_patterns": [
+      "218244a7d104619e",
+      "2aa5c4c2ed1c7541"
+    ],
+    "confidence": 0.21139326144335685,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f88bf96c8ca45d4b": {
+    "id": "f88bf96c8ca45d4b",
+    "type": "composite",
+    "signature": [
+      -0.02952211848575258
+    ],
+    "sub_patterns": [
+      "9f4c21b4604871bc",
+      "2746a24cc6fc9a07"
+    ],
+    "confidence": 0.20930761179023924,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "5865a6a1c54fd683": {
+    "id": "5865a6a1c54fd683",
+    "type": "composite",
+    "signature": [
+      0.0530068198609992
+    ],
+    "sub_patterns": [
+      "75249cf45bfbc92b",
+      "b28f8f13ac2abf33",
+      "be4cf45a465be204"
+    ],
+    "confidence": 0.21262054621629545,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8ab5977cb8711594": {
+    "id": "8ab5977cb8711594",
+    "type": "composite",
+    "signature": [
+      0.2080980658567663
+    ],
+    "sub_patterns": [
+      "635719b3e200d5a4",
+      "4532abfc9fe85381"
+    ],
+    "confidence": 0.21504843398185208,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "adde9fe5ecb21122": {
+    "id": "adde9fe5ecb21122",
+    "type": "composite",
+    "signature": [
+      -0.027067828691145674
+    ],
+    "sub_patterns": [
+      "4f60888e4c0a552f",
+      "0ce8979c6265135c",
+      "2746a24cc6fc9a07"
+    ],
+    "confidence": 0.21004767420999185,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "75f976a9b1d68b99": {
+    "id": "75f976a9b1d68b99",
+    "type": "composite",
+    "signature": [
+      0.11532326760077106
+    ],
+    "sub_patterns": [
+      "97cb54d3eec220e7",
+      "3b340d4ff246d373",
+      "bf43ec6ae24bac48"
+    ],
+    "confidence": 0.20795906895124616,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "5d8533dd7c736d65": {
+    "id": "5d8533dd7c736d65",
+    "type": "composite",
+    "signature": [
+      -0.07635122289717197
+    ],
+    "sub_patterns": [
+      "f188583dd8419ee4",
+      "4f60888e4c0a552f"
+    ],
+    "confidence": 0.2059692830866622,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "72a403a957bfda7b": {
+    "id": "72a403a957bfda7b",
+    "type": "composite",
+    "signature": [
+      -0.009430959539731117
+    ],
+    "sub_patterns": [
+      "dd74c576e564459e",
+      "bf50219c6b32a721"
+    ],
+    "confidence": 0.208793209971898,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "640d127a62d5592a": {
+    "id": "640d127a62d5592a",
+    "type": "composite",
+    "signature": [
+      -0.07034221353392157
+    ],
+    "sub_patterns": [
+      "e3a8621709becb4d",
+      "7d2ca325d28230eb",
+      "f79c117f84d3932a"
+    ],
+    "confidence": 0.20397297704251044,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "0512fad9c6073e44": {
+    "id": "0512fad9c6073e44",
+    "type": "composite",
+    "signature": [
+      -0.0012201291231644928
+    ],
+    "sub_patterns": [
+      "b28f8f13ac2abf33",
+      "03527352805c5fa4",
+      "635719b3e200d5a4"
+    ],
+    "confidence": 0.19996324029170653,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "eeb731af94ff668b": {
+    "id": "eeb731af94ff668b",
+    "type": "composite",
+    "signature": [
+      -0.2504847188135583
+    ],
+    "sub_patterns": [
+      "2746a24cc6fc9a07",
+      "799388a161c9c5c0",
+      "69ab5506f8e9ae20"
+    ],
+    "confidence": 0.20162054025335535,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "62dc4bf76352407d": {
+    "id": "62dc4bf76352407d",
+    "type": "composite",
+    "signature": [
+      -0.01162686221924599
+    ],
+    "sub_patterns": [
+      "9275088b399511bc",
+      "a4024a4c166c1f98",
+      "f79c117f84d3932a"
+    ],
+    "confidence": 0.20032762127911088,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4c0809d55007d1cd": {
+    "id": "4c0809d55007d1cd",
+    "type": "composite",
+    "signature": [
+      0.0666989484914163
+    ],
+    "sub_patterns": [
+      "857bee0257f96b72",
+      "4f60888e4c0a552f"
+    ],
+    "confidence": 0.20002537459811004,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f723046982767d91": {
+    "id": "f723046982767d91",
+    "type": "composite",
+    "signature": [
+      0.003144180284611265
+    ],
+    "sub_patterns": [
+      "58aad3e41a506b99",
+      "960db9d51f67385b",
+      "6923aad77f92d08e"
+    ],
+    "confidence": 0.20410033039617073,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9ff1ad5db81bb64a": {
+    "id": "9ff1ad5db81bb64a",
+    "type": "composite",
+    "signature": [
+      -0.028764034066972265
+    ],
+    "sub_patterns": [
+      "a4024a4c166c1f98",
+      "bf50219c6b32a721"
+    ],
+    "confidence": 0.20577481645608997,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "91564ec1abc6b453": {
+    "id": "91564ec1abc6b453",
+    "type": "composite",
+    "signature": [
+      -0.04855632385451295
+    ],
+    "sub_patterns": [
+      "7cc6ce004a08ca95",
+      "a09b4d66c98d911e",
+      "419ea11133a9ca4c"
+    ],
+    "confidence": 0.2019712961197059,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c50f56ded1801ac8": {
+    "id": "c50f56ded1801ac8",
+    "type": "composite",
+    "signature": [
+      -0.11520800125181206
+    ],
+    "sub_patterns": [
+      "9c3de9c7d47dd264",
+      "640d127a62d5592a",
+      "ace4616ee27a7318"
+    ],
+    "confidence": 0.19874077478673488,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "47965cca6feafc2e": {
+    "id": "47965cca6feafc2e",
+    "type": "composite",
+    "signature": [
+      0.0077190576267141715
+    ],
+    "sub_patterns": [
+      "43a6d2daf392958d",
+      "b734c80f423b2e24",
+      "c890508837ff6a47"
+    ],
+    "confidence": 0.19830557069895688,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "09a5186941605211": {
+    "id": "09a5186941605211",
+    "type": "composite",
+    "signature": [
+      -0.04622629710618272
+    ],
+    "sub_patterns": [
+      "3ed7a1dd1bb32f32",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.2008522506363467,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "86c0aeae22bcfdf3": {
+    "id": "86c0aeae22bcfdf3",
+    "type": "composite",
+    "signature": [
+      -0.08539814144178924
+    ],
+    "sub_patterns": [
+      "c6c00ee86f6c50f8",
+      "eeb731af94ff668b",
+      "91564ec1abc6b453"
+    ],
+    "confidence": 0.19827164258713248,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c9f08a8a7d84ac70": {
+    "id": "c9f08a8a7d84ac70",
+    "type": "composite",
+    "signature": [
+      0.012264347081122938
+    ],
+    "sub_patterns": [
+      "1317fe35b3dbb551",
+      "f79c117f84d3932a",
+      "8783f764e5f9ca5e"
+    ],
+    "confidence": 0.19836849421499753,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "66ee384dbbbd47f4": {
+    "id": "66ee384dbbbd47f4",
+    "type": "composite",
+    "signature": [
+      -0.04336372300304915
+    ],
+    "sub_patterns": [
+      "218244a7d104619e",
+      "7764d1303727b998"
+    ],
+    "confidence": 0.20178413686891106,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7c0ee870dd714c87": {
+    "id": "7c0ee870dd714c87",
+    "type": "composite",
+    "signature": [
+      -0.030559498371015865
+    ],
+    "sub_patterns": [
+      "8ad2d320e88b4e28",
+      "5d8533dd7c736d65",
+      "278f5d4907e7f5de"
+    ],
+    "confidence": 0.20035017222660406,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c62e2ba3b42dba24": {
+    "id": "c62e2ba3b42dba24",
+    "type": "composite",
+    "signature": [
+      0.1767446184462661
+    ],
+    "sub_patterns": [
+      "cbfe5dbdd92e3cc0",
+      "8ab5977cb8711594"
+    ],
+    "confidence": 0.20164515121975093,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ed9f32c4a50709c3": {
+    "id": "ed9f32c4a50709c3",
+    "type": "composite",
+    "signature": [
+      -0.08440496987308507
+    ],
+    "sub_patterns": [
+      "c50f56ded1801ac8",
+      "a09b4d66c98d911e"
+    ],
+    "confidence": 0.20108590365961843,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1c69d3ad21bc129a": {
+    "id": "1c69d3ad21bc129a",
+    "type": "composite",
+    "signature": [
+      -0.09555136768992259
+    ],
+    "sub_patterns": [
+      "6cf5aa14816ac753",
+      "aed3991ed97c5f3b"
+    ],
+    "confidence": 0.1980451307994826,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "bc6349a64bbfa186": {
+    "id": "bc6349a64bbfa186",
+    "type": "composite",
+    "signature": [
+      -0.11383965886002295
+    ],
+    "sub_patterns": [
+      "eeb731af94ff668b",
+      "8ecee6ec319eb006",
+      "7cc6ce004a08ca95"
+    ],
+    "confidence": 0.20049460493777255,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c91b60f63d5dc469": {
+    "id": "c91b60f63d5dc469",
+    "type": "composite",
+    "signature": [
+      0.024677037157978594
+    ],
+    "sub_patterns": [
+      "419ea11133a9ca4c",
+      "4c0809d55007d1cd"
+    ],
+    "confidence": 0.20515637492936883,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "68e09a47e5b9f56b": {
+    "id": "68e09a47e5b9f56b",
+    "type": "composite",
+    "signature": [
+      -0.003815814585087098
+    ],
+    "sub_patterns": [
+      "dd74c576e564459e",
+      "8d9ba0fa36900b53"
+    ],
+    "confidence": 0.209528309014409,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e186ba215d120d1f": {
+    "id": "e186ba215d120d1f",
+    "type": "composite",
+    "signature": [
+      0.0033389016037770284
+    ],
+    "sub_patterns": [
+      "278f5d4907e7f5de",
+      "47965cca6feafc2e"
+    ],
+    "confidence": 0.2058719618718629,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ecbceaec482146ba": {
+    "id": "ecbceaec482146ba",
+    "type": "composite",
+    "signature": [
+      -0.09943590253707657
+    ],
+    "sub_patterns": [
+      "a194c2f19b115fa1",
+      "de91c18a8debf0ef",
+      "847944f2044001a4"
+    ],
+    "confidence": 0.202230418367982,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "bcd71b5fea172f7b": {
+    "id": "bcd71b5fea172f7b",
+    "type": "composite",
+    "signature": [
+      -0.10472828755178969
+    ],
+    "sub_patterns": [
+      "3ed7a1dd1bb32f32",
+      "a09b4d66c98d911e"
+    ],
+    "confidence": 0.20372540840951822,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "727b3b1a9ccafa1b": {
+    "id": "727b3b1a9ccafa1b",
+    "type": "composite",
+    "signature": [
+      -0.08014574359300412
+    ],
+    "sub_patterns": [
+      "6e368aea73f49dad",
+      "640d127a62d5592a"
+    ],
+    "confidence": 0.20661619210927284,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c211194e9c59f25e": {
+    "id": "c211194e9c59f25e",
+    "type": "composite",
+    "signature": [
+      -0.014821235004007553
+    ],
+    "sub_patterns": [
+      "72a403a957bfda7b",
+      "1e214ce149b37c70"
+    ],
+    "confidence": 0.20371325333835547,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d217c5c52c399743": {
+    "id": "d217c5c52c399743",
+    "type": "composite",
+    "signature": [
+      -0.1959543361198271
+    ],
+    "sub_patterns": [
+      "69ab5506f8e9ae20",
+      "76930385094d26a8"
+    ],
+    "confidence": 0.202209557076341,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "24d1ba70253b88fa": {
+    "id": "24d1ba70253b88fa",
+    "type": "composite",
+    "signature": [
+      -0.07621311016956739
+    ],
+    "sub_patterns": [
+      "ecbceaec482146ba",
+      "2746a24cc6fc9a07"
+    ],
+    "confidence": 0.20452463473532784,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3d0799ff6e99c846": {
+    "id": "3d0799ff6e99c846",
+    "type": "composite",
+    "signature": [
+      -0.02742574588209987
+    ],
+    "sub_patterns": [
+      "deda54b1f4a90661",
+      "a4024a4c166c1f98",
+      "f88bf96c8ca45d4b"
+    ],
+    "confidence": 0.2090216343936558,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ac1930c7a054fd31": {
+    "id": "ac1930c7a054fd31",
+    "type": "composite",
+    "signature": [
+      -0.02135924019273563
+    ],
+    "sub_patterns": [
+      "e3a8621709becb4d",
+      "49d9b9bd7f932e56"
+    ],
+    "confidence": 0.21407939173538143,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6bd62dbc7c65cc28": {
+    "id": "6bd62dbc7c65cc28",
+    "type": "composite",
+    "signature": [
+      0.03452732392870333
+    ],
+    "sub_patterns": [
+      "9275088b399511bc",
+      "de91c18a8debf0ef"
+    ],
+    "confidence": 0.21140396365736058,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "66a12f6897a8b784": {
+    "id": "66a12f6897a8b784",
+    "type": "composite",
+    "signature": [
+      -0.0010169976028355694
+    ],
+    "sub_patterns": [
+      "62dc4bf76352407d",
+      "2746a24cc6fc9a07",
+      "3b340d4ff246d373"
+    ],
+    "confidence": 0.20906865083965373,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "978e3df5835778f6": {
+    "id": "978e3df5835778f6",
+    "type": "composite",
+    "signature": [
+      0.012845438860321592
+    ],
+    "sub_patterns": [
+      "ed9f32c4a50709c3",
+      "be4cf45a465be204"
+    ],
+    "confidence": 0.20720295846811115,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6b751e7d38ecfceb": {
+    "id": "6b751e7d38ecfceb",
+    "type": "composite",
+    "signature": [
+      -0.05857588657180847
+    ],
+    "sub_patterns": [
+      "278f5d4907e7f5de",
+      "7764d1303727b998"
+    ],
+    "confidence": 0.2041480017835145,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9cf3c90936472382": {
+    "id": "9cf3c90936472382",
+    "type": "composite",
+    "signature": [
+      -0.011830643363541515
+    ],
+    "sub_patterns": [
+      "8d9ba0fa36900b53",
+      "deda54b1f4a90661"
+    ],
+    "confidence": 0.20813757782829953,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c88ff5df57b55e2e": {
+    "id": "c88ff5df57b55e2e",
+    "type": "composite",
+    "signature": [
+      -0.0562812753456732
+    ],
+    "sub_patterns": [
+      "a09b4d66c98d911e",
+      "35e400398e5b7631",
+      "bc6349a64bbfa186"
+    ],
+    "confidence": 0.20920917339894685,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c5de3c41ddce8749": {
+    "id": "c5de3c41ddce8749",
+    "type": "composite",
+    "signature": [
+      0.011223660744991667
+    ],
+    "sub_patterns": [
+      "5865a6a1c54fd683",
+      "7c0ee870dd714c87"
+    ],
+    "confidence": 0.21149861525241004,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f72a982ef1d1a16e": {
+    "id": "f72a982ef1d1a16e",
+    "type": "composite",
+    "signature": [
+      -0.06758072560639364
+    ],
+    "sub_patterns": [
+      "75f976a9b1d68b99",
+      "eeb731af94ff668b"
+    ],
+    "confidence": 0.20994781907557233,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8447081438ace724": {
+    "id": "8447081438ace724",
+    "type": "composite",
+    "signature": [
+      -0.035047071266463746
+    ],
+    "sub_patterns": [
+      "d77924228975713f",
+      "72a403a957bfda7b",
+      "8ecee6ec319eb006"
+    ],
+    "confidence": 0.2098384977474152,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ade2070f7ca8c3f3": {
+    "id": "ade2070f7ca8c3f3",
+    "type": "composite",
+    "signature": [
+      0.04809021073385953
+    ],
+    "sub_patterns": [
+      "917a6a43997058db",
+      "fc22ae9e4a0223a4",
+      "727b3b1a9ccafa1b"
+    ],
+    "confidence": 0.20732989711715355,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e1349c16700244f8": {
+    "id": "e1349c16700244f8",
+    "type": "composite",
+    "signature": [
+      -0.017856828776303794
+    ],
+    "sub_patterns": [
+      "ade2070f7ca8c3f3",
+      "635719b3e200d5a4"
+    ],
+    "confidence": 0.20294880588996742,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "bdb64509e5c836f4": {
+    "id": "bdb64509e5c836f4",
+    "type": "composite",
+    "signature": [
+      0.03915598715838665
+    ],
+    "sub_patterns": [
+      "cbfe5dbdd92e3cc0",
+      "c9f08a8a7d84ac70",
+      "d7765281680339eb"
+    ],
+    "confidence": 0.20369870531843673,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "bd930189e96c02ac": {
+    "id": "bd930189e96c02ac",
+    "type": "composite",
+    "signature": [
+      0.04897336108050378
+    ],
+    "sub_patterns": [
+      "be4cf45a465be204",
+      "825ca419d8b59fec"
+    ],
+    "confidence": 0.2014040483626968,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "98a87b0a40b16367": {
+    "id": "98a87b0a40b16367",
+    "type": "composite",
+    "signature": [
+      0.018022156790979883
+    ],
+    "sub_patterns": [
+      "b28f8f13ac2abf33",
+      "ac1930c7a054fd31"
+    ],
+    "confidence": 0.20023959817850864,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "40df838307eee924": {
+    "id": "40df838307eee924",
+    "type": "composite",
+    "signature": [
+      -0.023148889112328246
+    ],
+    "sub_patterns": [
+      "a4024a4c166c1f98",
+      "8d9ba0fa36900b53"
+    ],
+    "confidence": 0.19939556304579362,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ed009d2a8b250073": {
+    "id": "ed009d2a8b250073",
+    "type": "composite",
+    "signature": [
+      -0.03929813686244865
+    ],
+    "sub_patterns": [
+      "bcd71b5fea172f7b",
+      "66a12f6897a8b784",
+      "825ca419d8b59fec"
+    ],
+    "confidence": 0.19893971636321303,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "690f21a4fcb25176": {
+    "id": "690f21a4fcb25176",
+    "type": "composite",
+    "signature": [
+      0.026624321340566984
+    ],
+    "sub_patterns": [
+      "c6c00ee86f6c50f8",
+      "df4cc57bb1a9caf3"
+    ],
+    "confidence": 0.20313389968785533,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "71eef3d8226aaf8f": {
+    "id": "71eef3d8226aaf8f",
+    "type": "composite",
+    "signature": [
+      0.04615374949439957
+    ],
+    "sub_patterns": [
+      "5865a6a1c54fd683",
+      "bac19ddd744402a4"
+    ],
+    "confidence": 0.20415359133023592,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "061324744deee587": {
+    "id": "061324744deee587",
+    "type": "composite",
+    "signature": [
+      -0.12760446982567208
+    ],
+    "sub_patterns": [
+      "6cf5aa14816ac753",
+      "bc6349a64bbfa186"
+    ],
+    "confidence": 0.20327421634733556,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4555fb716ba03dec": {
+    "id": "4555fb716ba03dec",
+    "type": "composite",
+    "signature": [
+      0.00218870383873473
+    ],
+    "sub_patterns": [
+      "2247c194d6ed408a",
+      "bac19ddd744402a4",
+      "7cc6ce004a08ca95"
+    ],
+    "confidence": 0.20463403978961486,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "113859a8bf54aaa4": {
+    "id": "113859a8bf54aaa4",
+    "type": "composite",
+    "signature": [
+      0.14894826419634005
+    ],
+    "sub_patterns": [
+      "8df1072be974ee8f",
+      "be4cf45a465be204"
+    ],
+    "confidence": 0.2015605581414797,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "5d0af5f8d3000697": {
+    "id": "5d0af5f8d3000697",
+    "type": "composite",
+    "signature": [
+      0.008992420678523455
+    ],
+    "sub_patterns": [
+      "074a1210095ecc42",
+      "86c0aeae22bcfdf3",
+      "bd930189e96c02ac"
+    ],
+    "confidence": 0.2001117054136799,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "09afd209a9c99090": {
+    "id": "09afd209a9c99090",
+    "type": "composite",
+    "signature": [
+      0.12654819149098012
+    ],
+    "sub_patterns": [
+      "fc22ae9e4a0223a4",
+      "9275088b399511bc"
+    ],
+    "confidence": 0.20231777968810494,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8bb051570ec98203": {
+    "id": "8bb051570ec98203",
+    "type": "composite",
+    "signature": [
+      -0.01859166695330854
+    ],
+    "sub_patterns": [
+      "c88ff5df57b55e2e",
+      "e1349c16700244f8",
+      "7c40d226f092f234"
+    ],
+    "confidence": 0.20556519299712808,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8a1504c2642ff8c9": {
+    "id": "8a1504c2642ff8c9",
+    "type": "composite",
+    "signature": [
+      -0.06527770280644167
+    ],
+    "sub_patterns": [
+      "76930385094d26a8",
+      "a4c1e204faaf83aa"
+    ],
+    "confidence": 0.2020157177679468,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1098275dc6acaa8a": {
+    "id": "1098275dc6acaa8a",
+    "type": "composite",
+    "signature": [
+      -0.03875859659159674
+    ],
+    "sub_patterns": [
+      "c07820f31c5a6cc6",
+      "d7765281680339eb",
+      "adde9fe5ecb21122"
+    ],
+    "confidence": 0.19896955130680996,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3898838ba61709ed": {
+    "id": "3898838ba61709ed",
+    "type": "composite",
+    "signature": [
+      0.04048555976523429
+    ],
+    "sub_patterns": [
+      "2247c194d6ed408a",
+      "43a6d2daf392958d",
+      "dd74c576e564459e"
+    ],
+    "confidence": 0.2036643951667177,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1687dacef8567581": {
+    "id": "1687dacef8567581",
+    "type": "composite",
+    "signature": [
+      0.008037532131191176
+    ],
+    "sub_patterns": [
+      "c91b60f63d5dc469",
+      "8d9ba0fa36900b53"
+    ],
+    "confidence": 0.2081152834594616,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "968dafc5b173d02f": {
+    "id": "968dafc5b173d02f",
+    "type": "composite",
+    "signature": [
+      -0.0264288685010306
+    ],
+    "sub_patterns": [
+      "c47e9cd872171da7",
+      "adde9fe5ecb21122",
+      "ed9f32c4a50709c3"
+    ],
+    "confidence": 0.20527240816645953,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "87df38f586e1930e": {
+    "id": "87df38f586e1930e",
+    "type": "composite",
+    "signature": [
+      0.16931226227468418
+    ],
+    "sub_patterns": [
+      "514bcfe0fbe3a561",
+      "857bee0257f96b72",
+      "8df1072be974ee8f"
+    ],
+    "confidence": 0.2093261302364524,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "07676bcee682da55": {
+    "id": "07676bcee682da55",
+    "type": "composite",
+    "signature": [
+      0.04228782693557266
+    ],
+    "sub_patterns": [
+      "514bcfe0fbe3a561",
+      "df4cc57bb1a9caf3"
+    ],
+    "confidence": 0.2104416479317181,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "eaf994b2efdecfc1": {
+    "id": "eaf994b2efdecfc1",
+    "type": "composite",
+    "signature": [
+      -0.08227856493277177
+    ],
+    "sub_patterns": [
+      "d217c5c52c399743",
+      "f88bf96c8ca45d4b",
+      "ac1930c7a054fd31"
+    ],
+    "confidence": 0.21133939153943215,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c9d42b69aad2d4f7": {
+    "id": "c9d42b69aad2d4f7",
+    "type": "composite",
+    "signature": [
+      0.018928469212333147
+    ],
+    "sub_patterns": [
+      "b28f8f13ac2abf33",
+      "79fc572b4b1d3a7a",
+      "49d9b9bd7f932e56"
+    ],
+    "confidence": 0.21494019356306027,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "69b5dd369eefa9d8": {
+    "id": "69b5dd369eefa9d8",
+    "type": "composite",
+    "signature": [
+      0.03225842637822547
+    ],
+    "sub_patterns": [
+      "7c40d226f092f234",
+      "71eef3d8226aaf8f"
+    ],
+    "confidence": 0.21773766472773157,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "43440bf3612c2ad1": {
+    "id": "43440bf3612c2ad1",
+    "type": "composite",
+    "signature": [
+      0.026888436874445403
+    ],
+    "sub_patterns": [
+      "09afd209a9c99090",
+      "47965cca6feafc2e",
+      "a09b4d66c98d911e"
+    ],
+    "confidence": 0.21495523586965426,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c181f5c7874de116": {
+    "id": "c181f5c7874de116",
+    "type": "composite",
+    "signature": [
+      0.029923203289376598
+    ],
+    "sub_patterns": [
+      "e088eb604dd957f1",
+      "bac19ddd744402a4"
+    ],
+    "confidence": 0.21565175078911158,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "aa8cac9a2af14fde": {
+    "id": "aa8cac9a2af14fde",
+    "type": "composite",
+    "signature": [
+      0.0019656970341156536
+    ],
+    "sub_patterns": [
+      "68e09a47e5b9f56b",
+      "54f2d5090781f596"
+    ],
+    "confidence": 0.218263848805382,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "08b90f12cf9b3f85": {
+    "id": "08b90f12cf9b3f85",
+    "type": "composite",
+    "signature": [
+      -0.015937285643593386
+    ],
+    "sub_patterns": [
+      "b734c80f423b2e24",
+      "bdb64509e5c836f4",
+      "960db9d51f67385b"
+    ],
+    "confidence": 0.22042547155906106,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "09d3493c5f1e4225": {
+    "id": "09d3493c5f1e4225",
+    "type": "composite",
+    "signature": [
+      -0.11237150372881888
+    ],
+    "sub_patterns": [
+      "71eef3d8226aaf8f",
+      "60a35b1229594402",
+      "f88bf96c8ca45d4b"
+    ],
+    "confidence": 0.21519753846756368,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "156fbf399f717480": {
+    "id": "156fbf399f717480",
+    "type": "composite",
+    "signature": [
+      -0.0035035010189067295
+    ],
+    "sub_patterns": [
+      "d77924228975713f",
+      "4555fb716ba03dec",
+      "4c0809d55007d1cd"
+    ],
+    "confidence": 0.2177270234299282,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3e8915f05118dc61": {
+    "id": "3e8915f05118dc61",
+    "type": "composite",
+    "signature": [
+      -0.028549140116059194
+    ],
+    "sub_patterns": [
+      "1e214ce149b37c70",
+      "09a5186941605211",
+      "5ba6aee229365aa8"
+    ],
+    "confidence": 0.21533217514936204,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ea413aea8961ad42": {
+    "id": "ea413aea8961ad42",
+    "type": "composite",
+    "signature": [
+      -0.05673774150231762
+    ],
+    "sub_patterns": [
+      "8d9ba0fa36900b53",
+      "86c0aeae22bcfdf3",
+      "24d1ba70253b88fa"
+    ],
+    "confidence": 0.21799879127210353,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7608bb90438ea51d": {
+    "id": "7608bb90438ea51d",
+    "type": "composite",
+    "signature": [
+      0.03021862809656463
+    ],
+    "sub_patterns": [
+      "cbfe5dbdd92e3cc0",
+      "f72a982ef1d1a16e",
+      "978e3df5835778f6"
+    ],
+    "confidence": 0.21476099503860546,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f723bdffb8158853": {
+    "id": "f723bdffb8158853",
+    "type": "composite",
+    "signature": [
+      -0.03982806435425406
+    ],
+    "sub_patterns": [
+      "4555fb716ba03dec",
+      "9ff1ad5db81bb64a",
+      "75191bccdfbe45ff"
+    ],
+    "confidence": 0.21677459910577204,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "cca95bdd0b4a92e0": {
+    "id": "cca95bdd0b4a92e0",
+    "type": "composite",
+    "signature": [
+      -0.09420908747366293
+    ],
+    "sub_patterns": [
+      "8ad2d320e88b4e28",
+      "eeb731af94ff668b",
+      "e1349c16700244f8"
+    ],
+    "confidence": 0.21263203707493844,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9a86dbf47dc346cb": {
+    "id": "9a86dbf47dc346cb",
+    "type": "composite",
+    "signature": [
+      0.0070151115160686905
+    ],
+    "sub_patterns": [
+      "917a6a43997058db",
+      "3e8915f05118dc61"
+    ],
+    "confidence": 0.2154207750518204,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f1a9a3c3b1a3004f": {
+    "id": "f1a9a3c3b1a3004f",
+    "type": "composite",
+    "signature": [
+      -0.06727413552323408
+    ],
+    "sub_patterns": [
+      "d923550ffbe6ef15",
+      "09d3493c5f1e4225"
+    ],
+    "confidence": 0.21232098795817614,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d1a0fef5784acc12": {
+    "id": "d1a0fef5784acc12",
+    "type": "composite",
+    "signature": [
+      -0.012011424483723863
+    ],
+    "sub_patterns": [
+      "c88ff5df57b55e2e",
+      "69b5dd369eefa9d8"
+    ],
+    "confidence": 0.2144815608228243,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "0d6b72a4c694ba65": {
+    "id": "0d6b72a4c694ba65",
+    "type": "composite",
+    "signature": [
+      -0.023620273033092443
+    ],
+    "sub_patterns": [
+      "75249cf45bfbc92b",
+      "1b27ca88e28a296e",
+      "c3df938f103ce37e"
+    ],
+    "confidence": 0.2145632183461793,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4b5386d9d9c4b860": {
+    "id": "4b5386d9d9c4b860",
+    "type": "composite",
+    "signature": [
+      -0.035551255174840375
+    ],
+    "sub_patterns": [
+      "c88ff5df57b55e2e",
+      "c211194e9c59f25e"
+    ],
+    "confidence": 0.2167477674371069,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c68162fb3f56b4de": {
+    "id": "c68162fb3f56b4de",
+    "type": "composite",
+    "signature": [
+      -0.014564599536779521
+    ],
+    "sub_patterns": [
+      "aa8cac9a2af14fde",
+      "adde9fe5ecb21122",
+      "8bb051570ec98203"
+    ],
+    "confidence": 0.21631029150382963,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ded7221a2d1619db": {
+    "id": "ded7221a2d1619db",
+    "type": "composite",
+    "signature": [
+      -0.0174929191070082
+    ],
+    "sub_patterns": [
+      "c181f5c7874de116",
+      "c211194e9c59f25e",
+      "f72a982ef1d1a16e"
+    ],
+    "confidence": 0.21852739669480362,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a6313317b9652758": {
+    "id": "a6313317b9652758",
+    "type": "composite",
+    "signature": [
+      -0.1738532785552913
+    ],
+    "sub_patterns": [
+      "8df1072be974ee8f",
+      "69ab5506f8e9ae20",
+      "43a6d2daf392958d"
+    ],
+    "confidence": 0.213079841202564,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6d637601d7bdf660": {
+    "id": "6d637601d7bdf660",
+    "type": "composite",
+    "signature": [
+      0.0001585299652836214
+    ],
+    "sub_patterns": [
+      "4ca34b630b0cc134",
+      "bac19ddd744402a4"
+    ],
+    "confidence": 0.21575597695077844,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f1e70f93c50afcb6": {
+    "id": "f1e70f93c50afcb6",
+    "type": "composite",
+    "signature": [
+      -0.07396137945182962
+    ],
+    "sub_patterns": [
+      "4b5386d9d9c4b860",
+      "09d3493c5f1e4225"
+    ],
+    "confidence": 0.2159918442298548,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a97903a871b32bf4": {
+    "id": "a97903a871b32bf4",
+    "type": "composite",
+    "signature": [
+      0.0012305018614687134
+    ],
+    "sub_patterns": [
+      "0d7493d98ef88f5b",
+      "f188489eef3a02c5"
+    ],
+    "confidence": 0.21843934785288396,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "620903f9efe88749": {
+    "id": "620903f9efe88749",
+    "type": "composite",
+    "signature": [
+      -0.010424630203859924
+    ],
+    "sub_patterns": [
+      "bf50219c6b32a721",
+      "66a12f6897a8b784"
+    ],
+    "confidence": 0.21316142574560912,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "89ab017f5a5646a0": {
+    "id": "89ab017f5a5646a0",
+    "type": "composite",
+    "signature": [
+      -0.020755809957073674
+    ],
+    "sub_patterns": [
+      "a4024a4c166c1f98",
+      "68e09a47e5b9f56b"
+    ],
+    "confidence": 0.215959674125145,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9594038bf506de67": {
+    "id": "9594038bf506de67",
+    "type": "composite",
+    "signature": [
+      -0.02517129002126268
+    ],
+    "sub_patterns": [
+      "1c69d3ad21bc129a",
+      "8b9a1199ef88ff16",
+      "4555fb716ba03dec"
+    ],
+    "confidence": 0.22079433401248766,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "b09b7c0836abe4b1": {
+    "id": "b09b7c0836abe4b1",
+    "type": "composite",
+    "signature": [
+      -0.013614340897951695
+    ],
+    "sub_patterns": [
+      "640d127a62d5592a",
+      "0ce8979c6265135c",
+      "1b27ca88e28a296e"
+    ],
+    "confidence": 0.22446392637131662,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "894c34879feb6b31": {
+    "id": "894c34879feb6b31",
+    "type": "composite",
+    "signature": [
+      0.018114486366719744
+    ],
+    "sub_patterns": [
+      "8a1504c2642ff8c9",
+      "e83d789f97c4e178"
+    ],
+    "confidence": 0.2261522152268867,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "202c9f02bf4d729a": {
+    "id": "202c9f02bf4d729a",
+    "type": "composite",
+    "signature": [
+      -0.025366610368912534
+    ],
+    "sub_patterns": [
+      "62dc4bf76352407d",
+      "799388a161c9c5c0",
+      "a4c1e204faaf83aa"
+    ],
+    "confidence": 0.22704630336047985,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1528b3477714e860": {
+    "id": "1528b3477714e860",
+    "type": "composite",
+    "signature": [
+      -0.1564304539157739
+    ],
+    "sub_patterns": [
+      "86c0aeae22bcfdf3",
+      "a194c2f19b115fa1",
+      "09d3493c5f1e4225"
+    ],
+    "confidence": 0.2229659634066803,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a923063944b182c9": {
+    "id": "a923063944b182c9",
+    "type": "composite",
+    "signature": [
+      -0.06471116522291406
+    ],
+    "sub_patterns": [
+      "66ee384dbbbd47f4",
+      "7d2ca325d28230eb",
+      "974bd12704348666"
+    ],
+    "confidence": 0.2193867641806127,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a80fc899e28f1ac1": {
+    "id": "a80fc899e28f1ac1",
+    "type": "composite",
+    "signature": [
+      0.01504022934240914
+    ],
+    "sub_patterns": [
+      "e4694b388b26e5df",
+      "8ecee6ec319eb006"
+    ],
+    "confidence": 0.21655715005241655,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "eeff8ae61badc69b": {
+    "id": "eeff8ae61badc69b",
+    "type": "composite",
+    "signature": [
+      0.007994809572466429
+    ],
+    "sub_patterns": [
+      "f723046982767d91",
+      "978e3df5835778f6"
+    ],
+    "confidence": 0.218389993149159,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "bcccea7491e57c34": {
+    "id": "bcccea7491e57c34",
+    "type": "composite",
+    "signature": [
+      -0.0011296856343567436
+    ],
+    "sub_patterns": [
+      "2746a24cc6fc9a07",
+      "a557261d17baed77",
+      "bd930189e96c02ac"
+    ],
+    "confidence": 0.21315847545751043,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "b0a4f93274fedb04": {
+    "id": "b0a4f93274fedb04",
+    "type": "composite",
+    "signature": [
+      -0.11572394769688209
+    ],
+    "sub_patterns": [
+      "69ab5506f8e9ae20",
+      "e2eacd77fdae10eb"
+    ],
+    "confidence": 0.21054640993158508,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c69469dbeacebbb2": {
+    "id": "c69469dbeacebbb2",
+    "type": "composite",
+    "signature": [
+      -0.0374153592488679
+    ],
+    "sub_patterns": [
+      "1687dacef8567581",
+      "727b3b1a9ccafa1b",
+      "f188583dd8419ee4"
+    ],
+    "confidence": 0.21102273722815695,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "dd73202cf4be9ab2": {
+    "id": "dd73202cf4be9ab2",
+    "type": "composite",
+    "signature": [
+      -0.024660352787230205
+    ],
+    "sub_patterns": [
+      "978e3df5835778f6",
+      "b734c80f423b2e24"
+    ],
+    "confidence": 0.21422485097058022,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1291dc98d0f3ebf6": {
+    "id": "1291dc98d0f3ebf6",
+    "type": "composite",
+    "signature": [
+      -0.007841291762631443
+    ],
+    "sub_patterns": [
+      "c6c00ee86f6c50f8",
+      "d77924228975713f",
+      "bf43ec6ae24bac48"
+    ],
+    "confidence": 0.2159967344443716,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c047109f237da8ba": {
+    "id": "c047109f237da8ba",
+    "type": "composite",
+    "signature": [
+      0.003449081633041825
+    ],
+    "sub_patterns": [
+      "1528b3477714e860",
+      "deda54b1f4a90661",
+      "fc22ae9e4a0223a4"
+    ],
+    "confidence": 0.21758891596944263,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4efffc076da2be58": {
+    "id": "4efffc076da2be58",
+    "type": "composite",
+    "signature": [
+      0.06634537506437495
+    ],
+    "sub_patterns": [
+      "fc22ae9e4a0223a4",
+      "deda54b1f4a90661",
+      "69b5dd369eefa9d8"
+    ],
+    "confidence": 0.21812366488501161,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "35bef80cb490221a": {
+    "id": "35bef80cb490221a",
+    "type": "composite",
+    "signature": [
+      -0.0495629863285289
+    ],
+    "sub_patterns": [
+      "5d0af5f8d3000697",
+      "8ecee6ec319eb006",
+      "6cf5aa14816ac753"
+    ],
+    "confidence": 0.21235804634713248,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "2fbf8369ba824fae": {
+    "id": "2fbf8369ba824fae",
+    "type": "composite",
+    "signature": [
+      -0.014426209599253143
+    ],
+    "sub_patterns": [
+      "4c0809d55007d1cd",
+      "1c69d3ad21bc129a"
+    ],
+    "confidence": 0.21249980717095038,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e1ec1c9d7fbec1c2": {
+    "id": "e1ec1c9d7fbec1c2",
+    "type": "composite",
+    "signature": [
+      -0.01724861238740344
+    ],
+    "sub_patterns": [
+      "1e214ce149b37c70",
+      "8ad2d320e88b4e28"
+    ],
+    "confidence": 0.2152115751601714,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "448c488a7f5fc782": {
+    "id": "448c488a7f5fc782",
+    "type": "composite",
+    "signature": [
+      -0.019260474187437614
+    ],
+    "sub_patterns": [
+      "c181f5c7874de116",
+      "f79c117f84d3932a"
+    ],
+    "confidence": 0.2156811836569305,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "530f63bfb0dd97d5": {
+    "id": "530f63bfb0dd97d5",
+    "type": "composite",
+    "signature": [
+      -0.09455102423675293
+    ],
+    "sub_patterns": [
+      "fe7577a407e3872f",
+      "bdb64509e5c836f4"
+    ],
+    "confidence": 0.21081108660018674,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6bb61a940c08b769": {
+    "id": "6bb61a940c08b769",
+    "type": "composite",
+    "signature": [
+      -0.04686164825224109
+    ],
+    "sub_patterns": [
+      "a194c2f19b115fa1",
+      "79ff47b85bd04009",
+      "a4c1e204faaf83aa"
+    ],
+    "confidence": 0.21236414156552835,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ab57828515387275": {
+    "id": "ab57828515387275",
+    "type": "composite",
+    "signature": [
+      0.0024493196400857454
+    ],
+    "sub_patterns": [
+      "202c9f02bf4d729a",
+      "c91b60f63d5dc469",
+      "1687dacef8567581"
+    ],
+    "confidence": 0.21519097675931215,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "79f56281884cf090": {
+    "id": "79f56281884cf090",
+    "type": "composite",
+    "signature": [
+      -0.019571295312763456
+    ],
+    "sub_patterns": [
+      "6bb61a940c08b769",
+      "47965cca6feafc2e"
+    ],
+    "confidence": 0.21774520699624444,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e787c05c69882be1": {
+    "id": "e787c05c69882be1",
+    "type": "composite",
+    "signature": [
+      0.022493067435819657
+    ],
+    "sub_patterns": [
+      "ac1930c7a054fd31",
+      "4efffc076da2be58"
+    ],
+    "confidence": 0.2158744983331596,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "894752f142fcec4a": {
+    "id": "894752f142fcec4a",
+    "type": "composite",
+    "signature": [
+      -0.05830056502415463
+    ],
+    "sub_patterns": [
+      "f72a982ef1d1a16e",
+      "c07820f31c5a6cc6"
+    ],
+    "confidence": 0.2183496851965121,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "eee73f41b2ed3a62": {
+    "id": "eee73f41b2ed3a62",
+    "type": "composite",
+    "signature": [
+      -0.01766696117484594
+    ],
+    "sub_patterns": [
+      "f188583dd8419ee4",
+      "c047109f237da8ba",
+      "8ecee6ec319eb006"
+    ],
+    "confidence": 0.21832068269386642,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3b66026ea0640d1c": {
+    "id": "3b66026ea0640d1c",
+    "type": "composite",
+    "signature": [
+      -0.04958268853240506
+    ],
+    "sub_patterns": [
+      "e3a8621709becb4d",
+      "75191bccdfbe45ff"
+    ],
+    "confidence": 0.22084672300315203,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "63ba79bf8e0cd347": {
+    "id": "63ba79bf8e0cd347",
+    "type": "composite",
+    "signature": [
+      7.675890491749306e-05
+    ],
+    "sub_patterns": [
+      "1291dc98d0f3ebf6",
+      "eeff8ae61badc69b"
+    ],
+    "confidence": 0.22245233629875477,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6bc5fb3b7e8a11b1": {
+    "id": "6bc5fb3b7e8a11b1",
+    "type": "composite",
+    "signature": [
+      -0.12611973332761123
+    ],
+    "sub_patterns": [
+      "e83d789f97c4e178",
+      "60a35b1229594402"
+    ],
+    "confidence": 0.2242942046286116,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9cca354a0e1d0c32": {
+    "id": "9cca354a0e1d0c32",
+    "type": "composite",
+    "signature": [
+      -0.015037496774014218
+    ],
+    "sub_patterns": [
+      "5865a6a1c54fd683",
+      "91564ec1abc6b453",
+      "35bef80cb490221a"
+    ],
+    "confidence": 0.22351288753386703,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ff4c66f0c84d5dd3": {
+    "id": "ff4c66f0c84d5dd3",
+    "type": "composite",
+    "signature": [
+      -0.3238008337071036
+    ],
+    "sub_patterns": [
+      "2247c194d6ed408a",
+      "1098275dc6acaa8a",
+      "69ab5506f8e9ae20"
+    ],
+    "confidence": 0.2201944169335851,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "eed56c6e37e4d776": {
+    "id": "eed56c6e37e4d776",
+    "type": "composite",
+    "signature": [
+      0.051513061584178864
+    ],
+    "sub_patterns": [
+      "09a5186941605211",
+      "c9d42b69aad2d4f7",
+      "fc22ae9e4a0223a4"
+    ],
+    "confidence": 0.21677945510340557,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8ad5186310a89107": {
+    "id": "8ad5186310a89107",
+    "type": "composite",
+    "signature": [
+      0.04206034399268079
+    ],
+    "sub_patterns": [
+      "c6c00ee86f6c50f8",
+      "0ce8979c6265135c",
+      "66a12f6897a8b784"
+    ],
+    "confidence": 0.21362555470936015,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "b818e4820bdd985f": {
+    "id": "b818e4820bdd985f",
+    "type": "composite",
+    "signature": [
+      -0.03781800902050664
+    ],
+    "sub_patterns": [
+      "1317fe35b3dbb551",
+      "09d3493c5f1e4225"
+    ],
+    "confidence": 0.21086891535664046,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "56379c7fea56de89": {
+    "id": "56379c7fea56de89",
+    "type": "composite",
+    "signature": [
+      0.03500990125136443
+    ],
+    "sub_patterns": [
+      "75249cf45bfbc92b",
+      "43a6d2daf392958d"
+    ],
+    "confidence": 0.2162804357100804,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "37ca34c5874fb6cd": {
+    "id": "37ca34c5874fb6cd",
+    "type": "composite",
+    "signature": [
+      -0.00041035822156905666
+    ],
+    "sub_patterns": [
+      "bcd71b5fea172f7b",
+      "71eef3d8226aaf8f",
+      "03ce02b8923e0f4b"
+    ],
+    "confidence": 0.21874607639628535,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d7838c97b366e547": {
+    "id": "d7838c97b366e547",
+    "type": "composite",
+    "signature": [
+      0.004553295212947007
+    ],
+    "sub_patterns": [
+      "03ce02b8923e0f4b",
+      "ded7221a2d1619db",
+      "97cb54d3eec220e7"
+    ],
+    "confidence": 0.2213475706521928,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3c539bcea15e41b1": {
+    "id": "3c539bcea15e41b1",
+    "type": "composite",
+    "signature": [
+      -0.08548136956128236
+    ],
+    "sub_patterns": [
+      "1b27ca88e28a296e",
+      "7764d1303727b998"
+    ],
+    "confidence": 0.21763287254947777,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6ce6bf712ff8a3ed": {
+    "id": "6ce6bf712ff8a3ed",
+    "type": "composite",
+    "signature": [
+      -0.025245400498367952
+    ],
+    "sub_patterns": [
+      "7c0ee870dd714c87",
+      "cda5aee14ef5c155"
+    ],
+    "confidence": 0.21924424948127863,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a3c0b0b9e82437c9": {
+    "id": "a3c0b0b9e82437c9",
+    "type": "composite",
+    "signature": [
+      0.10322958515398105
+    ],
+    "sub_patterns": [
+      "d1a0fef5784acc12",
+      "cbfe5dbdd92e3cc0",
+      "3b340d4ff246d373"
+    ],
+    "confidence": 0.2161512731514559,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "6dfe2175900cd5c6": {
+    "id": "6dfe2175900cd5c6",
+    "type": "composite",
+    "signature": [
+      -0.012592973597531448
+    ],
+    "sub_patterns": [
+      "a923063944b182c9",
+      "c62e2ba3b42dba24",
+      "5d9f95bd829ba65c"
+    ],
+    "confidence": 0.21548361579795233,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "152c25e5bb48012b": {
+    "id": "152c25e5bb48012b",
+    "type": "composite",
+    "signature": [
+      0.006797263053915202
+    ],
+    "sub_patterns": [
+      "8bb051570ec98203",
+      "c47e9cd872171da7"
+    ],
+    "confidence": 0.21523240450561448,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "0962b1052c9e0125": {
+    "id": "0962b1052c9e0125",
+    "type": "composite",
+    "signature": [
+      0.25109435191936724
+    ],
+    "sub_patterns": [
+      "4555fb716ba03dec",
+      "4532abfc9fe85381"
+    ],
+    "confidence": 0.21028955540642075,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ce42bfa74a2ea743": {
+    "id": "ce42bfa74a2ea743",
+    "type": "composite",
+    "signature": [
+      0.22186542385227606
+    ],
+    "sub_patterns": [
+      "4532abfc9fe85381",
+      "79ff47b85bd04009",
+      "5ba6aee229365aa8"
+    ],
+    "confidence": 0.2073917482654002,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f3da45adc1d3120a": {
+    "id": "f3da45adc1d3120a",
+    "type": "composite",
+    "signature": [
+      -0.013106505458876245
+    ],
+    "sub_patterns": [
+      "3d0799ff6e99c846",
+      "cda5aee14ef5c155",
+      "1687dacef8567581"
+    ],
+    "confidence": 0.2070798473975758,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a2dbf21950c9c855": {
+    "id": "a2dbf21950c9c855",
+    "type": "composite",
+    "signature": [
+      0.06826092727486847
+    ],
+    "sub_patterns": [
+      "47965cca6feafc2e",
+      "ce42bfa74a2ea743",
+      "960db9d51f67385b"
+    ],
+    "confidence": 0.20711712860713802,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "c0a2dd1bda20de09": {
+    "id": "c0a2dd1bda20de09",
+    "type": "composite",
+    "signature": [
+      -0.04613378982348789
+    ],
+    "sub_patterns": [
+      "1b27ca88e28a296e",
+      "c69469dbeacebbb2"
+    ],
+    "confidence": 0.21050674180576914,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a1d493a536b0cdf2": {
+    "id": "a1d493a536b0cdf2",
+    "type": "composite",
+    "signature": [
+      -0.017803336321731835
+    ],
+    "sub_patterns": [
+      "f79c117f84d3932a",
+      "978e3df5835778f6",
+      "4555fb716ba03dec"
+    ],
+    "confidence": 0.2106180362424461,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e744752a1987ec97": {
+    "id": "e744752a1987ec97",
+    "type": "composite",
+    "signature": [
+      0.06349239612413914
+    ],
+    "sub_patterns": [
+      "1b27ca88e28a296e",
+      "fc22ae9e4a0223a4"
+    ],
+    "confidence": 0.21034334788308298,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "744ad23da5684d17": {
+    "id": "744ad23da5684d17",
+    "type": "composite",
+    "signature": [
+      -0.09381519151822651
+    ],
+    "sub_patterns": [
+      "5d9f95bd829ba65c",
+      "b818e4820bdd985f"
+    ],
+    "confidence": 0.21066477182007023,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8bd1e61682178798": {
+    "id": "8bd1e61682178798",
+    "type": "composite",
+    "signature": [
+      -0.032455052701018006
+    ],
+    "sub_patterns": [
+      "75191bccdfbe45ff",
+      "4ca34b630b0cc134",
+      "6bd62dbc7c65cc28"
+    ],
+    "confidence": 0.2110359340903771,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8994edb10b7ec728": {
+    "id": "8994edb10b7ec728",
+    "type": "composite",
+    "signature": [
+      0.03347471740239338
+    ],
+    "sub_patterns": [
+      "1317fe35b3dbb551",
+      "b818e4820bdd985f",
+      "e83d789f97c4e178"
+    ],
+    "confidence": 0.21418060048482568,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "1bcb4188664654e6": {
+    "id": "1bcb4188664654e6",
+    "type": "composite",
+    "signature": [
+      -0.014124986954630868
+    ],
+    "sub_patterns": [
+      "89ab017f5a5646a0",
+      "68e09a47e5b9f56b",
+      "a1d493a536b0cdf2"
+    ],
+    "confidence": 0.21454118165790043,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4def3eed3580b4aa": {
+    "id": "4def3eed3580b4aa",
+    "type": "composite",
+    "signature": [
+      -0.07509626739209821
+    ],
+    "sub_patterns": [
+      "3c539bcea15e41b1",
+      "a923063944b182c9"
+    ],
+    "confidence": 0.20990939624012359,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a67aac035ff8364f": {
+    "id": "a67aac035ff8364f",
+    "type": "composite",
+    "signature": [
+      0.05137280689552217
+    ],
+    "sub_patterns": [
+      "8df1072be974ee8f",
+      "e3a8621709becb4d",
+      "3d0799ff6e99c846"
+    ],
+    "confidence": 0.21038133614061874,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "8b12ed34ea51d13a": {
+    "id": "8b12ed34ea51d13a",
+    "type": "composite",
+    "signature": [
+      -0.058686599724593336
+    ],
+    "sub_patterns": [
+      "620903f9efe88749",
+      "75191bccdfbe45ff",
+      "d2e574263ebe6458"
+    ],
+    "confidence": 0.21223307430324567,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "a07d348b729e4b96": {
+    "id": "a07d348b729e4b96",
+    "type": "composite",
+    "signature": [
+      0.002357721336131248
+    ],
+    "sub_patterns": [
+      "8b12ed34ea51d13a",
+      "074a1210095ecc42"
+    ],
+    "confidence": 0.2122011711538469,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "ce3990ae224aa218": {
+    "id": "ce3990ae224aa218",
+    "type": "composite",
+    "signature": [
+      0.002032337479505818
+    ],
+    "sub_patterns": [
+      "0512fad9c6073e44",
+      "79f56281884cf090",
+      "43440bf3612c2ad1"
+    ],
+    "confidence": 0.2155629018890362,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "f7fed328f59ce07b": {
+    "id": "f7fed328f59ce07b",
+    "type": "composite",
+    "signature": [
+      -0.027316999338360747
+    ],
+    "sub_patterns": [
+      "3b66026ea0640d1c",
+      "f188489eef3a02c5"
+    ],
+    "confidence": 0.21148839346646378,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7e9e97f5a0ca0e2c": {
+    "id": "7e9e97f5a0ca0e2c",
+    "type": "composite",
+    "signature": [
+      0.04670779970675787
+    ],
+    "sub_patterns": [
+      "c181f5c7874de116",
+      "e744752a1987ec97"
+    ],
+    "confidence": 0.2147926705322559,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d860ede67c3c2284": {
+    "id": "d860ede67c3c2284",
+    "type": "composite",
+    "signature": [
+      0.027796171329398146
+    ],
+    "sub_patterns": [
+      "bd930189e96c02ac",
+      "5865a6a1c54fd683",
+      "8bb051570ec98203"
+    ],
+    "confidence": 0.2156909127804718,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e9bc34baa06fe53e": {
+    "id": "e9bc34baa06fe53e",
+    "type": "composite",
+    "signature": [
+      0.014427066954280528
+    ],
+    "sub_patterns": [
+      "43440bf3612c2ad1",
+      "aa8cac9a2af14fde"
+    ],
+    "confidence": 0.21799692301838375,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "4f4a4f89ea6f3ea6": {
+    "id": "4f4a4f89ea6f3ea6",
+    "type": "composite",
+    "signature": [
+      -0.009693903444154899
+    ],
+    "sub_patterns": [
+      "8447081438ace724",
+      "825ca419d8b59fec",
+      "894c34879feb6b31"
+    ],
+    "confidence": 0.21543403357151109,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "641a0e162e3a111d": {
+    "id": "641a0e162e3a111d",
+    "type": "composite",
+    "signature": [
+      0.005716232095708242
+    ],
+    "sub_patterns": [
+      "9cca354a0e1d0c32",
+      "58aad3e41a506b99",
+      "c47e9cd872171da7"
+    ],
+    "confidence": 0.21265999130761562,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3a5684efea037188": {
+    "id": "3a5684efea037188",
+    "type": "composite",
+    "signature": [
+      0.010632095239271819
+    ],
+    "sub_patterns": [
+      "d7838c97b366e547",
+      "152c25e5bb48012b",
+      "e088eb604dd957f1"
+    ],
+    "confidence": 0.21072245076728888,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "9731bbf3f47b2374": {
+    "id": "9731bbf3f47b2374",
+    "type": "composite",
+    "signature": [
+      -0.0007503119782499758
+    ],
+    "sub_patterns": [
+      "9f4c21b4604871bc",
+      "d7838c97b366e547"
+    ],
+    "confidence": 0.21361260731595674,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "982c488dcc556020": {
+    "id": "982c488dcc556020",
+    "type": "composite",
+    "signature": [
+      -0.001156302367578875
+    ],
+    "sub_patterns": [
+      "7e9e97f5a0ca0e2c",
+      "c07820f31c5a6cc6"
+    ],
+    "confidence": 0.21440905642026942,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "e42988521aec74df": {
+    "id": "e42988521aec74df",
+    "type": "composite",
+    "signature": [
+      -0.09827053752858068
+    ],
+    "sub_patterns": [
+      "bc6349a64bbfa186",
+      "6bc5fb3b7e8a11b1",
+      "1b27ca88e28a296e"
+    ],
+    "confidence": 0.21166521472711988,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "747b1e29593e6fe1": {
+    "id": "747b1e29593e6fe1",
+    "type": "composite",
+    "signature": [
+      0.024398711134832954
+    ],
+    "sub_patterns": [
+      "7c40d226f092f234",
+      "2247c194d6ed408a",
+      "978e3df5835778f6"
+    ],
+    "confidence": 0.2120776429336913,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "22d1e7f73a8ad15f": {
+    "id": "22d1e7f73a8ad15f",
+    "type": "composite",
+    "signature": [
+      0.014546469333470704
+    ],
+    "sub_patterns": [
+      "76930385094d26a8",
+      "113859a8bf54aaa4",
+      "6ce6bf712ff8a3ed"
+    ],
+    "confidence": 0.20972822929749163,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "d96a9d499a5915f0": {
+    "id": "d96a9d499a5915f0",
+    "type": "composite",
+    "signature": [
+      0.0022540006296679627
+    ],
+    "sub_patterns": [
+      "9731bbf3f47b2374",
+      "58aad3e41a506b99",
+      "0d7493d98ef88f5b"
+    ],
+    "confidence": 0.21278121934712096,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "b468c05e912c6a31": {
+    "id": "b468c05e912c6a31",
+    "type": "composite",
+    "signature": [
+      0.019797112347732543
+    ],
+    "sub_patterns": [
+      "4c0809d55007d1cd",
+      "b28f8f13ac2abf33",
+      "a923063944b182c9"
+    ],
+    "confidence": 0.21010190308486962,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7e3cd776048c6617": {
+    "id": "7e3cd776048c6617",
+    "type": "composite",
+    "signature": [
+      -0.013120428750876182
+    ],
+    "sub_patterns": [
+      "e9bc34baa06fe53e",
+      "620903f9efe88749",
+      "66ee384dbbbd47f4"
+    ],
+    "confidence": 0.21029494073181745,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "3ad8e0e2b30072ab": {
+    "id": "3ad8e0e2b30072ab",
+    "type": "composite",
+    "signature": [
+      0.019557866418319057
+    ],
+    "sub_patterns": [
+      "2247c194d6ed408a",
+      "03527352805c5fa4",
+      "9f4c21b4604871bc"
+    ],
+    "confidence": 0.2121898035475352,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "05c675140c24263c": {
+    "id": "05c675140c24263c",
+    "type": "composite",
+    "signature": [
+      0.06613701315892863
+    ],
+    "sub_patterns": [
+      "fc22ae9e4a0223a4",
+      "35bef80cb490221a"
+    ],
+    "confidence": 0.2075284514082766,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "b4ac2005db8838f6": {
+    "id": "b4ac2005db8838f6",
+    "type": "composite",
+    "signature": [
+      0.01982599154842016
+    ],
+    "sub_patterns": [
+      "690f21a4fcb25176",
+      "bf43ec6ae24bac48"
+    ],
+    "confidence": 0.20788320580690567,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "660b7c7015813ca5": {
+    "id": "660b7c7015813ca5",
+    "type": "composite",
+    "signature": [
+      -0.11963164509924407
+    ],
+    "sub_patterns": [
+      "69b5dd369eefa9d8",
+      "a194c2f19b115fa1"
+    ],
+    "confidence": 0.2113225898002464,
+    "activation_count": 30,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 31
+  },
+  "7d9a21c60f17778d": {
+    "id": "7d9a21c60f17778d",
+    "type": "composite",
+    "signature": [
+      -0.011283685568682181
+    ],
+    "sub_patterns": [
+      "8ecee6ec319eb006",
+      "79f56281884cf090",
+      "ce3990ae224aa218"
+    ],
+    "confidence": 0.20737383068663626,
+    "activation_count": 29,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 30
+  },
+  "86cadc7408c87de1": {
+    "id": "86cadc7408c87de1",
+    "type": "composite",
+    "signature": [
+      -0.015604661351053936
+    ],
+    "sub_patterns": [
+      "c68162fb3f56b4de",
+      "08b90f12cf9b3f85",
+      "8ecee6ec319eb006"
+    ],
+    "confidence": 0.20676991647799756,
+    "activation_count": 28,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 29
+  },
+  "0e34eee8ceea8ce4": {
+    "id": "0e34eee8ceea8ce4",
+    "type": "composite",
+    "signature": [
+      -0.10744889867567692
+    ],
+    "sub_patterns": [
+      "1528b3477714e860",
+      "ace4616ee27a7318",
+      "37ca34c5874fb6cd"
+    ],
+    "confidence": 0.2019657579986108,
+    "activation_count": 27,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 28
+  },
+  "a496034f67f2cfcc": {
+    "id": "a496034f67f2cfcc",
+    "type": "composite",
+    "signature": [
+      0.013345707017701734
+    ],
+    "sub_patterns": [
+      "c9f08a8a7d84ac70",
+      "e9bc34baa06fe53e"
+    ],
+    "confidence": 0.2005316978620657,
+    "activation_count": 26,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 27
+  },
+  "c4a745368c75840b": {
+    "id": "c4a745368c75840b",
+    "type": "composite",
+    "signature": [
+      0.0027056954884075632
+    ],
+    "sub_patterns": [
+      "6ce6bf712ff8a3ed",
+      "49d9b9bd7f932e56",
+      "79495062b5d71341"
+    ],
+    "confidence": 0.19473325420970236,
+    "activation_count": 25,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 26
+  },
+  "8ec19fa4840f33b8": {
+    "id": "8ec19fa4840f33b8",
+    "type": "composite",
+    "signature": [
+      -0.00593507985857567
+    ],
+    "sub_patterns": [
+      "1098275dc6acaa8a",
+      "43440bf3612c2ad1"
+    ],
+    "confidence": 0.19401087347707988,
+    "activation_count": 24,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 25
+  },
+  "dd871635b426671f": {
+    "id": "dd871635b426671f",
+    "type": "composite",
+    "signature": [
+      0.043545303005805655
+    ],
+    "sub_patterns": [
+      "894752f142fcec4a",
+      "cbfe5dbdd92e3cc0"
+    ],
+    "confidence": 0.19232863164907474,
+    "activation_count": 23,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 24
+  },
+  "148d8c4d021c2684": {
+    "id": "148d8c4d021c2684",
+    "type": "composite",
+    "signature": [
+      -0.09891464392083778
+    ],
+    "sub_patterns": [
+      "640d127a62d5592a",
+      "1eff97a0d5f0a9d8",
+      "5d8533dd7c736d65"
+    ],
+    "confidence": 0.18515850443098109,
+    "activation_count": 22,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 23
+  },
+  "83f89d521dad87be": {
+    "id": "83f89d521dad87be",
+    "type": "composite",
+    "signature": [
+      0.05009223941824681
+    ],
+    "sub_patterns": [
+      "a923063944b182c9",
+      "7d9a21c60f17778d",
+      "3b340d4ff246d373"
+    ],
+    "confidence": 0.17886539506326393,
+    "activation_count": 21,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 22
+  },
+  "0b9d9e150218a60e": {
+    "id": "0b9d9e150218a60e",
+    "type": "composite",
+    "signature": [
+      0.02770084321790444
+    ],
+    "sub_patterns": [
+      "79fc572b4b1d3a7a",
+      "3ad8e0e2b30072ab"
+    ],
+    "confidence": 0.17606761548196403,
+    "activation_count": 20,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 21
+  },
+  "0f37abcd535ce392": {
+    "id": "0f37abcd535ce392",
+    "type": "composite",
+    "signature": [
+      0.002184520207104912
+    ],
+    "sub_patterns": [
+      "6ce6bf712ff8a3ed",
+      "49d9b9bd7f932e56",
+      "a2dbf21950c9c855"
+    ],
+    "confidence": 0.187624902399833,
+    "activation_count": 18,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 19
+  },
+  "e55d923e3c6e0f78": {
+    "id": "e55d923e3c6e0f78",
+    "type": "composite",
+    "signature": [
+      0.00830100008092827
+    ],
+    "sub_patterns": [
+      "e2eacd77fdae10eb",
+      "c91b60f63d5dc469"
+    ],
+    "confidence": 0.19973571291982892,
+    "activation_count": 16,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 17
+  },
+  "dc040679be0e0a86": {
+    "id": "dc040679be0e0a86",
+    "type": "composite",
+    "signature": [
+      -0.01857706616839484
+    ],
+    "sub_patterns": [
+      "847944f2044001a4",
+      "0d6b72a4c694ba65",
+      "c3df938f103ce37e"
+    ],
+    "confidence": 0.21735084311014893,
+    "activation_count": 14,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 15
+  },
+  "e8ca53084f7c80f0": {
+    "id": "e8ca53084f7c80f0",
+    "type": "composite",
+    "signature": [
+      0.02737191432487213
+    ],
+    "sub_patterns": [
+      "b28f8f13ac2abf33",
+      "bdb64509e5c836f4",
+      "974bd12704348666"
+    ],
+    "confidence": 0.23580963067301425,
+    "activation_count": 12,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 13
+  },
+  "8844321a49b7dc92": {
+    "id": "8844321a49b7dc92",
+    "type": "composite",
+    "signature": [
+      -0.1015974944379896
+    ],
+    "sub_patterns": [
+      "eeb731af94ff668b",
+      "68e09a47e5b9f56b",
+      "a4c1e204faaf83aa"
+    ],
+    "confidence": 0.26265787056071427,
+    "activation_count": 10,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 11
+  },
+  "fe8c397933e0a4c9": {
+    "id": "fe8c397933e0a4c9",
+    "type": "composite",
+    "signature": [
+      -0.06302028281449273
+    ],
+    "sub_patterns": [
+      "0e34eee8ceea8ce4",
+      "8bb051570ec98203"
+    ],
+    "confidence": 0.29079197749999997,
+    "activation_count": 8,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 9
+  },
+  "e50f83680802bf40": {
+    "id": "e50f83680802bf40",
+    "type": "composite",
+    "signature": [
+      -0.018987689796103963
+    ],
+    "sub_patterns": [
+      "eefd32836bca9d57",
+      "3605350f1c75b674",
+      "ea413aea8961ad42"
+    ],
+    "confidence": 0.32552544285714285,
+    "activation_count": 6,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 7
+  },
+  "f472d3835f3f76bc": {
+    "id": "f472d3835f3f76bc",
+    "type": "composite",
+    "signature": [
+      0.05104446431064832
+    ],
+    "sub_patterns": [
+      "5d0af5f8d3000697",
+      "9594038bf506de67",
+      "87df38f586e1930e"
+    ],
+    "confidence": 0.37604514285714286,
+    "activation_count": 4,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 5
+  },
+  "200fd96944d38bc6": {
+    "id": "200fd96944d38bc6",
+    "type": "composite",
+    "signature": [
+      -0.07035548764227416
+    ],
+    "sub_patterns": [
+      "061324744deee587",
+      "f3da45adc1d3120a"
+    ],
+    "confidence": 0.4346428571428571,
+    "activation_count": 2,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 3
+  },
+  "b983dd9793519a63": {
+    "id": "b983dd9793519a63",
+    "type": "composite",
+    "signature": [
+      0.040300386709070934
+    ],
+    "sub_patterns": [
+      "8efb84b1f4ca77fc",
+      "8ad5186310a89107"
+    ],
+    "confidence": 0.5,
+    "activation_count": 0,
+    "domains": [
+      "zork_outcome",
+      "zork_situation"
+    ],
+    "version": 1
+  }
+}

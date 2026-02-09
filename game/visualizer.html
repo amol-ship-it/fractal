@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MicroRTS AI — Game Visualizer</title>
+<style>
+/* ── Reset & Globals ──────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0f1117;--surface:#181b24;--surface2:#1e2230;--border:#2a2e3e;
+  --text:#e0e0e8;--muted:#8890a4;--accent:#4fc3f7;
+  --p0:#42a5f5;--p0-bg:rgba(66,165,245,.12);
+  --p1:#ef5350;--p1-bg:rgba(239,83,80,.12);
+  --gold:#ffd54f;--green:#66bb6a;--purple:#ab47bc;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;overflow:hidden}
+
+/* ── Layout ───────────────────────────────────────────── */
+#app{display:grid;grid-template-rows:auto 1fr auto;height:100vh}
+
+header{background:var(--surface);border-bottom:1px solid var(--border);
+  padding:10px 24px;display:flex;align-items:center;gap:20px}
+header h1{font-size:18px;font-weight:700;letter-spacing:.5px}
+header h1 span{color:var(--accent)}
+.match-label{font-size:14px;color:var(--muted)}
+.match-label b{color:var(--text)}
+
+#main{display:grid;grid-template-columns:260px 1fr 260px;gap:0;overflow:hidden}
+
+/* ── Side Panels ──────────────────────────────────────── */
+.panel{background:var(--surface);border-right:1px solid var(--border);
+  padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:14px}
+.panel:last-child{border-right:none;border-left:1px solid var(--border)}
+.panel-title{font-size:13px;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--muted);font-weight:600;margin-bottom:2px}
+.panel-section{background:var(--surface2);border-radius:8px;padding:12px}
+
+.stat-row{display:flex;justify-content:space-between;align-items:center;
+  padding:3px 0;font-size:13px}
+.stat-label{color:var(--muted)}
+.stat-value{font-weight:600;font-variant-numeric:tabular-nums}
+
+.unit-bar{display:flex;align-items:center;gap:8px;padding:4px 0}
+.unit-icon{width:22px;height:22px;border-radius:4px;display:flex;
+  align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.unit-count{font-size:14px;font-weight:600;min-width:20px;text-align:right}
+.unit-name{font-size:12px;color:var(--muted);flex:1}
+
+.p0-color{color:var(--p0)}.p1-color{color:var(--p1)}
+.res-color{color:var(--gold)}.hp-color{color:var(--green)}
+
+/* ── Canvas Area ──────────────────────────────────────── */
+.canvas-wrap{display:flex;align-items:center;justify-content:center;
+  background:#0a0c12;position:relative;overflow:hidden}
+canvas{image-rendering:pixelated}
+
+/* ── Overlay Messages ─────────────────────────────────── */
+.game-overlay{position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;pointer-events:none;z-index:10}
+.game-overlay .msg{background:rgba(0,0,0,.82);backdrop-filter:blur(8px);
+  padding:24px 48px;border-radius:12px;text-align:center;
+  border:1px solid var(--border);pointer-events:auto}
+.game-overlay .msg h2{font-size:28px;margin-bottom:6px}
+.game-overlay .msg p{color:var(--muted);font-size:14px}
+
+/* ── Footer / Controls ────────────────────────────────── */
+footer{background:var(--surface);border-top:1px solid var(--border);
+  padding:10px 24px;display:flex;align-items:center;gap:16px}
+.controls{display:flex;align-items:center;gap:8px}
+.btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);
+  border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;
+  transition:background .15s}
+.btn:hover{background:#282d3e}
+.btn.active{background:var(--accent);color:#000;border-color:var(--accent)}
+.btn svg{width:16px;height:16px;vertical-align:middle}
+
+.timeline{flex:1;display:flex;align-items:center;gap:12px}
+.timeline input[type=range]{flex:1;accent-color:var(--accent);height:4px}
+.tick-label{font-size:13px;font-variant-numeric:tabular-nums;min-width:110px;
+  text-align:center;color:var(--muted)}
+.tick-label b{color:var(--text)}
+
+.speed-label{font-size:12px;color:var(--muted)}
+
+/* ── New Game Dialog ──────────────────────────────────── */
+.dialog-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;
+  display:flex;align-items:center;justify-content:center}
+.dialog{background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:28px;width:380px}
+.dialog h3{font-size:16px;margin-bottom:16px}
+.dialog label{display:block;font-size:13px;color:var(--muted);margin-bottom:4px;margin-top:12px}
+.dialog select,.dialog input{width:100%;padding:8px 10px;border-radius:6px;
+  border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:14px}
+.dialog-actions{margin-top:20px;display:flex;gap:10px;justify-content:flex-end}
+
+/* ── Event log ────────────────────────────────────────── */
+#event-log{max-height:200px;overflow-y:auto;font-size:11px;line-height:1.6}
+#event-log .ev{padding:1px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+#event-log .ev-tick{color:var(--muted);margin-right:6px;font-variant-numeric:tabular-nums}
+
+/* ── Mini chart ───────────────────────────────────────── */
+.mini-chart{height:60px;position:relative;margin-top:4px}
+.mini-chart canvas{width:100%!important;height:100%!important;border-radius:4px}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- ─── Header ──────────────────────────────────────── -->
+<header>
+  <h1>Micro<span>RTS</span> AI</h1>
+  <div class="match-label" id="match-label">Loading...</div>
+  <div style="flex:1"></div>
+  <button class="btn" onclick="showNewGame()">New Game</button>
+</header>
+
+<!-- ─── Main Area ───────────────────────────────────── -->
+<div id="main">
+
+  <!-- Player 0 panel -->
+  <div class="panel" id="p0-panel">
+    <div class="panel-title p0-color">&#9650; Player 0 (BLUE) &mdash; <span id="p0-ai-name">Rush</span></div>
+    <div class="panel-section">
+      <div class="stat-row"><span class="stat-label">Resources</span>
+        <span class="stat-value res-color" id="p0-res">0</span></div>
+      <div class="stat-row"><span class="stat-label">Total Units</span>
+        <span class="stat-value" id="p0-total">0</span></div>
+      <div class="stat-row"><span class="stat-label">Total HP</span>
+        <span class="stat-value hp-color" id="p0-hp">0</span></div>
+    </div>
+    <div class="panel-section">
+      <div class="unit-bar"><div class="unit-icon" style="background:#2962ff;color:#fff">B</div>
+        <span class="unit-name">Bases</span><span class="unit-count p0-color" id="p0-bases">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#6a1b9a;color:#fff">K</div>
+        <span class="unit-name">Barracks</span><span class="unit-count p0-color" id="p0-barracks">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#00838f;color:#fff">W</div>
+        <span class="unit-name">Workers</span><span class="unit-count p0-color" id="p0-workers">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#1565c0;color:#fff">L</div>
+        <span class="unit-name">Light</span><span class="unit-count p0-color" id="p0-light">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#1a237e;color:#fff">H</div>
+        <span class="unit-name">Heavy</span><span class="unit-count p0-color" id="p0-heavy">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#0277bd;color:#fff">R</div>
+        <span class="unit-name">Ranged</span><span class="unit-count p0-color" id="p0-ranged">0</span></div>
+    </div>
+    <div class="panel-title" style="margin-top:6px">Unit Strength</div>
+    <div class="panel-section mini-chart"><canvas id="chart-p0"></canvas></div>
+  </div>
+
+  <!-- Canvas -->
+  <div class="canvas-wrap">
+    <canvas id="game-canvas"></canvas>
+    <div class="game-overlay" id="overlay" style="display:none">
+      <div class="msg"><h2 id="overlay-title"></h2><p id="overlay-sub"></p></div>
+    </div>
+  </div>
+
+  <!-- Player 1 panel -->
+  <div class="panel" id="p1-panel">
+    <div class="panel-title p1-color">&#9660; Player 1 (RED) &mdash; <span id="p1-ai-name">Defensive</span></div>
+    <div class="panel-section">
+      <div class="stat-row"><span class="stat-label">Resources</span>
+        <span class="stat-value res-color" id="p1-res">0</span></div>
+      <div class="stat-row"><span class="stat-label">Total Units</span>
+        <span class="stat-value" id="p1-total">0</span></div>
+      <div class="stat-row"><span class="stat-label">Total HP</span>
+        <span class="stat-value hp-color" id="p1-hp">0</span></div>
+    </div>
+    <div class="panel-section">
+      <div class="unit-bar"><div class="unit-icon" style="background:#c62828;color:#fff">B</div>
+        <span class="unit-name">Bases</span><span class="unit-count p1-color" id="p1-bases">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#6a1b9a;color:#fff">K</div>
+        <span class="unit-name">Barracks</span><span class="unit-count p1-color" id="p1-barracks">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#ad1457;color:#fff">W</div>
+        <span class="unit-name">Workers</span><span class="unit-count p1-color" id="p1-workers">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#d32f2f;color:#fff">L</div>
+        <span class="unit-name">Light</span><span class="unit-count p1-color" id="p1-light">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#b71c1c;color:#fff">H</div>
+        <span class="unit-name">Heavy</span><span class="unit-count p1-color" id="p1-heavy">0</span></div>
+      <div class="unit-bar"><div class="unit-icon" style="background:#e53935;color:#fff">R</div>
+        <span class="unit-name">Ranged</span><span class="unit-count p1-color" id="p1-ranged">0</span></div>
+    </div>
+    <div class="panel-title" style="margin-top:6px">Event Log</div>
+    <div class="panel-section" id="event-log"></div>
+  </div>
+</div>
+
+<!-- ─── Footer / Playback controls ──────────────────── -->
+<footer>
+  <div class="controls">
+    <button class="btn" id="btn-restart" title="Restart" onclick="seekTo(0)">&#9198;</button>
+    <button class="btn" id="btn-back" title="Step back" onclick="stepBack()">&#9664;&#9664;</button>
+    <button class="btn active" id="btn-play" title="Play / Pause" onclick="togglePlay()">&#9654;</button>
+    <button class="btn" id="btn-fwd" title="Step forward" onclick="stepForward()">&#9654;&#9654;</button>
+    <button class="btn" id="btn-end" title="Go to end" onclick="seekTo(totalFrames-1)">&#9197;</button>
+  </div>
+  <div class="timeline">
+    <input type="range" id="timeline-slider" min="0" max="0" value="0"
+      oninput="seekTo(+this.value)">
+    <div class="tick-label">Tick <b id="tick-num">0</b> / <span id="tick-max">0</span></div>
+  </div>
+  <div class="controls">
+    <span class="speed-label">Speed</span>
+    <button class="btn" onclick="setSpeed(1,this)">1x</button>
+    <button class="btn active" onclick="setSpeed(3,this)">3x</button>
+    <button class="btn" onclick="setSpeed(10,this)">10x</button>
+    <button class="btn" onclick="setSpeed(30,this)">30x</button>
+  </div>
+</footer>
+
+</div>
+
+<!-- ─── New Game Dialog (hidden) ────────────────────── -->
+<div class="dialog-bg" id="new-game-dialog" style="display:none">
+<div class="dialog">
+  <h3>New Game</h3>
+  <label>Player 0 (Blue)</label>
+  <select id="ng-p0"><option value="pattern">Your AI (Pattern)</option><option value="ppo">Your AI (PPO)</option><option>rush</option><option>economy</option><option>defensive</option><option>random</option></select>
+  <label>Player 1 (Red)</label>
+  <select id="ng-p1"><option>defensive</option><option>rush</option><option>economy</option><option>random</option><option value="pattern">Your AI (Pattern)</option><option value="ppo">Your AI (PPO)</option></select>
+  <label>Map Size</label>
+  <select id="ng-size"><option value="8">8 &times; 8</option><option value="12">12 &times; 12</option><option value="16">16 &times; 16</option></select>
+  <label>Max Ticks</label>
+  <input id="ng-ticks" type="number" value="1000" min="100" max="5000" step="100">
+  <div class="dialog-actions">
+    <button class="btn" onclick="hideNewGame()">Cancel</button>
+    <button class="btn active" onclick="startNewGame()">Start</button>
+  </div>
+</div>
+</div>
+
+<script>
+/* ================================================================
+   MicroRTS Game Visualizer – Canvas renderer + playback engine
+   ================================================================ */
+
+// ── State ─────────────────────────────────────────────────
+let frames = [], events = [], totalFrames = 0;
+let currentFrame = 0, playing = false, speed = 3;
+let mapW = 8, mapH = 8;
+let p0AiName = 'rush', p1AiName = 'defensive';
+let historyP0 = [], historyP1 = [];
+let lastAnimTime = 0;
+let particles = []; // explosion / harvest particles
+
+const canvas = document.getElementById('game-canvas');
+const ctx = canvas.getContext('2d');
+
+// ── Colors & Config ───────────────────────────────────────
+const CELL = 56; // px per grid cell
+const P0 = {main:'#42a5f5',dark:'#1565c0',light:'#90caf9',bg:'rgba(66,165,245,0.15)'};
+const P1 = {main:'#ef5350',dark:'#c62828',light:'#ef9a9a',bg:'rgba(239,83,80,0.15)'};
+const NEUTRAL = {main:'#ffd54f',dark:'#f9a825'};
+const GRASS = ['#1a2e1a','#1c301c','#1e321e','#1b2f1b'];
+const GRID_LINE = 'rgba(255,255,255,0.04)';
+
+const UNIT_COLORS = {
+  resource:{p:{main:'#ffd54f',dark:'#f9a825'},shape:'diamond'},
+  base:    {shape:'square',size:0.82},
+  barracks:{shape:'square',size:0.68},
+  worker:  {shape:'circle',size:0.36},
+  light:   {shape:'circle',size:0.32},
+  heavy:   {shape:'circle',size:0.42},
+  ranged:  {shape:'triangle',size:0.34},
+};
+const UNIT_LABELS = {resource:'$',base:'B',barracks:'K',worker:'W',light:'L',heavy:'H',ranged:'R'};
+
+const ACTION_COLORS = {
+  idle:'transparent', moving:'rgba(255,255,255,0.25)',
+  harvesting:'rgba(255,215,0,0.5)', returning:'rgba(0,200,100,0.5)',
+  producing:'rgba(171,71,188,0.5)', attacking:'rgba(255,60,60,0.7)',
+  building:'rgba(171,71,188,0.4)',
+};
+
+// ── Load data from server ──────────────────────────────────
+async function loadGame(){
+  try {
+    const r = await fetch('/api/frames/all');
+    const data = await r.json();
+    frames = data.frames; events = data.events || [];
+    totalFrames = frames.length;
+    mapW = frames[0].map_width; mapH = frames[0].map_height;
+    p0AiName = data.p0; p1AiName = data.p1;
+    const aiLabel = (name) => name === 'ppo' ? 'Your AI (PPO)' : name === 'pattern' ? 'Your AI (Pattern)' : capitalize(name);
+    document.getElementById('p0-ai-name').textContent = aiLabel(data.p0);
+    document.getElementById('p1-ai-name').textContent = aiLabel(data.p1);
+    document.getElementById('match-label').innerHTML =
+      `<b>${aiLabel(data.p0)}</b> vs <b>${aiLabel(data.p1)}</b> &mdash; ${mapW}&times;${mapH}`;
+    document.getElementById('timeline-slider').max = totalFrames - 1;
+    document.getElementById('tick-max').textContent = frames[totalFrames-1].tick;
+    historyP0 = []; historyP1 = [];
+    particles = [];
+    accumulator = 0;
+    resizeCanvas();
+    seekTo(0);
+    // Start playing automatically with clean timing
+    playing = true;
+    lastAnimTime = performance.now();
+    document.getElementById('btn-play').textContent = '\u23f8';
+    document.getElementById('btn-play').classList.add('active');
+  } catch(e) { console.error('Failed to load game data',e); }
+}
+
+function capitalize(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+
+// ── Canvas sizing ──────────────────────────────────────────
+function resizeCanvas(){
+  const wrap = canvas.parentElement;
+  const maxW = wrap.clientWidth - 40, maxH = wrap.clientHeight - 40;
+  const cellSize = Math.floor(Math.min(maxW/mapW, maxH/mapH));
+  canvas.width = mapW * cellSize;
+  canvas.height = mapH * cellSize;
+  canvas.style.width = canvas.width + 'px';
+  canvas.style.height = canvas.height + 'px';
+  window._cell = cellSize;
+}
+window.addEventListener('resize', ()=>{ resizeCanvas(); renderFrame(frames[currentFrame]); });
+
+// ── Drawing helpers ────────────────────────────────────────
+function cellPx(){ return window._cell || CELL; }
+
+function drawGrid(f){
+  const c = cellPx();
+  // Background grass tiles
+  for(let y=0;y<mapH;y++) for(let x=0;x<mapW;x++){
+    ctx.fillStyle = GRASS[(x+y*3)%GRASS.length];
+    ctx.fillRect(x*c, y*c, c, c);
+  }
+  // Grid lines
+  ctx.strokeStyle = GRID_LINE; ctx.lineWidth = 1;
+  for(let x=0;x<=mapW;x++){ctx.beginPath();ctx.moveTo(x*c,0);ctx.lineTo(x*c,mapH*c);ctx.stroke();}
+  for(let y=0;y<=mapH;y++){ctx.beginPath();ctx.moveTo(0,y*c);ctx.lineTo(mapW*c,y*c);ctx.stroke();}
+}
+
+function playerPalette(player){
+  if(player===-1) return NEUTRAL;
+  return player===0 ? P0 : P1;
+}
+
+function drawUnit(u){
+  const c = cellPx();
+  const cx = u.x*c + c/2, cy = u.y*c + c/2;
+  const pal = playerPalette(u.player);
+  const cfg = UNIT_COLORS[u.type] || {shape:'circle',size:0.3};
+  const sz = (cfg.size||0.4)*c;
+
+  // Action indicator glow
+  const actionCol = ACTION_COLORS[u.action];
+  if(actionCol && actionCol!=='transparent'){
+    ctx.fillStyle = actionCol;
+    ctx.beginPath(); ctx.arc(cx,cy,sz*1.4,0,Math.PI*2); ctx.fill();
+  }
+
+  // Action line to target
+  if(u.target && (u.action==='attacking'||u.action==='moving'||u.action==='harvesting'||u.action==='returning')){
+    const tx=u.target[0]*c+c/2, ty=u.target[1]*c+c/2;
+    ctx.strokeStyle = actionCol || 'rgba(255,255,255,0.2)';
+    ctx.lineWidth = 2; ctx.setLineDash([4,4]);
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(tx,ty); ctx.stroke();
+    ctx.setLineDash([]);
+    if(u.action==='attacking'){
+      ctx.fillStyle='rgba(255,60,60,0.7)';
+      ctx.beginPath(); ctx.arc(tx,ty,4,0,Math.PI*2); ctx.fill();
+    }
+  }
+
+  // Shape
+  ctx.fillStyle = pal.main||pal.p?.main||'#888';
+  ctx.strokeStyle = pal.dark||pal.p?.dark||'#444'; ctx.lineWidth = 2;
+
+  if(cfg.shape==='square'){
+    const half = sz/2;
+    ctx.beginPath();
+    ctx.roundRect(cx-half,cy-half,sz,sz,4);
+    ctx.fill(); ctx.stroke();
+  } else if(cfg.shape==='diamond'){
+    ctx.beginPath();
+    ctx.moveTo(cx,cy-sz*0.6); ctx.lineTo(cx+sz*0.5,cy);
+    ctx.lineTo(cx,cy+sz*0.6); ctx.lineTo(cx-sz*0.5,cy); ctx.closePath();
+    ctx.fill(); ctx.stroke();
+  } else if(cfg.shape==='triangle'){
+    ctx.beginPath();
+    ctx.moveTo(cx,cy-sz*0.6); ctx.lineTo(cx+sz*0.55,cy+sz*0.4);
+    ctx.lineTo(cx-sz*0.55,cy+sz*0.4); ctx.closePath();
+    ctx.fill(); ctx.stroke();
+  } else {
+    ctx.beginPath(); ctx.arc(cx,cy,sz,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  }
+
+  // Label
+  ctx.fillStyle = '#fff'; ctx.font = `bold ${Math.round(c*0.28)}px sans-serif`;
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText(UNIT_LABELS[u.type]||'?', cx, cy+1);
+
+  // Carrying resource indicator
+  if(u.resources_carried>0){
+    ctx.fillStyle='#ffd54f';
+    ctx.beginPath(); ctx.arc(cx+sz*0.7,cy-sz*0.5,c*0.08,0,Math.PI*2); ctx.fill();
+  }
+
+  // HP bar (skip full-hp resources)
+  if(u.type!=='resource' && u.max_hp>0){
+    const barW = sz*1.4, barH = Math.max(3,c*0.06);
+    const bx = cx - barW/2, by = cy - sz - barH - 3;
+    const ratio = u.hp / u.max_hp;
+    // bg
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    ctx.fillRect(bx-1,by-1,barW+2,barH+2);
+    // fill
+    ctx.fillStyle = ratio>0.5?'#66bb6a':ratio>0.25?'#ffa726':'#ef5350';
+    ctx.fillRect(bx, by, barW*ratio, barH);
+  }
+
+  // Producing progress ring
+  if(u.action==='producing' && u.ticks_remaining>0){
+    const maxTicks = 250; // approximate
+    const progress = 1 - (u.ticks_remaining / maxTicks);
+    ctx.strokeStyle = 'rgba(171,71,188,0.9)'; ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(cx, cy, sz+6, -Math.PI/2, -Math.PI/2 + Math.PI*2*Math.min(progress,1));
+    ctx.stroke();
+  }
+}
+
+function drawParticles(){
+  const c = cellPx();
+  const now = performance.now();
+  particles = particles.filter(p=>{
+    const age = (now - p.born)/p.life;
+    if(age>=1) return false;
+    const alpha = 1 - age;
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = p.color;
+    const px = p.x*c+c/2+p.vx*age*c, py = p.y*c+c/2+p.vy*age*c;
+    const r = p.size*(1-age*0.5);
+    ctx.beginPath(); ctx.arc(px,py,r,0,Math.PI*2); ctx.fill();
+    ctx.globalAlpha = 1;
+    return true;
+  });
+}
+
+function spawnExplosion(x,y,color,count){
+  for(let i=0;i<count;i++){
+    const angle = Math.random()*Math.PI*2;
+    const speed = 0.2+Math.random()*0.6;
+    particles.push({
+      x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,
+      color, size:2+Math.random()*3, born:performance.now(), life:400+Math.random()*300
+    });
+  }
+}
+
+// ── Render one frame ───────────────────────────────────────
+function renderFrame(f){
+  if(!f) return;
+  const c = cellPx();
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  drawGrid(f);
+
+  // Sort units: structures first, then mobile units on top
+  const sorted = [...f.units].sort((a,b)=>{
+    if(a.is_structure && !b.is_structure) return -1;
+    if(!a.is_structure && b.is_structure) return 1;
+    return 0;
+  });
+  sorted.forEach(drawUnit);
+  drawParticles();
+
+  // Update stats
+  const p0 = f.players['0'], p1 = f.players['1'];
+  document.getElementById('p0-res').textContent = p0.resources;
+  document.getElementById('p0-total').textContent = p0.total_units;
+  document.getElementById('p0-hp').textContent = p0.total_hp;
+  document.getElementById('p0-bases').textContent = p0.bases;
+  document.getElementById('p0-barracks').textContent = p0.barracks;
+  document.getElementById('p0-workers').textContent = p0.workers;
+  document.getElementById('p0-light').textContent = p0.light;
+  document.getElementById('p0-heavy').textContent = p0.heavy;
+  document.getElementById('p0-ranged').textContent = p0.ranged;
+
+  document.getElementById('p1-res').textContent = p1.resources;
+  document.getElementById('p1-total').textContent = p1.total_units;
+  document.getElementById('p1-hp').textContent = p1.total_hp;
+  document.getElementById('p1-bases').textContent = p1.bases;
+  document.getElementById('p1-barracks').textContent = p1.barracks;
+  document.getElementById('p1-workers').textContent = p1.workers;
+  document.getElementById('p1-light').textContent = p1.light;
+  document.getElementById('p1-heavy').textContent = p1.heavy;
+  document.getElementById('p1-ranged').textContent = p1.ranged;
+
+  document.getElementById('tick-num').textContent = f.tick;
+  document.getElementById('timeline-slider').value = currentFrame;
+
+  // Record history for chart
+  if(historyP0.length <= currentFrame){
+    historyP0.push(p0.total_hp);
+    historyP1.push(p1.total_hp);
+  }
+  drawMiniChart();
+
+  // Overlay — only show at the very last frame when paused
+  const ol = document.getElementById('overlay');
+  if(f.done && currentFrame >= totalFrames-1 && !playing){
+    ol.style.display='flex';
+    const t = document.getElementById('overlay-title');
+    const s = document.getElementById('overlay-sub');
+    const winLabel = (p, name) => (name === 'ppo' || name === 'pattern') ? 'Your AI Wins!' : `Player ${p} (${p===0?'Blue':'Red'}) Wins!`;
+    if(f.winner===0){ t.textContent=winLabel(0,p0AiName); t.style.color=P0.main; }
+    else if(f.winner===1){ t.textContent=winLabel(1,p1AiName); t.style.color=P1.main; }
+    else { t.textContent='Draw'; t.style.color=NEUTRAL.main; }
+    s.textContent = `Game ended at tick ${f.tick} \u2014 Press Space or \u25b6 to replay`;
+  } else { ol.style.display='none'; }
+}
+
+// ── Mini strength chart ────────────────────────────────────
+function drawMiniChart(){
+  const cv = document.getElementById('chart-p0');
+  const cctx = cv.getContext('2d');
+  const w = cv.parentElement.clientWidth, h = cv.parentElement.clientHeight;
+  cv.width = w*2; cv.height = h*2;
+  cctx.scale(2,2);
+  cctx.clearRect(0,0,w,h);
+
+  if(historyP0.length<2) return;
+  const maxV = Math.max(1,...historyP0,...historyP1);
+  const step = w / Math.max(historyP0.length-1,1);
+
+  function drawLine(data,color){
+    cctx.strokeStyle=color; cctx.lineWidth=1.5; cctx.beginPath();
+    for(let i=0;i<data.length;i++){
+      const x=i*step, y=h-2-(data[i]/maxV)*(h-4);
+      i===0?cctx.moveTo(x,y):cctx.lineTo(x,y);
+    }
+    cctx.stroke();
+  }
+  drawLine(historyP0,P0.main);
+  drawLine(historyP1,P1.main);
+
+  // Current position marker
+  const cx = currentFrame*step;
+  cctx.strokeStyle='rgba(255,255,255,0.3)'; cctx.lineWidth=1;
+  cctx.beginPath(); cctx.moveTo(cx,0); cctx.lineTo(cx,h); cctx.stroke();
+}
+
+// ── Event log ──────────────────────────────────────────────
+function updateEventLog(){
+  const log = document.getElementById('event-log');
+  const tick = frames[currentFrame]?.tick || 0;
+  const relevant = events.filter(e=>e.tick <= tick).slice(-30);
+  log.innerHTML = relevant.map(e=>{
+    const pc = e.player===0?'p0-color':'p1-color';
+    if(e.type==='unit_created')
+      return `<div class="ev"><span class="ev-tick">T${e.tick}</span><span class="${pc}">+${e.unit_type}</span> at (${e.x},${e.y})</div>`;
+    if(e.type==='unit_destroyed')
+      return `<div class="ev"><span class="ev-tick">T${e.tick}</span><span class="${pc}">&#x2620; Unit destroyed</span></div>`;
+    return '';
+  }).join('');
+  log.scrollTop = log.scrollHeight;
+}
+
+// ── Playback ───────────────────────────────────────────────
+function seekTo(idx){
+  currentFrame = Math.max(0, Math.min(idx, totalFrames-1));
+  accumulator = 0; // Reset accumulator to prevent frame-skipping after seek
+  lastAnimTime = performance.now(); // Reset timing to prevent dt spike
+  // Rebuild history up to this point
+  historyP0 = []; historyP1 = [];
+  for(let i=0;i<=currentFrame;i++){
+    historyP0.push(frames[i].players['0'].total_hp);
+    historyP1.push(frames[i].players['1'].total_hp);
+  }
+  renderFrame(frames[currentFrame]);
+  updateEventLog();
+}
+function stepForward(){ seekTo(currentFrame + 1); }
+function stepBack(){ seekTo(currentFrame - 1); }
+function togglePlay(){
+  playing = !playing;
+  if(playing){
+    // Reset timing state to prevent dt spike after being paused
+    accumulator = 0;
+    lastAnimTime = performance.now();
+    // If at the end, restart from beginning
+    if(currentFrame >= totalFrames-1){
+      currentFrame = 0;
+      historyP0 = []; historyP1 = [];
+    }
+  }
+  document.getElementById('btn-play').textContent = playing ? '⏸' : '▶';
+  document.getElementById('btn-play').classList.toggle('active', playing);
+}
+function setSpeed(s, el){
+  speed = s;
+  accumulator = 0; // Reset accumulator on speed change
+  const btns = document.querySelectorAll('footer .controls:last-child .btn');
+  btns.forEach(b=>b.classList.remove('active'));
+  // Highlight the correct button — from click (el) or by matching label
+  if(el){
+    el.classList.add('active');
+  } else {
+    const labels = {'1':'1x','3':'3x','10':'10x','30':'30x'};
+    btns.forEach(b=>{ if(b.textContent.trim()===labels[s]) b.classList.add('active'); });
+  }
+}
+
+// ── Animation loop ─────────────────────────────────────────
+let accumulator = 0;
+const MAX_DT = 100; // Clamp dt to prevent huge jumps from tab-switch or lag
+
+function animate(now){
+  requestAnimationFrame(animate);
+  if(!frames.length) return;
+
+  // Clamp dt to prevent fast-forward when tab is backgrounded or after any delay
+  let dt = now - lastAnimTime;
+  lastAnimTime = now;
+  if(dt > MAX_DT) dt = MAX_DT;
+  if(dt < 0) dt = 0;
+
+  if(playing && currentFrame < totalFrames-1){
+    accumulator += dt;
+    const interval = 1000 / speed;
+    // Cap iterations per frame to prevent freeze from accumulated time
+    let maxSteps = 5;
+    while(maxSteps > 0 && accumulator >= interval && currentFrame < totalFrames-1){
+      accumulator -= interval;
+      maxSteps--;
+      currentFrame++;
+      // Spawn particles for events at this frame
+      const tick = frames[currentFrame]?.tick;
+      events.filter(e=>e.tick===tick&&e.type==='unit_destroyed').forEach(e=>{
+        // Find last known position from previous frame
+        const prev = frames[currentFrame-1];
+        if(prev){
+          const du = prev.units.find(u=>u.id===e.unit_id);
+          if(du) spawnExplosion(du.x,du.y,e.player===0?P0.main:P1.main,12);
+        }
+      });
+    }
+    // Drain any excess accumulator to prevent carryover jumps
+    if(accumulator > interval * 2) accumulator = 0;
+
+    renderFrame(frames[currentFrame]);
+    updateEventLog();
+
+    // Auto-pause when reaching the end
+    if(currentFrame >= totalFrames-1){
+      playing = false;
+      document.getElementById('btn-play').textContent = '\u25b6';
+      document.getElementById('btn-play').classList.remove('active');
+    }
+  } else {
+    // Always render current frame (for particles, tooltips, paused state)
+    renderFrame(frames[currentFrame]);
+  }
+}
+
+// ── New Game Dialog ────────────────────────────────────────
+function showNewGame(){ document.getElementById('new-game-dialog').style.display='flex'; }
+function hideNewGame(){ document.getElementById('new-game-dialog').style.display='none'; }
+async function startNewGame(){
+  const p0=document.getElementById('ng-p0').value;
+  const p1=document.getElementById('ng-p1').value;
+  const size=document.getElementById('ng-size').value;
+  const ticks=document.getElementById('ng-ticks').value;
+  hideNewGame();
+  document.getElementById('match-label').innerHTML='Simulating...';
+  await fetch(`/api/new_game?p0=${p0}&p1=${p1}&size=${size}&ticks=${ticks}`);
+  // Poll until done
+  let tries=0;
+  while(tries<200){
+    const r = await fetch('/api/status');
+    const s = await r.json();
+    if(s.status==='complete'){break;}
+    await new Promise(ok=>setTimeout(ok,200));
+    tries++;
+  }
+  currentFrame=0;
+  accumulator=0;
+  await loadGame();
+}
+
+// ── Keyboard shortcuts ─────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT') return;
+  if(e.code==='Space'){e.preventDefault();togglePlay();}
+  if(e.code==='ArrowRight') stepForward();
+  if(e.code==='ArrowLeft') stepBack();
+  if(e.code==='Home') seekTo(0);
+  if(e.code==='End') seekTo(totalFrames-1);
+  if(e.key==='1') setSpeed(1);
+  if(e.key==='2') setSpeed(3);
+  if(e.key==='3') setSpeed(10);
+  if(e.key==='4') setSpeed(30);
+});
+
+// ── Tooltip on hover ───────────────────────────────────────
+canvas.addEventListener('mousemove',e=>{
+  const rect=canvas.getBoundingClientRect();
+  const c=cellPx();
+  const gx=Math.floor((e.clientX-rect.left)/c);
+  const gy=Math.floor((e.clientY-rect.top)/c);
+  const f=frames[currentFrame];
+  if(!f)return;
+  const u=f.units.find(u=>u.x===gx&&u.y===gy);
+  if(u){
+    canvas.title=`${u.type.toUpperCase()} (P${u.player}) HP:${u.hp}/${u.max_hp} ${u.action} ${u.resources_carried?'[carrying]':''}`;
+  } else {
+    canvas.title=`(${gx},${gy})`;
+  }
+});
+
+// ── Boot ───────────────────────────────────────────────────
+loadGame().then(()=>{
+  lastAnimTime = performance.now();
+  requestAnimationFrame(animate);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1466 @@
+{
+  "loc_house_s0_i0_d0_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_house_s0_i0_d0_e",
+      "wins": 1126.1038095238066,
+      "losses": 0.0,
+      "times_used": 31183
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_house_s0_i0_d0_e",
+      "wins": 0.014285714285714285,
+      "losses": 0.30000000000000004,
+      "times_used": 1804
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_house_s0_i0_d0_e",
+      "wins": 0.0,
+      "losses": 0.4,
+      "times_used": 730
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_house_s0_i0_d0_e",
+      "wins": 23.73999999999999,
+      "losses": 0.0,
+      "times_used": 2079
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_house_s0_i0_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 18
+    }
+  },
+  "loc_forest_s0_i0_d0_e": {
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_forest_s0_i0_d0_e",
+      "wins": 0.0,
+      "losses": 0.1,
+      "times_used": 2851
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_forest_s0_i0_d0_e",
+      "wins": 22.637619047619037,
+      "losses": 0.0,
+      "times_used": 5548
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_forest_s0_i0_d0_e",
+      "wins": 0.0,
+      "losses": 0.1,
+      "times_used": 558
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_forest_s0_i0_d0_e",
+      "wins": 989.1471428571316,
+      "losses": 0.0,
+      "times_used": 68175
+    }
+  },
+  "loc_forest_s0_i1_d0_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_forest_s0_i1_d0_e",
+      "wins": 242.80142857142965,
+      "losses": 0.0,
+      "times_used": 22815
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_forest_s0_i1_d0_e",
+      "wins": 0.007142857142857143,
+      "losses": 0.0,
+      "times_used": 1203
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_forest_s0_i1_d0_e",
+      "wins": 2.4,
+      "losses": 0.0,
+      "times_used": 1209
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_forest_s0_i1_d0_e",
+      "wins": 5.6,
+      "losses": 0.0,
+      "times_used": 1230
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_forest_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 569
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_forest_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 16
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_forest_s0_i1_d0_e",
+      "wins": 0.04285714285714286,
+      "losses": 0.0,
+      "times_used": 118
+    }
+  },
+  "loc_house_s0_i1_d0_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_house_s0_i1_d0_e",
+      "wins": 285.39285714285717,
+      "losses": 0.0,
+      "times_used": 7703
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_house_s0_i1_d0_e",
+      "wins": 0.007142857142857143,
+      "losses": 0.0,
+      "times_used": 399
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_house_s0_i1_d0_e",
+      "wins": 5.2,
+      "losses": 0.1,
+      "times_used": 368
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_house_s0_i1_d0_e",
+      "wins": 0.007142857142857143,
+      "losses": 0.1,
+      "times_used": 302
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_house_s0_i1_d0_e",
+      "wins": 6.2266666666666675,
+      "losses": 0.0,
+      "times_used": 401
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_house_s0_i1_d0_e",
+      "wins": 0.8071428571428572,
+      "losses": 0.0,
+      "times_used": 29
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_house_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 19
+    }
+  },
+  "loc_forest_s0_i2_d0_e": {
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_forest_s0_i2_d0_e",
+      "wins": 0.04285714285714286,
+      "losses": 0.0,
+      "times_used": 774
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_forest_s0_i2_d0_e",
+      "wins": 0.09285714285714286,
+      "losses": 0.0,
+      "times_used": 405
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_forest_s0_i2_d0_e",
+      "wins": 1.2000000000000002,
+      "losses": 0.1,
+      "times_used": 723
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_forest_s0_i2_d0_e",
+      "wins": 192.4604761904772,
+      "losses": 0.0,
+      "times_used": 14922
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_forest_s0_i2_d0_e",
+      "wins": 1.2000000000000002,
+      "losses": 0.0,
+      "times_used": 416
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_forest_s0_i2_d0_e",
+      "wins": 2.6,
+      "losses": 0.0,
+      "times_used": 732
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_forest_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 8
+    }
+  },
+  "loc_other_s0_i1_d0_e": {
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_other_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 32
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_other_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 20
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_other_s0_i1_d0_e",
+      "wins": 17.354761904761904,
+      "losses": 0.0,
+      "times_used": 451
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_other_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 17
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_other_s0_i1_d0_e",
+      "wins": 0.007142857142857143,
+      "losses": 0.0,
+      "times_used": 22
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_other_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_other_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_river_s0_i1_d0_e": {
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_river_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.1,
+      "times_used": 21
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_river_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 19
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_river_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 12
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_river_s0_i1_d0_e",
+      "wins": 0.4142857142857143,
+      "losses": 0.0,
+      "times_used": 17
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_river_s0_i1_d0_e",
+      "wins": 13.978571428571435,
+      "losses": 0.0,
+      "times_used": 319
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_river_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_house_s0_i1_d1_e": {
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_house_s0_i1_d1_e",
+      "wins": 0.09285714285714286,
+      "losses": 0.5,
+      "times_used": 7
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_house_s0_i1_d1_e",
+      "wins": 0.7428571428571423,
+      "losses": 0.5,
+      "times_used": 49
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_house_s0_i1_d1_e",
+      "wins": 109.0671428571433,
+      "losses": 0.0,
+      "times_used": 186
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_house_s0_i1_d1_e",
+      "wins": 1.3076190476190477,
+      "losses": 0.0,
+      "times_used": 5
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_house_s0_i1_d1_e",
+      "wins": 0.05714285714285714,
+      "losses": 0.4,
+      "times_used": 8
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_house_s0_i1_d1_e",
+      "wins": 0.04285714285714286,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_house_s0_i1_d1_e",
+      "wins": 0.014285714285714285,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_house_s0_i2_d0_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_house_s0_i2_d0_e",
+      "wins": 362.34714285713954,
+      "losses": 0.0,
+      "times_used": 8049
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_house_s0_i2_d0_e",
+      "wins": 1.2285714285714286,
+      "losses": 0.5,
+      "times_used": 381
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_house_s0_i2_d0_e",
+      "wins": 6.32,
+      "losses": 0.0,
+      "times_used": 395
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_house_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.2,
+      "times_used": 253
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_house_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.1,
+      "times_used": 355
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_house_s0_i2_d0_e",
+      "wins": 2.807142857142857,
+      "losses": 0.4,
+      "times_used": 97
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_house_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 21
+    }
+  },
+  "loc_underground_s0_i2_d1_e": {
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_underground_s0_i2_d1_e",
+      "wins": 0.24142857142857144,
+      "losses": 0.0,
+      "times_used": 6
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_underground_s0_i2_d1_e",
+      "wins": 0.07142857142857142,
+      "losses": 0.0,
+      "times_used": 3
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_underground_s0_i2_d1_e",
+      "wins": 63.39285714285707,
+      "losses": 0.0,
+      "times_used": 50
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_underground_s0_i2_d1_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_underground_s0_i2_d1_e",
+      "wins": 0.07142857142857142,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_underground_s0_i2_d0_e": {
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_underground_s0_i2_d0_e",
+      "wins": 0.10714285714285714,
+      "losses": 0.0,
+      "times_used": 9
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_underground_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 4
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_underground_s0_i2_d0_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 7
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_underground_s0_i2_d0_e",
+      "wins": 0.4357142857142857,
+      "losses": 0.0,
+      "times_used": 5
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_underground_s0_i2_d0_e",
+      "wins": 38.039999999999964,
+      "losses": 0.0,
+      "times_used": 85
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_underground_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_underground_s0_i1_d0_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_underground_s0_i1_d0_e",
+      "wins": 41.1485714285714,
+      "losses": 0.0,
+      "times_used": 158
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_underground_s0_i1_d0_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 14
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_underground_s0_i1_d0_e",
+      "wins": 1.0,
+      "losses": 0.0,
+      "times_used": 7
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_underground_s0_i1_d0_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 8
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_underground_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 6
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_underground_s0_i1_d0_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_cave_entrance_s0_i1_d1_e": {
+    "5": {
+      "strategy": 5,
+      "pattern_id": "loc_cave_entrance_s0_i1_d1_e",
+      "wins": 0.08571428571428572,
+      "losses": 0.0,
+      "times_used": 13
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_cave_entrance_s0_i1_d1_e",
+      "wins": 20.54142857142857,
+      "losses": 0.0,
+      "times_used": 45
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_cave_entrance_s0_i1_d1_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_cave_entrance_s0_i1_d1_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_house_s0_i0_d1_e": {
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_house_s0_i0_d1_e",
+      "wins": 0.08571428571428572,
+      "losses": 3.600000000000002,
+      "times_used": 40
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_house_s0_i0_d1_e",
+      "wins": 0.20714285714285713,
+      "losses": 1.5000000000000002,
+      "times_used": 24
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_house_s0_i0_d1_e",
+      "wins": 446.48999999999427,
+      "losses": 0.0,
+      "times_used": 720
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_house_s0_i0_d1_e",
+      "wins": 3.428571428571428,
+      "losses": 0.0,
+      "times_used": 29
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_house_s0_i0_d1_e",
+      "wins": 0.3071428571428571,
+      "losses": 0.4,
+      "times_used": 14
+    }
+  },
+  "loc_other_s0_i0_d0_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_other_s0_i0_d0_e",
+      "wins": 55.149047619047536,
+      "losses": 0.0,
+      "times_used": 1496
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_other_s0_i0_d0_e",
+      "wins": 1.5742857142857143,
+      "losses": 0.0,
+      "times_used": 124
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_other_s0_i0_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 89
+    }
+  },
+  "loc_river_s0_i0_d0_e": {
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_river_s0_i0_d0_e",
+      "wins": 0.6276190476190476,
+      "losses": 0.0,
+      "times_used": 98
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_river_s0_i0_d0_e",
+      "wins": 50.0919047619047,
+      "losses": 0.0,
+      "times_used": 953
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_river_s0_i0_d0_e",
+      "wins": 0.0,
+      "losses": 0.30000000000000004,
+      "times_used": 54
+    }
+  },
+  "loc_house_s0_i2_d1_e": {
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_house_s0_i2_d1_e",
+      "wins": 45.549523809523826,
+      "losses": 0.0,
+      "times_used": 386
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_house_s0_i2_d1_e",
+      "wins": 0.7285714285714282,
+      "losses": 0.9999999999999999,
+      "times_used": 55
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_house_s0_i2_d1_e",
+      "wins": 0.09999999999999999,
+      "losses": 0.8999999999999999,
+      "times_used": 14
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_house_s0_i2_d1_e",
+      "wins": 7.250952380952384,
+      "losses": 0.0,
+      "times_used": 13
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_house_s0_i2_d1_e",
+      "wins": 0.0,
+      "losses": 0.7,
+      "times_used": 9
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_house_s0_i2_d1_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.6,
+      "times_used": 8
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_house_s0_i2_d1_e",
+      "wins": 0.07142857142857142,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_forest_s0_i3_d0_e": {
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_forest_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 90
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_forest_s0_i3_d0_e",
+      "wins": 49.56142857142848,
+      "losses": 0.0,
+      "times_used": 2817
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_forest_s0_i3_d0_e",
+      "wins": 0.4,
+      "losses": 0.1,
+      "times_used": 115
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_forest_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 129
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_forest_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 145
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_forest_s0_i3_d0_e",
+      "wins": 0.4,
+      "losses": 0.0,
+      "times_used": 46
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_forest_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 9
+    }
+  },
+  "loc_house_s0_i3_d0_e": {
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_house_s0_i3_d0_e",
+      "wins": 0.8,
+      "losses": 0.2,
+      "times_used": 161
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_house_s0_i3_d0_e",
+      "wins": 84.20095238095261,
+      "losses": 0.0,
+      "times_used": 2431
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_house_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.1,
+      "times_used": 79
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_house_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.2,
+      "times_used": 162
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_house_s0_i3_d0_e",
+      "wins": 1.435714285714286,
+      "losses": 0.0,
+      "times_used": 155
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_house_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 13
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_house_s0_i3_d0_e",
+      "wins": 0.4357142857142857,
+      "losses": 0.0,
+      "times_used": 25
+    }
+  },
+  "loc_house_s0_i3_d1_e": {
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_house_s0_i3_d1_e",
+      "wins": 0.014285714285714285,
+      "losses": 0.1,
+      "times_used": 2
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_house_s0_i3_d1_e",
+      "wins": 0.3714285714285715,
+      "losses": 0.2,
+      "times_used": 25
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_house_s0_i3_d1_e",
+      "wins": 29.40428571428569,
+      "losses": 0.0,
+      "times_used": 51
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_house_s0_i3_d1_e",
+      "wins": 0.014285714285714285,
+      "losses": 0.1,
+      "times_used": 2
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_house_s0_i3_d1_e",
+      "wins": 0.4285714285714286,
+      "losses": 0.1,
+      "times_used": 3
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_house_s0_i3_d1_e",
+      "wins": 0.14666666666666667,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_other_s0_i2_d0_e": {
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_other_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 14
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_other_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 11
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_other_s0_i2_d0_e",
+      "wins": 18.313809523809528,
+      "losses": 0.0,
+      "times_used": 221
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_other_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 11
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_other_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 5
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_other_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 11
+    }
+  },
+  "loc_underground_s0_i1_d1_e": {
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_underground_s0_i1_d1_e",
+      "wins": 1.0628571428571432,
+      "losses": 0.0,
+      "times_used": 26
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_underground_s0_i1_d1_e",
+      "wins": 35.9142857142857,
+      "losses": 0.0,
+      "times_used": 25
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_underground_s0_i1_d1_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_cave_entrance_s0_i1_d0_e": {
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_cave_entrance_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 4
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_cave_entrance_s0_i1_d0_e",
+      "wins": 1.0,
+      "losses": 0.0,
+      "times_used": 15
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_cave_entrance_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 9
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_cave_entrance_s0_i1_d0_e",
+      "wins": 16.334285714285716,
+      "losses": 0.0,
+      "times_used": 176
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_cave_entrance_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 7
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_cave_entrance_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_underground_s0_i3_d1_e": {
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_underground_s0_i3_d1_e",
+      "wins": 1.0285714285714285,
+      "losses": 0.0,
+      "times_used": 6
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_underground_s0_i3_d1_e",
+      "wins": 0.22857142857142854,
+      "losses": 0.0,
+      "times_used": 6
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_underground_s0_i3_d1_e",
+      "wins": 0.05,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_underground_s0_i3_d1_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_underground_s0_i3_d0_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_underground_s0_i3_d0_e",
+      "wins": 22.628571428571426,
+      "losses": 0.0,
+      "times_used": 105
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_underground_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 7
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_underground_s0_i3_d0_e",
+      "wins": 0.04285714285714286,
+      "losses": 0.0,
+      "times_used": 7
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_underground_s0_i3_d0_e",
+      "wins": 0.04285714285714286,
+      "losses": 0.0,
+      "times_used": 7
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_underground_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_underground_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 2
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_underground_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_river_s0_i2_d0_e": {
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_river_s0_i2_d0_e",
+      "wins": 0.007142857142857143,
+      "losses": 0.0,
+      "times_used": 9
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_river_s0_i2_d0_e",
+      "wins": 0.02142857142857143,
+      "losses": 0.0,
+      "times_used": 9
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_river_s0_i2_d0_e",
+      "wins": 0.014285714285714285,
+      "losses": 0.0,
+      "times_used": 10
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_river_s0_i2_d0_e",
+      "wins": 12.042380952380958,
+      "losses": 0.0,
+      "times_used": 193
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_river_s0_i2_d0_e",
+      "wins": 0.014285714285714285,
+      "losses": 0.0,
+      "times_used": 7
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_river_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_underground_s0_i0_d1_e": {
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_underground_s0_i0_d1_e",
+      "wins": 0.28571428571428564,
+      "losses": 0.0,
+      "times_used": 8
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_underground_s0_i0_d1_e",
+      "wins": 135.73571428571472,
+      "losses": 0.0,
+      "times_used": 99
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_underground_s0_i0_d1_e",
+      "wins": 0.17857142857142855,
+      "losses": 0.0,
+      "times_used": 5
+    },
+    "6": {
+      "strategy": 6,
+      "pattern_id": "loc_underground_s0_i0_d1_e",
+      "wins": 0.10714285714285714,
+      "losses": 0.0,
+      "times_used": 3
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_underground_s0_i0_d1_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_underground_s0_i0_d0_e": {
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_underground_s0_i0_d0_e",
+      "wins": 0.17857142857142855,
+      "losses": 0.0,
+      "times_used": 6
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_underground_s0_i0_d0_e",
+      "wins": 77.22142857142862,
+      "losses": 0.0,
+      "times_used": 82
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_underground_s0_i0_d0_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_underground_s0_i0_d0_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_cave_entrance_s0_i2_d1_e": {
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_cave_entrance_s0_i2_d1_e",
+      "wins": 1.625714285714286,
+      "losses": 0.0,
+      "times_used": 30
+    },
+    "5": {
+      "strategy": 5,
+      "pattern_id": "loc_cave_entrance_s0_i2_d1_e",
+      "wins": 0.2928571428571428,
+      "losses": 0.0,
+      "times_used": 46
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_cave_entrance_s0_i2_d1_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 2
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_cave_entrance_s0_i2_d1_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 2
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_cave_entrance_s0_i2_d1_e",
+      "wins": 1.4,
+      "losses": 0.0,
+      "times_used": 2
+    }
+  },
+  "loc_cave_entrance_s0_i2_d0_e": {
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_cave_entrance_s0_i2_d0_e",
+      "wins": 0.03571428571428571,
+      "losses": 0.0,
+      "times_used": 10
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_cave_entrance_s0_i2_d0_e",
+      "wins": 13.390000000000004,
+      "losses": 0.0,
+      "times_used": 196
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_cave_entrance_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 5
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_cave_entrance_s0_i2_d0_e",
+      "wins": 1.2,
+      "losses": 0.0,
+      "times_used": 11
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_cave_entrance_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 10
+    }
+  },
+  "loc_cave_entrance_s0_i3_d0_e": {
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_cave_entrance_s0_i3_d0_e",
+      "wins": 1.1500000000000001,
+      "losses": 0.0,
+      "times_used": 77
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_cave_entrance_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 15
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_cave_entrance_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 12
+    },
+    "4": {
+      "strategy": 4,
+      "pattern_id": "loc_cave_entrance_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 4
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_cave_entrance_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 2
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_cave_entrance_s0_i3_d0_e",
+      "wins": 7.185714285714284,
+      "losses": 0.0,
+      "times_used": 126
+    }
+  },
+  "loc_cave_entrance_s0_i3_d1_e": {
+    "5": {
+      "strategy": 5,
+      "pattern_id": "loc_cave_entrance_s0_i3_d1_e",
+      "wins": 0.04285714285714286,
+      "losses": 0.0,
+      "times_used": 4
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_cave_entrance_s0_i3_d1_e",
+      "wins": 9.685714285714287,
+      "losses": 0.0,
+      "times_used": 29
+    }
+  },
+  "loc_cave_entrance_s0_i0_d1_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_cave_entrance_s0_i0_d1_e",
+      "wins": 5.778571428571428,
+      "losses": 0.0,
+      "times_used": 7
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_cave_entrance_s0_i0_d1_e",
+      "wins": 0.4,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_other_s0_i3_d0_e": {
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_other_s0_i3_d0_e",
+      "wins": 0.02857142857142857,
+      "losses": 0.0,
+      "times_used": 11
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_other_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 3
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_other_s0_i3_d0_e",
+      "wins": 1.6428571428571428,
+      "losses": 0.0,
+      "times_used": 26
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_other_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 3
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_other_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_cave_entrance_s0_i0_d0_e": {
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_cave_entrance_s0_i0_d0_e",
+      "wins": 0.14285714285714285,
+      "losses": 0.0,
+      "times_used": 8
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_cave_entrance_s0_i0_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_maze_s0_i1_d0_e": {
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_maze_s0_i1_d0_e",
+      "wins": 0.1,
+      "losses": 0.0,
+      "times_used": 58
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_maze_s0_i1_d0_e",
+      "wins": 1.4,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_maze_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 3
+    },
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_maze_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 3
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_maze_s0_i1_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_maze_s0_i2_d0_e": {
+    "3": {
+      "strategy": 3,
+      "pattern_id": "loc_maze_s0_i2_d0_e",
+      "wins": 0.05714285714285714,
+      "losses": 0.0,
+      "times_used": 25
+    },
+    "7": {
+      "strategy": 7,
+      "pattern_id": "loc_maze_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_maze_s0_i2_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 5
+    },
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_maze_s0_i2_d0_e",
+      "wins": 1.4,
+      "losses": 0.0,
+      "times_used": 11
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_maze_s0_i2_d0_e",
+      "wins": 0.2,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_maze_s0_i2_d1_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_maze_s0_i2_d1_e",
+      "wins": 1.457142857142857,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  },
+  "loc_river_s0_i3_d0_e": {
+    "0": {
+      "strategy": 0,
+      "pattern_id": "loc_river_s0_i3_d0_e",
+      "wins": 1.2428571428571429,
+      "losses": 0.0,
+      "times_used": 12
+    },
+    "2": {
+      "strategy": 2,
+      "pattern_id": "loc_river_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    },
+    "1": {
+      "strategy": 1,
+      "pattern_id": "loc_river_s0_i3_d0_e",
+      "wins": 0.0,
+      "losses": 0.0,
+      "times_used": 1
+    }
+  }
+}

@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursive Learning AI — Pattern Visualizer</title>
+<style>
+/* ── Reset & Globals ──────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0f1117;--surface:#181b24;--surface2:#1e2230;--border:#2a2e3e;
+  --text:#e0e0e8;--muted:#8890a4;--accent:#4fc3f7;
+  --p0:#42a5f5;--p1:#ef5350;
+  --gold:#ffd54f;--green:#66bb6a;--purple:#ab47bc;--orange:#ffa726;
+  --red:#ef5350;--cyan:#4fc3f7;--pink:#f06292;--lime:#aed581;
+  --conf-low:#ef5350;--conf-mid:#ffd54f;--conf-high:#66bb6a;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;overflow:hidden}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ── Layout ───────────────────────────────────────────── */
+#app{display:grid;grid-template-rows:auto auto 1fr;height:100vh}
+
+header{background:var(--surface);border-bottom:1px solid var(--border);
+  padding:12px 24px;display:flex;align-items:center;gap:20px}
+header h1{font-size:18px;font-weight:700;letter-spacing:.5px}
+header h1 span{color:var(--accent)}
+.domain-badge{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:600;
+  background:rgba(79,195,247,0.15);color:var(--accent);text-transform:uppercase;letter-spacing:1px}
+.header-meta{font-size:13px;color:var(--muted)}
+.header-meta b{color:var(--text)}
+
+/* ── Summary Stats Bar ────────────────────────────────── */
+.summary-bar{background:var(--surface);border-bottom:1px solid var(--border);
+  padding:8px 24px;display:flex;gap:24px;flex-wrap:wrap}
+.stat-chip{display:flex;align-items:center;gap:6px;font-size:13px}
+.stat-chip .label{color:var(--muted)}
+.stat-chip .value{font-weight:700;font-variant-numeric:tabular-nums}
+.stat-chip .value.accent{color:var(--accent)}
+.stat-chip .value.green{color:var(--green)}
+.stat-chip .value.gold{color:var(--gold)}
+.stat-chip .value.red{color:var(--red)}
+
+/* ── Tabs ─────────────────────────────────────────────── */
+.tab-bar{display:flex;gap:0;background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px}
+.tab-btn{padding:10px 20px;font-size:13px;font-weight:600;color:var(--muted);
+  background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;
+  transition:color .15s,border-color .15s}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+.tab-content{display:none;overflow-y:auto;padding:20px 24px}
+.tab-content.active{display:block}
+
+/* ── Cards & Panels ───────────────────────────────────── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:16px}
+.card-title{font-size:14px;font-weight:600;margin-bottom:12px;color:var(--accent)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--muted);font-weight:600;margin:16px 0 8px}
+
+/* ── Chart containers ─────────────────────────────────── */
+.chart-wrap{position:relative;width:100%;background:var(--surface2);border-radius:8px;overflow:hidden}
+.chart-wrap canvas{width:100%!important;display:block}
+
+/* ── Heatmap ──────────────────────────────────────────── */
+.heatmap-container{overflow:auto;max-height:calc(100vh - 260px)}
+.heatmap-filters{display:flex;gap:12px;margin-bottom:12px;align-items:center;flex-wrap:wrap}
+.heatmap-filters label{font-size:12px;color:var(--muted)}
+.heatmap-filters select{padding:5px 8px;border-radius:5px;border:1px solid var(--border);
+  background:var(--surface2);color:var(--text);font-size:12px}
+.heatmap-detail{background:var(--surface2);border-radius:8px;padding:14px;margin-top:12px;
+  font-size:13px;display:none}
+.heatmap-detail.visible{display:block}
+.heatmap-detail .dt{color:var(--muted);margin-right:8px}
+.heatmap-detail .dv{font-weight:600}
+
+/* ── Strategy cards ───────────────────────────────────── */
+.strat-card{background:var(--surface2);border-radius:8px;padding:14px}
+.strat-card .strat-name{font-size:14px;font-weight:700;margin-bottom:8px}
+.strat-card .strat-stat{display:flex;justify-content:space-between;font-size:12px;padding:2px 0}
+.strat-card .strat-stat .sl{color:var(--muted)}
+.strat-card .strat-stat .sv{font-weight:600;font-variant-numeric:tabular-nums}
+.strat-card canvas{margin-top:8px;border-radius:4px}
+.personality-box{background:var(--surface2);border-radius:8px;padding:16px;
+  font-size:13px;line-height:1.7}
+
+/* ── Pattern explorer ─────────────────────────────────── */
+.pattern-row{display:flex;align-items:center;gap:10px;padding:6px 8px;
+  border-radius:6px;cursor:pointer;font-size:12px;transition:background .1s}
+.pattern-row:hover{background:var(--surface)}
+.pattern-row .pid{color:var(--accent);font-family:monospace;min-width:130px}
+.pattern-row .ptype{color:var(--muted);min-width:80px;text-transform:uppercase;font-size:11px}
+.pattern-row .pdomains{color:var(--purple);font-size:10px;min-width:100px}
+.pattern-bar{height:6px;border-radius:3px;background:var(--border);flex:1;position:relative;overflow:hidden}
+.pattern-bar-fill{height:100%;border-radius:3px;background:var(--accent)}
+.pattern-val{font-variant-numeric:tabular-nums;min-width:60px;text-align:right;color:var(--muted)}
+.pattern-detail{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:14px;margin-top:12px;font-size:12px;line-height:1.8;display:none}
+.pattern-detail.visible{display:block}
+.pattern-detail code{background:var(--surface2);padding:2px 6px;border-radius:3px;font-size:11px}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- ─── Header ──────────────────────────────────────── -->
+<header>
+  <h1>Recursive <span>Learning</span> AI</h1>
+  <div class="domain-badge" id="domain-badge">loading</div>
+  <div class="header-meta" id="header-meta">Loading checkpoint data...</div>
+</header>
+
+<!-- ─── Summary Bar ─────────────────────────────────── -->
+<div class="summary-bar" id="summary-bar"></div>
+
+<!-- ─── Tab Navigation ──────────────────────────────── -->
+<div style="display:grid;grid-template-rows:auto 1fr;overflow:hidden">
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('timeline',this)">Training Timeline</button>
+  <button class="tab-btn" onclick="switchTab('strategy-map',this)">Strategy Map</button>
+  <button class="tab-btn" onclick="switchTab('strategy-profile',this)">Strategy Profiles</button>
+  <button class="tab-btn" onclick="switchTab('patterns',this)">Pattern Explorer</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB 1: Training Timeline                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="tab-content active" id="tab-timeline">
+  <div class="card-row">
+    <div class="card">
+      <div class="card-title" id="chart-winrate-title">Win / Loss Rate (Rolling 20-episode)</div>
+      <div class="chart-wrap" style="height:220px"><canvas id="chart-winrate"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Episode Duration</div>
+      <div class="chart-wrap" style="height:220px"><canvas id="chart-gamelength"></canvas></div>
+    </div>
+  </div>
+  <div class="card-row">
+    <div class="card">
+      <div class="card-title">Exploration Rate Decay</div>
+      <div class="chart-wrap" style="height:180px"><canvas id="chart-exploration"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Pattern Discovery (Cumulative)</div>
+      <div class="chart-wrap" style="height:180px"><canvas id="chart-patterns"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB 2: Strategy Map                                -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-strategy-map">
+  <div class="card">
+    <div class="card-title">Situation → Strategy Confidence Heatmap</div>
+    <div class="heatmap-filters" id="heatmap-filters"></div>
+    <div class="heatmap-container">
+      <canvas id="canvas-heatmap"></canvas>
+    </div>
+    <div class="heatmap-detail" id="heatmap-detail"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB 3: Strategy Profiles                           -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-strategy-profile">
+  <div class="card">
+    <div class="card-title">AI Personality</div>
+    <div class="personality-box" id="personality-text"></div>
+  </div>
+  <div class="card-row">
+    <div class="card">
+      <div class="card-title">Strategy Usage Radar</div>
+      <div class="chart-wrap" style="height:280px"><canvas id="chart-radar"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Strategy Comparison</div>
+      <div class="chart-wrap" style="height:280px"><canvas id="chart-strat-bars"></canvas></div>
+    </div>
+  </div>
+  <div class="section-title">Individual Strategy Profiles</div>
+  <div class="card-grid" id="strat-cards"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB 4: Pattern Explorer                            -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-patterns">
+  <div class="card-row">
+    <div class="card">
+      <div class="card-title">Pattern Type Breakdown</div>
+      <div class="chart-wrap" style="height:220px"><canvas id="chart-pie"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Confidence Distribution</div>
+      <div class="chart-wrap" style="height:220px"><canvas id="chart-conf-hist"></canvas></div>
+    </div>
+  </div>
+  <div class="card" id="domain-breakdown-card" style="display:none">
+    <div class="card-title">Cross-Domain Pattern Distribution</div>
+    <div class="chart-wrap" style="height:180px"><canvas id="chart-domain-pie"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Top Patterns by Activation Count</div>
+    <div id="pattern-list"></div>
+  </div>
+  <div class="pattern-detail" id="pattern-detail"></div>
+</div>
+
+</div><!-- /grid wrapper -->
+</div><!-- /app -->
+
+<script>
+/* ================================================================
+   Recursive Learning AI — Universal Pattern Visualizer
+   Supports any game domain (Chess, RTS, or future games)
+   ================================================================ */
+
+// ── Global State ──────────────────────────────────────────
+let DATA = null;
+let DOMAIN = 'generic';
+let STRAT_NAMES = [];
+let STRAT_SHORT = [];
+let STRAT_COLORS = [];
+let STRAT_DESC = [];
+let NUM_STRATEGIES = 0;
+
+// ── Domain-Specific Strategy Metadata ─────────────────────
+const DOMAIN_STRATEGIES = {
+  chess: {
+    names: ['DEVELOP','CONTROL_CENTER','ATTACK_KING','TRADE_PIECES','PUSH_PAWNS','DEFEND','CASTLE','ENDGAME_PUSH'],
+    short: ['Develop','Center','Attack','Trade','Pawns','Defend','Castle','Endgame'],
+    colors: ['#4fc3f7','#66bb6a','#ef5350','#ffa726','#aed581','#ab47bc','#42a5f5','#f06292'],
+    descs: [
+      'Develop minor pieces off the back rank toward the center',
+      'Maximize control of central squares (e4,d4,e5,d5)',
+      'Direct pieces toward the opponent king, prefer checks',
+      'Exchange pieces using MVV-LVA capture ordering',
+      'Advance pawns, prioritize passed pawns and promotions',
+      'Move threatened pieces to safety or add defenders',
+      'Castle if legal, otherwise unblock the castling path',
+      'Centralize king and push passed pawns in the endgame'
+    ]
+  },
+  rts: {
+    names: ['HARVEST','BUILD_BARRACKS','PRODUCE_LIGHT','PRODUCE_HEAVY','PRODUCE_RANGED','ATTACK'],
+    short: ['Harvest','Barracks','Light','Heavy','Ranged','Attack'],
+    colors: ['#ffd54f','#ab47bc','#4fc3f7','#1565c0','#66bb6a','#ef5350'],
+    descs: [
+      'Send workers to harvest resources from resource tiles',
+      'Build a barracks to unlock military unit production',
+      'Produce light infantry units (fast, low cost)',
+      'Produce heavy infantry units (slow, high damage)',
+      'Produce ranged units (attack from distance)',
+      'Send combat units to attack the enemy base and units'
+    ]
+  }
+};
+
+const AUTO_COLORS = ['#4fc3f7','#66bb6a','#ef5350','#ffa726','#aed581','#ab47bc','#42a5f5','#f06292','#ffd54f','#1565c0','#e91e63','#00bcd4'];
+
+// ── Domain Detection ──────────────────────────────────────
+function detectDomain(situationKeys){
+  if(!situationKeys.length) return 'generic';
+  const sample = situationKeys[0];
+  if(/^mat[+\-=]+_/.test(sample)) return 'chess';
+  if(/^w\d+_b\d+_/.test(sample)) return 'rts';
+  return 'generic';
+}
+
+function initDomainMetadata(){
+  const sitKeys = Object.keys(DATA.strategy_bindings || {});
+  DOMAIN = DATA.meta.detected_domain || detectDomain(sitKeys);
+
+  // Get strategy count from data
+  const serverNames = DATA.strategy_names || [];
+  const domainMeta = DOMAIN_STRATEGIES[DOMAIN];
+
+  if(domainMeta){
+    STRAT_NAMES = domainMeta.names;
+    STRAT_SHORT = domainMeta.short;
+    STRAT_COLORS = domainMeta.colors;
+    STRAT_DESC = domainMeta.descs;
+  } else if(serverNames.length) {
+    STRAT_NAMES = serverNames;
+    STRAT_SHORT = serverNames.map(n => n.length > 10 ? n.slice(0,8)+'…' : n);
+    STRAT_COLORS = serverNames.map((_,i) => AUTO_COLORS[i % AUTO_COLORS.length]);
+    STRAT_DESC = serverNames.map(n => 'Strategy: ' + n);
+  } else {
+    // Discover from bindings
+    const maxStrat = Math.max(0, ...sitKeys.flatMap(k => Object.keys(DATA.strategy_bindings[k]).map(Number)));
+    const count = maxStrat + 1;
+    STRAT_NAMES = Array.from({length:count}, (_,i) => 'STRATEGY_'+i);
+    STRAT_SHORT = Array.from({length:count}, (_,i) => 'Strat '+i);
+    STRAT_COLORS = Array.from({length:count}, (_,i) => AUTO_COLORS[i % AUTO_COLORS.length]);
+    STRAT_DESC = Array.from({length:count}, (_,i) => 'Strategy '+i);
+  }
+  NUM_STRATEGIES = STRAT_NAMES.length;
+
+  // Update UI
+  const badge = document.getElementById('domain-badge');
+  const domainLabels = {chess:'Chess', rts:'MicroRTS', generic:'Unknown Domain'};
+  badge.textContent = domainLabels[DOMAIN] || DOMAIN;
+}
+
+// ── Situation Key Decoders ────────────────────────────────
+
+// Chess: "mat+_mid_saf_hi_ceq"
+const CHESS_MAT = {'mat--':'Losing badly','mat-':'Losing','mat=':'Equal','mat+':'Winning','mat++':'Dominating'};
+const CHESS_PHASE = {opn:'Opening',mid:'Middlegame',end:'Endgame'};
+const CHESS_SAFETY = {saf:'Safe king',mod:'Moderate safety',dan:'King in danger'};
+const CHESS_DEV = {lo:'Low development',md:'Medium development',hi:'High development'};
+const CHESS_CENTER = {cwk:'Weak center',ceq:'Equal center',cst:'Strong center'};
+
+function decodeChessKey(key){
+  const m = key.match(/^(mat[+\-=]+)_(\w+)_(\w+)_(\w+)_(\w+)$/);
+  if(!m) return null;
+  return {
+    raw:key, phaseRaw:m[2], matRaw:m[1],
+    material: CHESS_MAT[m[1]]||m[1], phase: CHESS_PHASE[m[2]]||m[2],
+    safety: CHESS_SAFETY[m[3]]||m[3], dev: CHESS_DEV[m[4]]||m[4], center: CHESS_CENTER[m[5]]||m[5],
+    readable: `${CHESS_MAT[m[1]]||m[1]} · ${CHESS_PHASE[m[2]]||m[2]} · ${CHESS_SAFETY[m[3]]||m[3]} · ${CHESS_DEV[m[4]]||m[4]} · ${CHESS_CENTER[m[5]]||m[5]}`
+  };
+}
+
+// RTS: "w1_b0_c0_r1_e"
+const RTS_WORKERS = {w0:'No Workers',w1:'1 Worker',w2:'2 Workers',w3:'3+ Workers'};
+const RTS_BARRACKS = {b0:'No Barracks',b1:'Has Barracks'};
+const RTS_COMBAT = {c0:'No Combat',c1:'Light Combat',c2:'Medium Combat',c3:'Heavy Combat'};
+const RTS_RESOURCES = {r0:'No Resources',r1:'Low Resources',r2:'Medium Resources',r3:'High Resources'};
+const RTS_PHASE = {e:'Early',m:'Mid',l:'Late'};
+
+function decodeRtsKey(key){
+  const m = key.match(/^(w\d+)_(b\d+)_(c\d+)_(r\d+)_(\w)$/);
+  if(!m) return null;
+  return {
+    raw:key, phaseRaw:m[5], workersRaw:m[1], combatRaw:m[3],
+    workers: RTS_WORKERS[m[1]]||m[1], barracks: RTS_BARRACKS[m[2]]||m[2],
+    combat: RTS_COMBAT[m[3]]||m[3], resources: RTS_RESOURCES[m[4]]||m[4], phase: RTS_PHASE[m[5]]||m[5],
+    readable: `${RTS_WORKERS[m[1]]||m[1]} · ${RTS_BARRACKS[m[2]]||m[2]} · ${RTS_COMBAT[m[3]]||m[3]} · ${RTS_RESOURCES[m[4]]||m[4]} · ${RTS_PHASE[m[5]]||m[5]}`
+  };
+}
+
+// Generic fallback
+function decodeGenericKey(key){
+  return { raw:key, readable:key.replace(/_/g,' · ') };
+}
+
+function decodeSitKey(key){
+  if(DOMAIN==='chess'){ const d=decodeChessKey(key); if(d) return d; }
+  if(DOMAIN==='rts'){ const d=decodeRtsKey(key); if(d) return d; }
+  // Try both
+  const chess = decodeChessKey(key); if(chess) return chess;
+  const rts = decodeRtsKey(key); if(rts) return rts;
+  return decodeGenericKey(key);
+}
+
+// ── Dynamic Filter Generation ─────────────────────────────
+function buildHeatmapFilters(){
+  const container = document.getElementById('heatmap-filters');
+  let html = '';
+
+  if(DOMAIN === 'chess'){
+    html += `<label>Phase:</label><select id="filter-phase" onchange="renderHeatmap()">
+      <option value="all">All</option><option value="opn">Opening</option>
+      <option value="mid">Middlegame</option><option value="end">Endgame</option></select>`;
+    html += `<label>Material:</label><select id="filter-material" onchange="renderHeatmap()">
+      <option value="all">All</option><option value="losing">Losing (-- / -)</option>
+      <option value="equal">Equal (=)</option><option value="winning">Winning (+ / ++)</option></select>`;
+  } else if(DOMAIN === 'rts'){
+    html += `<label>Phase:</label><select id="filter-phase" onchange="renderHeatmap()">
+      <option value="all">All</option><option value="e">Early</option>
+      <option value="m">Mid</option><option value="l">Late</option></select>`;
+    html += `<label>Workers:</label><select id="filter-workers" onchange="renderHeatmap()">
+      <option value="all">All</option><option value="w0">0</option><option value="w1">1</option>
+      <option value="w2">2</option><option value="w3">3+</option></select>`;
+    html += `<label>Combat:</label><select id="filter-combat" onchange="renderHeatmap()">
+      <option value="all">All</option><option value="c0">None</option><option value="c1">Light</option>
+      <option value="c2">Medium</option><option value="c3">Heavy</option></select>`;
+  } else {
+    html += `<label>Filter:</label><select id="filter-generic" onchange="renderHeatmap()">
+      <option value="all">All</option></select>`;
+    // Auto-populate from first component
+    const keys = Object.keys(DATA.strategy_bindings || {});
+    const firsts = [...new Set(keys.map(k=>k.split('_')[0]))].sort();
+    const sel = html.match(/id="filter-generic"/);
+    firsts.forEach(f => { html = html.replace('</select>', `<option value="${f}">${f}</option></select>`); });
+  }
+
+  html += `<label>Sort:</label><select id="filter-sort" onchange="renderHeatmap()">
+    <option value="usage">By Total Usage</option><option value="confidence">By Best Confidence</option>
+    <option value="alpha">Alphabetical</option></select>`;
+  html += `<span style="flex:1"></span><span style="font-size:11px;color:var(--muted)" id="heatmap-count"></span>`;
+
+  container.innerHTML = html;
+}
+
+function getFilterValue(id){ const el=document.getElementById(id); return el?el.value:'all'; }
+
+// ── Tab Switching ─────────────────────────────────────────
+function switchTab(id, btn){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+  if(DATA){
+    if(id==='timeline') renderTimeline();
+    if(id==='strategy-map') renderHeatmap();
+    if(id==='strategy-profile') renderProfiles();
+    if(id==='patterns') renderPatterns();
+  }
+}
+
+// ── Canvas Helpers ────────────────────────────────────────
+function setupCanvas(canvas, w, h){
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+  const ctx = canvas.getContext('2d'); ctx.scale(dpr, dpr); return ctx;
+}
+function canvasSize(canvas){
+  const p = canvas.parentElement;
+  return {w: p.clientWidth, h: p.clientHeight || parseInt(p.style.height) || 200};
+}
+function confColor(c){
+  if(c <= 0.5){
+    const t = c / 0.5;
+    return `rgb(${Math.round(239+(255-239)*t)},${Math.round(83+(213-83)*t)},${Math.round(80+(79-80)*t)})`;
+  } else {
+    const t = (c - 0.5) / 0.5;
+    return `rgb(${Math.round(255-(255-102)*t)},${Math.round(213+(187-213)*t)},${Math.round(79+(106-79)*t)})`;
+  }
+}
+
+// ── Chart: Multi-Line ─────────────────────────────────────
+function drawLineChart(canvas, datasets, opts={}){
+  const {w, h} = canvasSize(canvas);
+  const ctx = setupCanvas(canvas, w, h);
+  const pad = {top:30, right:16, bottom:30, left:42};
+  const cw = w-pad.left-pad.right, ch = h-pad.top-pad.bottom;
+  ctx.fillStyle = '#1e2230'; ctx.fillRect(0, 0, w, h);
+  if(!datasets.length || !datasets[0].data.length) return;
+  const allVals = datasets.flatMap(d=>d.data);
+  const minV = opts.minY !== undefined ? opts.minY : Math.min(...allVals);
+  const maxV = opts.maxY !== undefined ? opts.maxY : Math.max(...allVals);
+  const range = maxV - minV || 1;
+  const maxLen = Math.max(...datasets.map(d=>d.data.length));
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.lineWidth = 1;
+  for(let i=0;i<=4;i++){
+    const y = pad.top + ch*(1-i/4);
+    ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(w-pad.right,y); ctx.stroke();
+    ctx.fillStyle='#8890a4'; ctx.font='10px sans-serif'; ctx.textAlign='right';
+    ctx.fillText((minV+range*i/4).toFixed(opts.decimals||0), pad.left-4, y+3);
+  }
+  ctx.fillStyle='#8890a4'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+  const xStep = Math.max(1, Math.floor(maxLen/6));
+  for(let i=0;i<maxLen;i+=xStep){
+    const x = pad.left + (i/(maxLen-1||1))*cw;
+    ctx.fillText(opts.xLabel ? opts.xLabel(i) : i, x, h-6);
+  }
+  datasets.forEach(ds=>{
+    ctx.strokeStyle=ds.color; ctx.lineWidth=ds.lineWidth||2; ctx.beginPath();
+    ds.data.forEach((v,i)=>{
+      const x=pad.left+(i/(maxLen-1||1))*cw, y=pad.top+ch*(1-(v-minV)/range);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }); ctx.stroke();
+  });
+  let lx = pad.left; ctx.font='11px sans-serif';
+  datasets.forEach(ds=>{
+    ctx.fillStyle=ds.color; ctx.fillRect(lx,6,14,3);
+    ctx.fillStyle='#e0e0e8'; ctx.textAlign='left';
+    ctx.fillText(ds.label, lx+18, 12);
+    lx += ctx.measureText(ds.label).width + 32;
+  });
+}
+
+// ── Chart: Scatter ────────────────────────────────────────
+function drawScatterChart(canvas, data, opts={}){
+  const {w, h} = canvasSize(canvas); const ctx = setupCanvas(canvas, w, h);
+  const pad = {top:20, right:16, bottom:30, left:42};
+  const cw = w-pad.left-pad.right, ch = h-pad.top-pad.bottom;
+  ctx.fillStyle='#1e2230'; ctx.fillRect(0,0,w,h);
+  if(!data.length) return;
+  const maxV = opts.maxY || Math.max(...data); const maxLen = data.length;
+  ctx.strokeStyle='rgba(255,255,255,0.06)'; ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=pad.top+ch*(1-i/4);
+    ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(w-pad.right,y);ctx.stroke();
+    ctx.fillStyle='#8890a4';ctx.font='10px sans-serif';ctx.textAlign='right';
+    ctx.fillText(Math.round(maxV*i/4),pad.left-4,y+3);
+  }
+  ctx.fillStyle='#8890a4';ctx.font='10px sans-serif';ctx.textAlign='center';
+  const xStep=Math.max(1,Math.floor(maxLen/6));
+  for(let i=0;i<maxLen;i+=xStep){
+    const x=pad.left+(i/(maxLen-1||1))*cw; ctx.fillText(i+1,x,h-6);
+  }
+  data.forEach((v,i)=>{
+    const x=pad.left+(i/(maxLen-1||1))*cw, y=pad.top+ch*(1-v/maxV);
+    ctx.fillStyle = v >= (opts.highlightAbove||Infinity) ? '#ef5350' : 'rgba(79,195,247,0.6)';
+    ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fill();
+  });
+}
+
+// ── Chart: Horizontal Bar ─────────────────────────────────
+function drawHBarChart(canvas, labels, values, colors, opts={}){
+  const {w, h} = canvasSize(canvas); const ctx = setupCanvas(canvas, w, h);
+  const pad = {top:16, right:60, bottom:8, left:100};
+  const cw = w-pad.left-pad.right;
+  const barH = Math.min(28, (h-pad.top-pad.bottom)/labels.length - 4);
+  ctx.fillStyle='#1e2230'; ctx.fillRect(0,0,w,h);
+  if(!values.length) return;
+  const maxV = Math.max(...values) || 1;
+  labels.forEach((label,i)=>{
+    const y=pad.top+i*(barH+4);
+    ctx.fillStyle='#e0e0e8';ctx.font='11px sans-serif';ctx.textAlign='right';
+    ctx.fillText(label,pad.left-8,y+barH/2+4);
+    ctx.fillStyle='rgba(255,255,255,0.04)'; ctx.fillRect(pad.left,y,cw,barH);
+    const bw=(values[i]/maxV)*cw;
+    ctx.fillStyle=colors[i%colors.length]; ctx.beginPath();
+    ctx.roundRect(pad.left,y,Math.max(bw,2),barH,3); ctx.fill();
+    ctx.fillStyle='#e0e0e8';ctx.font='11px sans-serif';ctx.textAlign='left';
+    ctx.fillText(opts.format?opts.format(values[i]):values[i],pad.left+bw+6,y+barH/2+4);
+  });
+}
+
+// ── Chart: Radar ──────────────────────────────────────────
+function drawRadarChart(canvas, labels, values, opts={}){
+  const {w, h} = canvasSize(canvas); const ctx = setupCanvas(canvas, w, h);
+  const cx=w/2, cy=h/2+10, r=Math.min(cx,cy)-40, n=labels.length;
+  ctx.fillStyle='#1e2230'; ctx.fillRect(0,0,w,h);
+  if(!n) return;
+  const maxV=opts.maxV||Math.max(...values)||1, angleStep=(Math.PI*2)/n;
+  for(let ring=1;ring<=4;ring++){
+    const rr=r*ring/4; ctx.strokeStyle='rgba(255,255,255,0.08)';ctx.lineWidth=1;ctx.beginPath();
+    for(let i=0;i<=n;i++){const a=-Math.PI/2+i*angleStep;const x=cx+Math.cos(a)*rr,y=cy+Math.sin(a)*rr;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}ctx.stroke();
+  }
+  ctx.font='11px sans-serif';ctx.textAlign='center';
+  for(let i=0;i<n;i++){
+    const a=-Math.PI/2+i*angleStep,ex=cx+Math.cos(a)*r,ey=cy+Math.sin(a)*r;
+    ctx.strokeStyle='rgba(255,255,255,0.1)';ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(ex,ey);ctx.stroke();
+    ctx.fillStyle='#e0e0e8';ctx.fillText(labels[i],cx+Math.cos(a)*(r+18),cy+Math.sin(a)*(r+18)+4);
+  }
+  ctx.fillStyle='rgba(79,195,247,0.15)';ctx.strokeStyle='#4fc3f7';ctx.lineWidth=2;ctx.beginPath();
+  for(let i=0;i<=n;i++){const idx=i%n,a=-Math.PI/2+idx*angleStep,vr=(values[idx]/maxV)*r;const x=cx+Math.cos(a)*vr,y=cy+Math.sin(a)*vr;i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+  ctx.fill();ctx.stroke();
+  for(let i=0;i<n;i++){const a=-Math.PI/2+i*angleStep,vr=(values[i]/maxV)*r;ctx.fillStyle='#4fc3f7';ctx.beginPath();ctx.arc(cx+Math.cos(a)*vr,cy+Math.sin(a)*vr,4,0,Math.PI*2);ctx.fill();}
+}
+
+// ── Chart: Pie ────────────────────────────────────────────
+function drawPieChart(canvas, slices, opts={}){
+  const {w, h} = canvasSize(canvas); const ctx = setupCanvas(canvas, w, h);
+  const cx=w/2-60,cy=h/2,r=Math.min(cx,cy)-20;
+  ctx.fillStyle='#1e2230'; ctx.fillRect(0,0,w,h);
+  if(!slices.length) return;
+  const total=slices.reduce((s,sl)=>s+sl.value,0)||1;
+  let startAngle=-Math.PI/2;
+  slices.forEach(sl=>{
+    const sweep=(sl.value/total)*Math.PI*2;
+    ctx.fillStyle=sl.color;ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,startAngle,startAngle+sweep);ctx.closePath();ctx.fill();
+    ctx.strokeStyle='#1e2230';ctx.lineWidth=2;ctx.stroke();startAngle+=sweep;
+  });
+  let ly=30;ctx.font='12px sans-serif';
+  slices.forEach(sl=>{
+    ctx.fillStyle=sl.color;ctx.fillRect(w/2+20,ly,12,12);
+    ctx.fillStyle='#e0e0e8';ctx.textAlign='left';
+    ctx.fillText(`${sl.label}: ${sl.value} (${(sl.value/total*100).toFixed(1)}%)`,w/2+38,ly+10);ly+=22;
+  });
+}
+
+// ── Chart: Histogram ──────────────────────────────────────
+function drawHistogram(canvas, values, bins){
+  const {w, h} = canvasSize(canvas); const ctx = setupCanvas(canvas, w, h);
+  const pad={top:20,right:16,bottom:30,left:42};
+  const cw=w-pad.left-pad.right,ch=h-pad.top-pad.bottom;
+  ctx.fillStyle='#1e2230';ctx.fillRect(0,0,w,h);
+  if(!values.length) return;
+  const nBins=bins||10,minV=Math.min(...values),maxV=Math.max(...values),binWidth=(maxV-minV)/nBins||1;
+  const counts=new Array(nBins).fill(0);
+  values.forEach(v=>{const idx=Math.min(Math.floor((v-minV)/binWidth),nBins-1);counts[idx]++;});
+  const maxCount=Math.max(...counts)||1;
+  ctx.strokeStyle='rgba(255,255,255,0.06)';ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){const y=pad.top+ch*(1-i/4);ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(w-pad.right,y);ctx.stroke();ctx.fillStyle='#8890a4';ctx.font='10px sans-serif';ctx.textAlign='right';ctx.fillText(Math.round(maxCount*i/4),pad.left-4,y+3);}
+  const barW=cw/nBins-2;
+  counts.forEach((c,i)=>{const x=pad.left+i*(cw/nBins)+1,bh=(c/maxCount)*ch,y=pad.top+ch-bh;ctx.fillStyle=confColor(minV+(i+0.5)*binWidth);ctx.beginPath();ctx.roundRect(x,y,barW,bh,2);ctx.fill();});
+  ctx.fillStyle='#8890a4';ctx.font='10px sans-serif';ctx.textAlign='center';
+  for(let i=0;i<=nBins;i+=Math.max(1,Math.floor(nBins/5))){ctx.fillText((minV+i*binWidth).toFixed(2),pad.left+i*(cw/nBins),h-6);}
+}
+
+// ══════════════════════════════════════════════════════════
+// RENDERING FUNCTIONS
+// ══════════════════════════════════════════════════════════
+
+// ── Tab 1: Timeline ───────────────────────────────────────
+function renderTimeline(){
+  const stats = DATA.training_stats;
+  if(!stats || !stats.win_history) return;
+  const wh = stats.win_history;
+  const gl = stats.game_lengths || stats.episode_ticks || [];
+  const hasDraws = wh.some(v => v === 0.5);
+
+  // Update title based on draws
+  document.getElementById('chart-winrate-title').textContent =
+    hasDraws ? 'Win / Draw / Loss Rate (Rolling 20-episode)' : 'Win / Loss Rate (Rolling 20-episode)';
+
+  const windowSize = 20;
+  const rolling = (arr, fn) => {
+    const result = [];
+    for(let i=0;i<arr.length;i++){
+      const start = Math.max(0, i-windowSize+1);
+      result.push(fn(arr.slice(start, i+1)));
+    }
+    return result;
+  };
+
+  const winRates = rolling(wh, s => s.filter(v=>v===1.0).length/s.length);
+  const lossRates = rolling(wh, s => s.filter(v=>v===0.0).length/s.length);
+  const datasets = [
+    {label:'Win Rate', data:winRates, color:'#66bb6a'},
+    {label:'Loss Rate', data:lossRates, color:'#ef5350'},
+  ];
+  if(hasDraws){
+    const drawRates = rolling(wh, s => s.filter(v=>v===0.5).length/s.length);
+    datasets.splice(1, 0, {label:'Draw Rate', data:drawRates, color:'#ffd54f'});
+  }
+  drawLineChart(document.getElementById('chart-winrate'), datasets,
+    {minY:0, maxY:1, decimals:1, xLabel:i=>'Ep '+(i+1)});
+
+  if(gl.length){
+    const maxDur = Math.max(...gl);
+    drawScatterChart(document.getElementById('chart-gamelength'), gl, {
+      maxY: maxDur * 1.05, highlightAbove: maxDur * 0.98
+    });
+  }
+
+  const explorationCurve = [];
+  let er = 0.3;
+  for(let i=0;i<wh.length;i++){ explorationCurve.push(er); er = Math.max(0.05, er * 0.995); }
+  drawLineChart(document.getElementById('chart-exploration'), [
+    {label:'Exploration Rate', data:explorationCurve, color:'#ab47bc', lineWidth:2}
+  ], {minY:0, maxY:0.35, decimals:2, xLabel:i=>'Ep '+(i+1)});
+
+  const totalPatterns = Object.keys(DATA.patterns).length;
+  const totalEps = wh.length;
+  const patternCurve = [];
+  for(let i=0;i<totalEps;i++) patternCurve.push(Math.round(totalPatterns * Math.min(1, (i+1)/totalEps)));
+  drawLineChart(document.getElementById('chart-patterns'), [
+    {label:'Patterns Discovered', data:patternCurve, color:'#4fc3f7', lineWidth:2}
+  ], {minY:0, xLabel:i=>'Ep '+(i+1)});
+}
+
+// ── Tab 2: Strategy Map (Heatmap) ─────────────────────────
+let heatmapRows = [];
+
+function filterRow(decoded){
+  if(DOMAIN === 'chess'){
+    const phase = getFilterValue('filter-phase');
+    const mat = getFilterValue('filter-material');
+    if(phase !== 'all' && decoded.phaseRaw !== phase) return false;
+    if(mat === 'losing' && decoded.matRaw !== 'mat--' && decoded.matRaw !== 'mat-') return false;
+    if(mat === 'equal' && decoded.matRaw !== 'mat=') return false;
+    if(mat === 'winning' && decoded.matRaw !== 'mat+' && decoded.matRaw !== 'mat++') return false;
+  } else if(DOMAIN === 'rts'){
+    const phase = getFilterValue('filter-phase');
+    const workers = getFilterValue('filter-workers');
+    const combat = getFilterValue('filter-combat');
+    if(phase !== 'all' && decoded.phaseRaw !== phase) return false;
+    if(workers !== 'all' && decoded.workersRaw !== workers) return false;
+    if(combat !== 'all' && decoded.combatRaw !== combat) return false;
+  } else {
+    const gen = getFilterValue('filter-generic');
+    if(gen !== 'all' && !decoded.raw.startsWith(gen)) return false;
+  }
+  return true;
+}
+
+function renderHeatmap(){
+  const bindings = DATA.strategy_bindings;
+  if(!bindings) return;
+  const sortMode = getFilterValue('filter-sort');
+
+  let rows = Object.keys(bindings).map(key=>{
+    const decoded = decodeSitKey(key);
+    const strats = bindings[key];
+    let totalUsage = 0, bestConf = 0;
+    const cells = [];
+    for(let s=0;s<NUM_STRATEGIES;s++){
+      const b = strats[String(s)];
+      if(b){
+        const conf = (b.wins+b.losses) > 0 ? b.wins/(b.wins+b.losses) : 0.5;
+        cells.push({strategy:s, wins:b.wins, losses:b.losses, times_used:b.times_used, confidence:conf});
+        totalUsage += b.times_used; bestConf = Math.max(bestConf, conf);
+      } else {
+        cells.push({strategy:s, wins:0, losses:0, times_used:0, confidence:0.5});
+      }
+    }
+    return {key, decoded, cells, totalUsage, bestConf};
+  });
+
+  rows = rows.filter(r => filterRow(r.decoded));
+
+  if(sortMode==='usage') rows.sort((a,b)=>b.totalUsage-a.totalUsage);
+  else if(sortMode==='confidence') rows.sort((a,b)=>b.bestConf-a.bestConf);
+  else rows.sort((a,b)=>a.key.localeCompare(b.key));
+
+  heatmapRows = rows;
+  document.getElementById('heatmap-count').textContent = `${rows.length} situations`;
+
+  const canvas = document.getElementById('canvas-heatmap');
+  const labelW = 220, cellSize = 44, headerH = 36, rowH = 32;
+  const totalW = labelW + cellSize*NUM_STRATEGIES + 20;
+  const totalH = headerH + rows.length*rowH + 10;
+
+  canvas.style.width = totalW+'px'; canvas.style.height = totalH+'px';
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = totalW*dpr; canvas.height = totalH*dpr;
+  const ctx = canvas.getContext('2d'); ctx.scale(dpr, dpr);
+
+  ctx.fillStyle = '#1e2230'; ctx.fillRect(0, 0, totalW, totalH);
+  const maxUsage = Math.max(1, ...rows.flatMap(r=>r.cells.map(c=>c.times_used)));
+
+  ctx.font='bold 10px sans-serif'; ctx.textAlign='center';
+  STRAT_SHORT.forEach((name,i)=>{
+    ctx.fillStyle=STRAT_COLORS[i];
+    ctx.fillText(name, labelW+i*cellSize+cellSize/2, headerH-8);
+  });
+
+  rows.forEach((row, ri)=>{
+    const y = headerH + ri*rowH;
+    if(ri%2===0){ctx.fillStyle='rgba(255,255,255,0.015)';ctx.fillRect(0,y,totalW,rowH);}
+    ctx.fillStyle='#e0e0e8';ctx.font='11px monospace';ctx.textAlign='right';
+    ctx.fillText(row.key, labelW-10, y+rowH/2+4);
+    row.cells.forEach((cell,ci)=>{
+      const cx=labelW+ci*cellSize, padding=4, sz=cellSize-padding*2;
+      if(cell.times_used > 0){
+        ctx.globalAlpha = 0.25 + 0.75*(cell.times_used/maxUsage);
+        ctx.fillStyle = confColor(cell.confidence);
+        ctx.beginPath(); ctx.roundRect(cx+padding, y+padding, sz, rowH-padding*2, 4); ctx.fill();
+        ctx.globalAlpha = 1;
+        if(cell.times_used >= 3){
+          ctx.fillStyle = cell.confidence > 0.65 ? '#000' : cell.confidence < 0.35 ? '#fff' : '#000';
+          ctx.font='bold 10px sans-serif'; ctx.textAlign='center';
+          ctx.fillText((cell.confidence*100).toFixed(0)+'%', cx+cellSize/2, y+rowH/2+4);
+        }
+      }
+    });
+  });
+
+  canvas.onclick = function(e){
+    const rect=canvas.getBoundingClientRect();
+    const sx=(e.clientX-rect.left)*(totalW/rect.width), sy=(e.clientY-rect.top)*(totalH/rect.height);
+    const col=Math.floor((sx-labelW)/cellSize), rowIdx=Math.floor((sy-headerH)/rowH);
+    if(col>=0&&col<NUM_STRATEGIES&&rowIdx>=0&&rowIdx<rows.length){
+      const row=rows[rowIdx], cell=row.cells[col];
+      const det=document.getElementById('heatmap-detail');
+      det.classList.add('visible');
+      det.innerHTML = `
+        <div style="margin-bottom:8px;font-weight:700;color:var(--accent)">${row.decoded.readable}</div>
+        <div style="margin-bottom:4px"><span class="dt">Situation Key:</span><code style="background:var(--surface);padding:2px 6px;border-radius:3px">${row.key}</code></div>
+        <div><span class="dt">Strategy:</span><span class="dv" style="color:${STRAT_COLORS[col]}">${STRAT_NAMES[col]}</span>
+          — ${STRAT_DESC[col]}</div>
+        <div style="display:flex;gap:24px;margin-top:8px">
+          <div><span class="dt">Wins:</span><span class="dv" style="color:var(--green)">${typeof cell.wins==='number'?cell.wins.toFixed(1):cell.wins}</span></div>
+          <div><span class="dt">Losses:</span><span class="dv" style="color:var(--red)">${typeof cell.losses==='number'?cell.losses.toFixed(1):cell.losses}</span></div>
+          <div><span class="dt">Times Used:</span><span class="dv">${cell.times_used}</span></div>
+          <div><span class="dt">Confidence:</span><span class="dv" style="color:${confColor(cell.confidence)}">${(cell.confidence*100).toFixed(1)}%</span></div>
+        </div>`;
+    }
+  };
+}
+
+// ── Tab 3: Strategy Profiles ──────────────────────────────
+function getPhaseKeys(decoded){
+  if(DOMAIN==='chess') return {keys:['opn','mid','end'], labels:['Opening','Middlegame','Endgame'], raw:'phaseRaw'};
+  if(DOMAIN==='rts') return {keys:['e','m','l'], labels:['Early','Mid','Late'], raw:'phaseRaw'};
+  return {keys:[], labels:[], raw:null};
+}
+
+function renderProfiles(){
+  const bindings = DATA.strategy_bindings;
+  if(!bindings) return;
+  const phaseInfo = getPhaseKeys();
+
+  const stratStats = STRAT_NAMES.map((_,idx)=>{
+    let totalUsed=0, totalConf=0, confCount=0, bestSit=null, bestConf=0, worstSit=null, worstConf=1;
+    const phaseDist = {};
+    phaseInfo.keys.forEach(k=>{phaseDist[k]=0;});
+
+    Object.entries(bindings).forEach(([key, strats])=>{
+      const b = strats[String(idx)];
+      if(!b || b.times_used===0) return;
+      totalUsed += b.times_used;
+      const conf = (b.wins+b.losses) > 0 ? b.wins/(b.wins+b.losses) : 0.5;
+      totalConf += conf; confCount++;
+      if(conf > bestConf && b.times_used >= 3){bestConf=conf; bestSit=key;}
+      if(conf < worstConf && b.times_used >= 3){worstConf=conf; worstSit=key;}
+      if(phaseInfo.raw){
+        const decoded = decodeSitKey(key);
+        const pk = decoded[phaseInfo.raw];
+        if(pk) phaseDist[pk] = (phaseDist[pk]||0) + b.times_used;
+      }
+    });
+    return {
+      name:STRAT_NAMES[idx], short:STRAT_SHORT[idx], color:STRAT_COLORS[idx],
+      desc:STRAT_DESC[idx], totalUsed, avgConf:confCount?totalConf/confCount:0.5,
+      bestSit, bestConf, worstSit, worstConf, phaseDist
+    };
+  });
+
+  drawRadarChart(document.getElementById('chart-radar'),
+    stratStats.map(s=>s.short), stratStats.map(s=>s.totalUsed));
+  drawHBarChart(document.getElementById('chart-strat-bars'),
+    stratStats.map(s=>s.short), stratStats.map(s=>s.avgConf*100),
+    STRAT_COLORS, {format:v=>v.toFixed(1)+'%'});
+
+  const container = document.getElementById('strat-cards');
+  container.innerHTML = '';
+  stratStats.forEach(s=>{
+    const card = document.createElement('div'); card.className='strat-card';
+    let phaseHtml = '';
+    if(phaseInfo.keys.length){
+      const total = phaseInfo.keys.reduce((sum,k)=>sum+(s.phaseDist[k]||0),0)||1;
+      phaseInfo.keys.forEach((k,i)=>{
+        phaseHtml += `<div class="strat-stat"><span class="sl">${phaseInfo.labels[i]}</span><span class="sv">${((s.phaseDist[k]||0)/total*100).toFixed(0)}%</span></div>`;
+      });
+    }
+    card.innerHTML = `
+      <div class="strat-name" style="color:${s.color}">${s.name}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${s.desc}</div>
+      <div class="strat-stat"><span class="sl">Total Used</span><span class="sv">${s.totalUsed.toLocaleString()}</span></div>
+      <div class="strat-stat"><span class="sl">Avg Confidence</span><span class="sv" style="color:${confColor(s.avgConf)}">${(s.avgConf*100).toFixed(1)}%</span></div>
+      <div class="strat-stat"><span class="sl">Best In</span><span class="sv" style="font-size:10px">${s.bestSit?decodeSitKey(s.bestSit).readable:'—'}</span></div>
+      <div class="strat-stat"><span class="sl">Best Conf</span><span class="sv" style="color:var(--green)">${s.bestSit?(s.bestConf*100).toFixed(1)+'%':'—'}</span></div>
+      ${phaseHtml?'<div style="margin-top:6px"></div>'+phaseHtml:''}`;
+    container.appendChild(card);
+  });
+
+  // AI Personality
+  const sorted = [...stratStats].sort((a,b)=>b.totalUsed-a.totalUsed);
+  const topStrats = sorted.slice(0,3);
+  const highConf = [...stratStats].filter(s=>s.bestConf>=0.7).sort((a,b)=>b.bestConf-a.bestConf);
+  const totalAll = sorted.reduce((s,st)=>s+st.totalUsed,0);
+  const domainLabel = DOMAIN==='chess'?'chess':DOMAIN==='rts'?'RTS':'';
+
+  let personality = `<b>Playing Style:</b> This ${domainLabel} AI relies most heavily on `;
+  personality += topStrats.map((s,i)=>
+    `<span style="color:${s.color};font-weight:600">${s.short}</span>${i<topStrats.length-2?', ':i===topStrats.length-2?' and ':''}`
+  ).join('');
+  personality += ` strategies (${totalAll?((topStrats.reduce((s,st)=>s+st.totalUsed,0)/totalAll)*100).toFixed(0):0}% of all decisions).<br><br>`;
+
+  if(highConf.length){
+    personality += `<b>Key Insights:</b><br>`;
+    highConf.slice(0,4).forEach(s=>{
+      if(s.bestSit){
+        personality += `• In <i>${decodeSitKey(s.bestSit).readable}</i> situations, the AI learned that <span style="color:${s.color};font-weight:600">${s.name}</span> works ${(s.bestConf*100).toFixed(0)}% of the time.<br>`;
+      }
+    });
+  }
+
+  if(phaseInfo.keys.length >= 2){
+    const lastPhaseKey = phaseInfo.keys[phaseInfo.keys.length-1];
+    const firstPhaseKey = phaseInfo.keys[0];
+    const lateStrats = stratStats.filter(s=>(s.phaseDist[lastPhaseKey]||0)>(s.phaseDist[firstPhaseKey]||0)*2);
+    if(lateStrats.length){
+      const lastLabel = phaseInfo.labels[phaseInfo.labels.length-1];
+      personality += `<br><b>${lastLabel} Focus:</b> The AI leans toward ${lateStrats.map(s=>`<span style="color:${s.color}">${s.short}</span>`).join(', ')} in ${lastLabel.toLowerCase()} situations.`;
+    }
+  }
+
+  document.getElementById('personality-text').innerHTML = personality;
+}
+
+// ── Tab 4: Pattern Explorer ───────────────────────────────
+function renderPatterns(){
+  const patterns = DATA.patterns;
+  if(!patterns) return;
+  const patList = Object.values(patterns);
+
+  const typeCounts = {atomic:0, composite:0, abstract:0};
+  const confidences = [];
+  const domainCounts = {};
+  patList.forEach(p=>{
+    typeCounts[p.type] = (typeCounts[p.type]||0) + 1;
+    if(p.confidence !== undefined) confidences.push(p.confidence);
+    (p.domains||[]).forEach(d=>{ domainCounts[d] = (domainCounts[d]||0)+1; });
+  });
+
+  drawPieChart(document.getElementById('chart-pie'), [
+    {label:'Atomic', value:typeCounts.atomic, color:'#4fc3f7'},
+    {label:'Composite', value:typeCounts.composite, color:'#ffa726'},
+    {label:'Abstract', value:typeCounts.abstract, color:'#ab47bc'},
+  ]);
+
+  drawHistogram(document.getElementById('chart-conf-hist'), confidences, 12);
+
+  // Cross-domain breakdown
+  const domainKeys = Object.keys(domainCounts);
+  if(domainKeys.length > 1){
+    document.getElementById('domain-breakdown-card').style.display = 'block';
+    const dColors = ['#4fc3f7','#66bb6a','#ffa726','#ef5350','#ab47bc','#f06292'];
+    drawPieChart(document.getElementById('chart-domain-pie'),
+      domainKeys.map((d,i)=>({label:d, value:domainCounts[d], color:dColors[i%dColors.length]}))
+    );
+  }
+
+  const sorted = [...patList].sort((a,b)=>(b.activation_count||0)-(a.activation_count||0));
+  const top = sorted.slice(0, 25);
+  const maxAct = top[0]?.activation_count || 1;
+
+  const container = document.getElementById('pattern-list');
+  container.innerHTML = '';
+  top.forEach(p=>{
+    const pct = ((p.activation_count||0)/maxAct)*100;
+    const typeColor = p.type==='atomic'?'#4fc3f7':p.type==='composite'?'#ffa726':'#ab47bc';
+    const domainsStr = (p.domains||[]).join(', ');
+    const row = document.createElement('div');
+    row.className = 'pattern-row';
+    row.innerHTML = `
+      <span class="pid">${p.id}</span>
+      <span class="ptype" style="color:${typeColor}">${p.type}</span>
+      <span class="pdomains">${domainsStr}</span>
+      <div class="pattern-bar"><div class="pattern-bar-fill" style="width:${pct}%;background:${typeColor}"></div></div>
+      <span class="pattern-val">${(p.activation_count||0).toLocaleString()}</span>
+      <span class="pattern-val" style="color:${confColor(p.confidence||0)}">${((p.confidence||0)*100).toFixed(1)}%</span>`;
+    row.onclick = () => showPatternDetail(p);
+    container.appendChild(row);
+  });
+}
+
+function showPatternDetail(p){
+  const det = document.getElementById('pattern-detail');
+  det.classList.add('visible');
+  const sigStr = (p.signature||[]).map(v=>v.toFixed(4)).join(', ');
+  const subStr = (p.sub_patterns||[]).map(id=>`<code>${id}</code>`).join(', ') || 'None';
+  const domains = (p.domains||[]).join(', ') || 'None';
+  det.innerHTML = `
+    <div style="font-weight:700;color:var(--accent);margin-bottom:8px">Pattern ${p.id}</div>
+    <div><span class="dt">Type:</span> <span class="dv">${(p.type||'').toUpperCase()}</span></div>
+    <div><span class="dt">Confidence:</span> <span class="dv" style="color:${confColor(p.confidence||0)}">${((p.confidence||0)*100).toFixed(2)}%</span></div>
+    <div><span class="dt">Activations:</span> <span class="dv">${(p.activation_count||0).toLocaleString()}</span></div>
+    <div><span class="dt">Version:</span> <span class="dv">${p.version||0}</span></div>
+    <div><span class="dt">Domains:</span> <span class="dv">${domains}</span></div>
+    <div><span class="dt">Sub-patterns:</span> ${subStr}</div>
+    <div style="margin-top:8px"><span class="dt">Signature:</span><br>
+      <code style="font-size:10px;word-break:break-all">[${sigStr}]</code></div>`;
+}
+
+// ══════════════════════════════════════════════════════════
+// BOOT
+// ══════════════════════════════════════════════════════════
+
+async function loadData(){
+  try {
+    const r = await fetch('/api/data');
+    DATA = await r.json();
+
+    // Initialize domain-specific metadata
+    initDomainMetadata();
+    buildHeatmapFilters();
+
+    // Summary bar
+    const stats = DATA.training_stats || {};
+    const wh = stats.win_history || [];
+    const recent = wh.slice(-100);
+    const hasDraws = wh.some(v => v === 0.5);
+    const winPct = recent.length ? (recent.filter(v=>v===1).length/recent.length*100).toFixed(1) : '—';
+    const drawPct = recent.length ? (recent.filter(v=>v===0.5).length/recent.length*100).toFixed(1) : '—';
+    const lossPct = recent.length ? (recent.filter(v=>v===0).length/recent.length*100).toFixed(1) : '—';
+
+    let summaryHtml = `
+      <div class="stat-chip"><span class="label">Episodes</span><span class="value accent">${DATA.meta.episodes_completed}</span></div>
+      <div class="stat-chip"><span class="label">Win Rate</span><span class="value green">${winPct}%</span></div>`;
+    if(hasDraws){
+      summaryHtml += `<div class="stat-chip"><span class="label">Draw Rate</span><span class="value gold">${drawPct}%</span></div>`;
+    }
+    summaryHtml += `
+      <div class="stat-chip"><span class="label">Loss Rate</span><span class="value red">${lossPct}%</span></div>
+      <div class="stat-chip"><span class="label">Patterns</span><span class="value accent">${DATA.meta.num_patterns}</span></div>
+      <div class="stat-chip"><span class="label">Situations</span><span class="value">${DATA.meta.num_situations}</span></div>
+      <div class="stat-chip"><span class="label">Bindings</span><span class="value">${DATA.meta.num_bindings}</span></div>
+      <div class="stat-chip"><span class="label">Exploration</span><span class="value">${(DATA.exploration_rate*100).toFixed(1)}%</span></div>`;
+    document.getElementById('summary-bar').innerHTML = summaryHtml;
+
+    document.getElementById('header-meta').innerHTML =
+      `Checkpoint: <b>${DATA.meta.checkpoint_path}</b> · ${DATA.meta.episodes_completed} episodes · ${NUM_STRATEGIES} strategies`;
+
+    renderTimeline();
+  } catch(e) {
+    console.error('Failed to load data', e);
+    document.getElementById('header-meta').textContent = 'Error loading data: ' + e.message;
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
