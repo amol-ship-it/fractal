@@ -163,15 +163,11 @@ recursive_learning_ai/
 - **dfrotz** (for Zork AI only — Z-machine interpreter)
 - **zork1.z5** (for Zork AI only — Zork I game data file)
 
-<<<<<<< nice-elion
 ### Install
 
 ```bash
 git clone git@github.com:amol-ship-it/fractal.git
 cd fractal
-=======
-# Install dependencies
->>>>>>> main
 pip install -r requirements.txt
 ```
 
